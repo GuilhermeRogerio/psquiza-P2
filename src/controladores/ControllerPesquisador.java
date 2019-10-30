@@ -23,6 +23,7 @@ public class ControllerPesquisador {
         this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");
         this.validador.valida(foto, "Campo fotoURL nao pode ser nulo ou vazio.");
         this.validador.validaEmail(email, "Formato de email invalido.");
+        this.validador.validaFotoURL(foto, "Formato de foto invalido.");
         Pesquisador pesquisador = new Pesquisador(nome, funcao, biografia, email, foto);
         this.mapaPesquisador.put(email, pesquisador);
     }

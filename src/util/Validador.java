@@ -37,9 +37,12 @@ public class Validador {
 
 	public void validaFotoURL(String fotoURL, String msg) {
 		String[] texto = fotoURL.split("://");
-		if (!texto[0].contains("https") || !texto[0].contains("http")) {
-
-		}
+        if (texto.length == 1){
+            throw new IllegalArgumentException(msg);
+        }
+        if (!texto[0].contains("https") || !texto[0].contains("http")){
+            throw new IllegalArgumentException(msg);
+        }
 	}
 
 	/**
