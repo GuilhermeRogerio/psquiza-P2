@@ -1,6 +1,17 @@
 package util;
 
+/**
+ * Representação da classe exclusiva para tratamento de excessões.
+ *
+ */
 public class Validador {
+	
+	/**
+	 * Método responsável pelo tratamento da excessões do sistema.
+	 * 
+	 * @param dado o atributo a se validar.
+	 * @param msg a mensagem definida pra exibição.
+	 */
 	public void valida(String dado, String msg) {
 		this.validaNulo(dado, msg);
 		this.validaVazio(dado, msg);
@@ -9,18 +20,38 @@ public class Validador {
 	/**
 	 * US2
 	 */
+	
+    /**
+     * Método responsável pelo tratamento de entradas vazias.
+     *
+     * @param dado o atributo a se validar.
+     * @param msg  a mensagem definida pra exibição.
+     */
+
 	private void validaVazio(String dado, String msg) {
 		if (dado.trim().equals("")) {
 			throw new IllegalArgumentException(msg);
 		}
 	}
 
+    /**
+     * Método responsável pelo tratamento de entradas nulas.
+     *
+     * @param dado o atributo a se validar.
+     * @param msg  a mensagem definida pra exibição.
+     */
 	private void validaNulo(String dado, String msg) {
 		if (dado == null) {
 			throw new NullPointerException(msg);
 		}
 	}
 
+	/**
+	 * Método responsável pelo validação do email do pesquisador.
+	 * 
+	 * @param email o email do pesquisador.
+	 * @param msg  a mensagem definida pra exibição.
+	 */
 	public void validaEmail(String email, String msg) {
 		String[] texto = email.split("@");
 		if (texto.length != 2) {
@@ -35,6 +66,12 @@ public class Validador {
 		}
 	}
 
+	/**
+	 * Método responsável pelo validação da foto do pesquisador.
+	 * 
+	 * @param foto a foto do pesquisador.
+	 * @param msg  a mensagem definida pra exibição.
+	 */
 	public void validaFotoURL(String fotoURL, String msg) {
 		String[] texto = fotoURL.split("://");
         if (texto.length == 1){
