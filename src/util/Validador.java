@@ -29,7 +29,7 @@ public class Validador {
 	 * @param msg a mensagem definida pra exibição.
 	 */
 	public void validaTamanhoEntrada(String entrada, String msg) {
-		if(campoInteresse.length()>255)
+		if(entrada.length()>255)
 			throw new IllegalArgumentException(msg);
 	}
 	
