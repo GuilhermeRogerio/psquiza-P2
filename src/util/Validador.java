@@ -29,8 +29,19 @@ public class Validador {
 	 * @param msg     a mensagem definida pra exibição.
 	 */
 	public void validaTamanhoEntrada(String entrada, String msg) {
-		if (entrada.length() > 255)
+		if (entrada.length() > 255 || entrada.length() < 3)
 			throw new IllegalArgumentException(msg);
+	}
+
+	/**
+	 * Método responsável pelo alteracao dos campos de interesse da pesquisa.
+	 * 
+	 * @param entrada do campo de interesse apara ateração da Pesquisa.
+	 * @param msg     a mensagem definida pra exibição.
+	 */
+	public void validaAtributo(String entrada, String msg) {
+		if (!entrada.equals("CAMPO") && !entrada.equals("DESCRICAO"))
+			throw new IllegalArgumentException("Nao e possivel alterar esse valor de pesquisa.");
 	}
 
 	/**

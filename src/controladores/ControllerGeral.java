@@ -45,7 +45,7 @@ public class ControllerGeral {
 	 * A entrada deve ser até 255 caracteres. Cada area é separada por vírgula  
 	 * */
 	public void cadastraPesquisa(String descricao, String campoDeInteresse) {
-		this.controllerPesquisa.cadastraPesquisa(nome, campoDeInteresse);
+		this.controllerPesquisa.cadastraPesquisa(descricao, campoDeInteresse);
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class ControllerGeral {
 	 * @author adyssonfs 
 	 * @param codigo: identificador da pesquisa
 	 * */
-	public void ativaPesquisa(String codigo, String motivo) {
+	public void ativaPesquisa(String codigo) {
 		this.controllerPesquisa.ativaPesquisa(codigo);
 	}
 	
@@ -83,8 +83,8 @@ public class ControllerGeral {
 	 * @author adyssonfs 
 	 * @param codigo: identificador da pesquisa
 	 * */
-	public String exibePesquisa(String codigo, String motivo) {
-		this.controllerPesquisa.exibePesquisa(codigo);
+	public String exibePesquisa(String codigo) {
+		return this.controllerPesquisa.exibePesquisa(codigo);
 	}
 	
 	/**
@@ -92,8 +92,8 @@ public class ControllerGeral {
 	 * @author adyssonfs 
 	 * @param codigo: identificador da pesquisa
 	 * */
-	public String pesquisaEhAtiva(String codigo, String motivo) {
-		this.controllerPesquisa.pesquisaEhAtiva(codigo);
+	public boolean pesquisaEhAtiva(String codigo) {
+		return this.controllerPesquisa.pesquisaEhAtiva(codigo);
 	}
 	
 	/**

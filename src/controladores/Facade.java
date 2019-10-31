@@ -8,13 +8,42 @@ public class Facade {
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_2.txt",
-				"testes_aceitacao/use_case_3.txt" };
+				"testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_1.txt" };
 		EasyAccept.main(args);
 	}
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
 	}
+
+	/**
+	 * US1
+	 */
+	public void cadastraPesquisa (String descricao, String campoDeInteresse) {
+		this.controllerGeral.cadastraPesquisa(descricao, campoDeInteresse);
+	}
+
+	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
+		this.controllerGeral.alteraPesquisa(codigo, conteudoASerAlterado, novoConteudo);
+	}
+
+	public void encerraPesquisa(String codigo, String motivo) {
+		this.controllerGeral.encerraPesquisa(codigo, motivo);
+	}
+
+	public void ativaPesquisa(String codigo) {
+		this.controllerGeral.ativaPesquisa(codigo);
+
+	}
+
+	public String exibePesquisa(String codigo) {
+		return this.controllerGeral.exibePesquisa(codigo);
+	}
+
+	public boolean pesquisaEhAtiva(String codigo) {
+		return this.controllerGeral.pesquisaEhAtiva(codigo);
+	}
+	
 
 	/**
 	 * US2
