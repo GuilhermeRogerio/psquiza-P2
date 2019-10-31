@@ -7,6 +7,12 @@ package controladores;
 public class ControllerGeral {
 
 	/**
+	 * Instância do contrololador da Pesquisa
+	 * 
+	 */
+	private ControllerPesquisa controllerPesquisa;
+
+	/**
 	 * Instância do controlador do fornecedor
 	 *
 	 */
@@ -22,10 +28,74 @@ public class ControllerGeral {
 	 * Construtor que inicializa os controladores instâciados.
 	 */
 	public ControllerGeral() {
+		this.controllerPesquisa = new ControllerPesquisa();
 		this.controllerProblemaObjetivo = new ControllerProblemaObjetivo();
 		this.controllerPesquisador = new ControllerPesquisador();
 	}
 
+	/**
+	 * US1
+	 */
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros a serem cadastrados
+	 * @author adyssonfs 
+	 * @param descricao: resumo descritivo da pesquisa
+	 * @param campoDeInteresse: areas que são abrangidas pela pesquisa. 
+	 * A entrada deve ser até 255 caracteres. Cada area é separada por vírgula  
+	 * */
+	public void cadastraPesquisa(String descricao, String campoDeInteresse) {
+		this.controllerPesquisa.cadastraPesquisa(nome, campoDeInteresse);
+	}
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * @param campoASerAlterado: pode ser "CAMPO" ou "DESCRICAO"
+	 * */
+	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
+		this.controllerPesquisa.alteraPesquisa(codigo, conteudoASerAlterado, novoConteudo);
+	}
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros que da pesquisa a ser encerrada
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * @param motivo: motivação para o encerramento da pesquisa"
+	 * */
+	public void encerraPesquisa(String codigo, String motivo) {
+		this.controllerPesquisa.encerraPesquisa(codigo, motivo);
+	}
+	
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros para a ativação da pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+	public void ativaPesquisa(String codigo, String motivo) {
+		this.controllerPesquisa.ativaPesquisa(codigo);
+	}
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros para a exibição da pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+	public String exibePesquisa(String codigo, String motivo) {
+		this.controllerPesquisa.exibePesquisa(codigo);
+	}
+	
+	/**
+	 * Método passa ao controlador de pesquisa os parâmetros para a verificação da atividade da pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+	public String pesquisaEhAtiva(String codigo, String motivo) {
+		this.controllerPesquisa.pesquisaEhAtiva(codigo);
+	}
+	
 	/**
 	 * US2
 	 */
