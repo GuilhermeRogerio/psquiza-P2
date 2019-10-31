@@ -35,9 +35,12 @@ public class ControllerProblemaObjetivo {
 	 */
 	private String codigoObjetivo;
 	/**
-	 *
+	 * Contador para o codigo do problema.
 	 */
 	private int contProblema;
+	/**
+	 * Contador para o codigo do objetivo.
+	 */
 	private int contObjetivo;
 
 	public ControllerProblemaObjetivo() {

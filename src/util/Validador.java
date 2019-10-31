@@ -5,44 +5,44 @@ package util;
  *
  */
 public class Validador {
-	
+
 	/**
 	 * Método responsável pelo tratamento da excessões do sistema.
 	 * 
 	 * @param dado o atributo a se validar.
-	 * @param msg a mensagem definida pra exibição.
+	 * @param msg  a mensagem definida pra exibição.
 	 */
 	public void valida(String dado, String msg) {
 		this.validaNulo(dado, msg);
 		this.validaVazio(dado, msg);
 	}
-	
+
 	/**
 	 * US1
 	 */
 
 	/**
-	 * Método responsável pelo validação da quantidade de 
-	 * caracteres dos campos de interesse da pesquisa.
+	 * Método responsável pelo validação da quantidade de caracteres dos campos de
+	 * interesse da pesquisa.
 	 * 
 	 * @param entrada do campo de interesse da Pesquisa.
-	 * @param msg a mensagem definida pra exibição.
+	 * @param msg     a mensagem definida pra exibição.
 	 */
 	public void validaTamanhoEntrada(String entrada, String msg) {
-		if(entrada.length()>255)
+		if (entrada.length() > 255)
 			throw new IllegalArgumentException(msg);
 	}
-	
+
 	/**
 	 * US2
 	 */
-	
-    /**
-     * Método responsável pelo tratamento de entradas vazias.
-     *
-     * @param dado o atributo a se validar.
-     * @param msg  a mensagem definida pra exibição.
-     */
+
+	/**
+	 * Método responsável pelo tratamento de entradas vazias.
+	 *
+	 * @param dado o atributo a se validar.
+	 * @param msg  a mensagem definida pra exibição.
+	 */
 
 	private void validaVazio(String dado, String msg) {
 		if (dado.trim().equals("")) {
@@ -50,12 +50,12 @@ public class Validador {
 		}
 	}
 
-    /**
-     * Método responsável pelo tratamento de entradas nulas.
-     *
-     * @param dado o atributo a se validar.
-     * @param msg  a mensagem definida pra exibição.
-     */
+	/**
+	 * Método responsável pelo tratamento de entradas nulas.
+	 *
+	 * @param dado o atributo a se validar.
+	 * @param msg  a mensagem definida pra exibição.
+	 */
 	private void validaNulo(String dado, String msg) {
 		if (dado == null) {
 			throw new NullPointerException(msg);
@@ -66,7 +66,7 @@ public class Validador {
 	 * Método responsável pelo validação do email do pesquisador.
 	 * 
 	 * @param email o email do pesquisador.
-	 * @param msg  a mensagem definida pra exibição.
+	 * @param msg   a mensagem definida pra exibição.
 	 */
 	public void validaEmail(String email, String msg) {
 		String[] texto = email.split("@");
@@ -90,18 +90,23 @@ public class Validador {
 	 */
 	public void validaFotoURL(String fotoURL, String msg) {
 		String[] texto = fotoURL.split("://");
-        if (texto.length == 1){
-            throw new IllegalArgumentException(msg);
-        }
-        if (!texto[0].contains("https") || !texto[0].contains("http")){
-            throw new IllegalArgumentException(msg);
-        }
+		if (texto.length == 1) {
+			throw new IllegalArgumentException(msg);
+		}
+		if (!texto[0].contains("https") || !texto[0].contains("http")) {
+			throw new IllegalArgumentException(msg);
+		}
 	}
-	
-	
 
 	/**
 	 * US3
+	 */
+
+	/**
+	 * Método responsável pelo validação do tipo do objetivo.
+	 * 
+	 * @param tipo Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
+	 * @param msg  mensagem desejada.
 	 */
 	public void validaTipo(String tipo, String msg) {
 		if (!tipo.equals("GERAL") && !tipo.equals("ESPECIFICO")) {
@@ -109,12 +114,26 @@ public class Validador {
 		}
 	}
 
+	/**
+	 * Método responsável pelo validação dos valores inteiros.
+	 * 
+	 * @param inteiro Numero inteiro.
+	 * @param msg     a mensagem desejada.
+	 */
 	public void validaInteiros(int inteiro, String msg) {
 		if (inteiro < 1 || inteiro > 5) {
 			throw new IllegalArgumentException(msg);
 		}
 	}
 
+	/**
+	 * Método responsável pelo validação do objetivo.
+	 * 
+	 * @param tipo        Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
+	 * @param descricao   Descricao do objetivo.
+	 * @param aderencia   Aderencia ao problema.
+	 * @param viabilidade Viabilidade de o objetivo ser concretizado.
+	 */
 	public void validaObjetivo(String tipo, String descricao, int aderencia, int viabilidade) {
 		if (tipo == null) {
 			throw new NullPointerException();
@@ -141,6 +160,12 @@ public class Validador {
 		}
 	}
 
+	/**
+	 * Método responsável pelo validação do problema.
+	 * 
+	 * @param descricao   Descrição do problema.
+	 * @param viabilidade Viabilidade do problema ser resolvido.
+	 */
 	public void validaProblema(String descricao, int viabilidade) {
 		if (descricao == null) {
 			throw new NullPointerException();

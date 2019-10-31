@@ -37,8 +37,8 @@ public class Objetivo {
 	/**
 	 * Constroi um objetivo e calcula o valor.
 	 * 
-	 * @param tipo        Descricao do objetivo
-	 * @param descricao   Objeto para validar os parametros
+	 * @param tipo        Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
+	 * @param descricao   Descricao do objetivo.
 	 * @param aderencia   Aderencia ao problema
 	 * @param viabilidade Viabilidade de o objetivo ser concretizado
 	 */

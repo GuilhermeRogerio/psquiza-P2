@@ -1,4 +1,4 @@
-
+package modulos;
 public class Pesquisa {
 	
 	private String descr;
