@@ -5,7 +5,7 @@ import java.util.HashMap;
 import modulos.Pesquisa;
 import util.Validador;
 
-class ControllerPesquisa {
+public class ControllerPesquisa {
 
     /**
      * Verificador das entradas para o tratamento.
@@ -19,48 +19,68 @@ class ControllerPesquisa {
      */
     private HashMap<String, Pesquisa> pesquisas;
 
-    ControllerPesquisa() {
+    /**
+     * Construtor do mapa e do verificador do validador.
+     */
+    public ControllerPesquisa() {
         this.validador = new Validador();
         this.pesquisas = new HashMap<String, Pesquisa>();
     }
 
-    String cadastraPesquisa(String descricao, String campoDeInteresse) {
+    /**
+	 * Método das pesquisas a serem cadastrados
+	 * @author adyssonfs 
+	 * @param descricao: resumo descritivo da pesquisa
+	 * @param campoDeInteresse: areas que são abrangidas pela pesquisa. 
+	 * A entrada deve ser até 255 caracteres. Cada area é separada por vírgula  
+	 * */
+    public String cadastraPesquisa(String descricao, String campoDeInteresse) {
 
         this.validador.valida(descricao, "Descricao nao pode ser nula ou vazia.");
         this.validador.validaTamanhoEntrada(campoDeInteresse, "Formato do campo de interesse invalido.");
 
         Pesquisa pesquisa = new Pesquisa(descricao, campoDeInteresse);
         pesquisa.geraCodigo(pesquisas);
-        
-        String codigoPesquisa = pesquisa.getCodigo();        
+
+        String codigoPesquisa = pesquisa.getCodigo();
         this.pesquisas.put(codigoPesquisa, pesquisa);
         return codigoPesquisa;
     }
 
-    void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
+    /**
+	 * Método usado para a alteração em pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * @param campoASerAlterado: pode ser "CAMPO" ou "DESCRICAO"
+	 * */
+    public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
 
         this.validador.validaAtributo(conteudoASerAlterado, "Nao e possivel alterar esse valor de pesquisa.");
-        
 
         if (!pesquisas.containsKey(codigo))
             throw new IllegalArgumentException("Pesquisa nao encontrada.");
 
         Pesquisa pesquisa = this.pesquisas.get(codigo);
-        
-        if(!pesquisa.getAtiva())
+
+        if (!pesquisa.getAtiva())
             throw new Error("Pesquisa desativada.");
 
         if (conteudoASerAlterado.equals("CAMPO")) {
             this.validador.valida(novoConteudo, "Formato do campo de interesse invalido.");
-        	 pesquisa.setCamposInteresse(novoConteudo);
-        }          
-        else {
+            pesquisa.setCamposInteresse(novoConteudo);
+        } else {
             this.validador.valida(novoConteudo, "Descricao nao pode ser nula ou vazia.");
             pesquisa.setDescricao(novoConteudo);
         }
     }
 
-    void encerraPesquisa(String codigo, String motivo) {
+    /**
+	 * Método para efetuar o encerramento de uma pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * @param motivo: motivação para o encerramento da pesquisa"
+	 * */
+    public void encerraPesquisa(String codigo, String motivo) {
 
         this.validador.valida(motivo, "Motivo nao pode ser nulo ou vazio.");
 
@@ -75,7 +95,12 @@ class ControllerPesquisa {
         pesquisa.setAtiva(false);
     }
 
-    void ativaPesquisa(String codigo) {
+	/**
+	 * Método passa configurar a ativação da pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+    public void ativaPesquisa(String codigo) {
 
         if (!pesquisas.containsKey(codigo))
             throw new IllegalArgumentException("Pesquisa nao encontrada.");
@@ -88,9 +113,15 @@ class ControllerPesquisa {
         pesquisa.setAtiva(true);
     }
 
-    String exibePesquisa(String codigo) {
-    	
-    	this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
+    /**
+	 * Método faz a exibição da pesquisa no formato
+     * "CODIGO - Descricao - ComposDeInteresse"
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+    public String exibePesquisa(String codigo) {
+
+        this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
 
         if (!pesquisas.containsKey(codigo))
             throw new IllegalArgumentException("Pesquisa nao encontrada.");
@@ -99,9 +130,14 @@ class ControllerPesquisa {
         return pesquisa.toString();
     }
 
-    boolean pesquisaEhAtiva(String codigo) {
-    	
-    	this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
+    /**
+	 * Método para a verificação da atividade da pesquisa
+	 * @author adyssonfs 
+	 * @param codigo: identificador da pesquisa
+	 * */
+    public boolean pesquisaEhAtiva(String codigo) {
+
+        this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
 
         if (!pesquisas.containsKey(codigo))
             throw new IllegalArgumentException("Pesquisa nao encontrada.");
