@@ -16,7 +16,23 @@ public class Validador {
 		this.validaNulo(dado, msg);
 		this.validaVazio(dado, msg);
 	}
+	
+	/**
+	 * US1
+	 */
 
+	/**
+	 * Método responsável pelo validação da quantidade de 
+	 * caracteres dos campos de interesse da pesquisa.
+	 * 
+	 * @param entrada do campo de interesse da Pesquisa.
+	 * @param msg a mensagem definida pra exibição.
+	 */
+	public void validaTamanhoEntrada(String entrada, String msg) {
+		if(campoInteresse.length()>255)
+			throw new IllegalArgumentException(msg);
+	}
+	
 	/**
 	 * US2
 	 */
@@ -81,6 +97,8 @@ public class Validador {
             throw new IllegalArgumentException(msg);
         }
 	}
+	
+	
 
 	/**
 	 * US3
