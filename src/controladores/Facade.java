@@ -8,7 +8,7 @@ public class Facade {
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_2.txt",
-				"testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_1.txt" };
+				"testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_1.txt", "testes_aceitacao/use_case_4.txt" };
 		EasyAccept.main(args);
 	}
 
@@ -97,6 +97,34 @@ public class Facade {
 
 	public String exibeObjetivo(String codigo) {
 		return this.controllerGeral.exibeObjetivo(codigo);
+	}
+	
+	/**
+	 * US4
+	 */
+	
+	public String cadastraAtividade(String Descricao, String nivelRisco, String descricaoRisco) {
+		return this.controllerGeral.cadastraAtividade(Descricao, nivelRisco, descricaoRisco);
+	}
+	
+	public void apagaAtividade(String codigo) {
+		this.controllerGeral.apagaAtividade(codigo);
+	}
+	
+	public void cadastraItem(String codigo, String item) {
+		this.controllerGeral.cadastraItem(codigo, item);
+	}
+	
+	public String exibeAtividade(String codigo) {
+		return this.controllerGeral.exibeAtividade(codigo);
+	}
+	
+	public int contaItensPendentes(String codigo) {
+		return this.controllerGeral.contaItensPendentes(codigo);
+	}
+	
+	public int contaItensRealizados(String codigo) {
+		return this.controllerGeral.contaItensRealizados(codigo);
 	}
 
 }

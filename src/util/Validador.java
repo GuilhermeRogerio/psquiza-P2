@@ -190,5 +190,16 @@ public class Validador {
 			throw new IllegalArgumentException();
 		}
 	}
-
+	
+	/**
+	 * US4
+	 */
+	
+	public void validaNivelRisco(String nivelRisco, String msg) {
+		if ((!nivelRisco.equals("BAIXO")) && (!nivelRisco.equals("MEDIO")) && (!nivelRisco.equals("ALTO"))) {
+			throw new IllegalArgumentException(msg);
+		}
+	}
+	
+	
 }

@@ -23,6 +23,11 @@ public class ControllerGeral {
 	 *
 	 */
 	private ControllerPesquisador controllerPesquisador;
+	
+	/**
+	 * Instância do controlador de atividade
+	 */
+	private ControllerAtividade controllerAtividade;
 
 	/**
 	 * Construtor que inicializa os controladores instâciados.
@@ -31,6 +36,7 @@ public class ControllerGeral {
 		this.controllerPesquisa = new ControllerPesquisa();
 		this.controllerProblemaObjetivo = new ControllerProblemaObjetivo();
 		this.controllerPesquisador = new ControllerPesquisador();
+		this.controllerAtividade = new ControllerAtividade();
 	}
 
 	/**
@@ -236,6 +242,71 @@ public class ControllerGeral {
 	 */
 	public String exibeObjetivo(String codigo) {
 		return this.controllerProblemaObjetivo.exibeObjetivo(codigo);
+	}
+	
+	/**
+	 * US4
+	 */
+	
+	/**
+	 * Método que cadastra a atividade no sistema. 
+	 * 
+	 * @param descricao - Objetivo da atividade
+	 * @param nivelRisco - Nivel de risco que a atividade apresenta
+	 * @param descricaoRisco - Descrição que explica o nivel de risco apresentado
+	 * @return Código da atividade que acabou de ser cadastrada
+	 */
+	public String cadastraAtividade(String Descricao, String nivelRisco, String descricaoRisco) {
+		return this.controllerAtividade.cadastraAtividade(Descricao, nivelRisco, descricaoRisco);
+	}
+	
+	/**
+	 * Método responsável por apagar uma atividade do sistema. 
+	 * 
+	 * @param codigo - Código da atividade a ser apagada. 
+	 */
+	public void apagaAtividade(String codigo) {
+		this.controllerAtividade.apagaAtividade(codigo);
+	}
+	
+	/**
+	 * Método que cadastra um item à atividade indicada. 
+	 * 
+	 * @param codigo - Código da atividade
+	 * @param item - Código do item a ser cadastrado. 
+	 */
+	public void cadastraItem(String codigo, String item) {
+		this.controllerAtividade.cadastraItem(codigo, item);
+	}
+	
+	/**
+	 * Exibe informações sobre a atividade e seus respectivos itens.
+	 * 
+	 * @param codigo - Código da atividade que se deseja
+	 * @return - Representação textual da atividade. 
+	 */
+	public String exibeAtividade(String codigo) {
+		return this.controllerAtividade.exibeAtividade(codigo);
+	}
+	
+	/**
+	 * Retorna quantos itens ainda estão pendentes na atividade. 
+	 * 
+	 * @param codigo - Código da atividade
+	 * @return - Quantia de itens pendentes. 
+	 */
+	public int contaItensPendentes(String codigo) {
+		return this.controllerAtividade.contaItensPendentes(codigo);
+	}
+	
+	/**
+	 * Retorna quantos itens já foram realizados na atividade.
+	 * 
+	 * @param codigo - Código da atividade
+	 * @return - Quantia de itens resolvidos. 
+	 */
+	public int contaItensRealizados(String codigo) {
+		return this.controllerAtividade.contaItensRealizados(codigo);
 	}
 
 }
