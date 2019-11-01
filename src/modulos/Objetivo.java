@@ -3,7 +3,7 @@ package modulos;
 import util.Validador;
 
 /**
- * Representação de um objetivo
+ * Representação de um objetivo.
  * 
  * @author Guilherme Rogerio
  *
@@ -26,6 +26,10 @@ public class Objetivo {
 	 */
 	private int aderencia;
 	/**
+	 * Codigo identificador do objetivo.
+	 */
+	private String codigo;
+	/**
 	 * Viabilidade de o objetivo ser concretizado
 	 */
 	private int viabilidade;
@@ -35,7 +39,7 @@ public class Objetivo {
 	private int valor;
 
 	/**
-	 * Constroi um objetivo e calcula o valor.
+	 * Constroi um objetivo,inicia o validador e calcula o valor.
 	 * 
 	 * @param tipo        Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
 	 * @param descricao   Descricao do objetivo.
@@ -48,9 +52,19 @@ public class Objetivo {
 		this.tipo = tipo;
 		this.descricao = descricao;
 		this.aderencia = aderencia;
+		this.codigo = "O";
 		this.viabilidade = viabilidade;
 		this.valor = aderencia + viabilidade;
 
+	}
+
+	/**
+	 * Forma o código do objetivo.
+	 * 
+	 * @param numero - Código a ser usado no objetivo.
+	 */
+	public void geraCodigo(int numero) {
+		this.codigo += numero;
 	}
 
 	/**
@@ -59,6 +73,35 @@ public class Objetivo {
 	 */
 	public String toString() {
 		return this.tipo + " - " + this.descricao + " - " + this.valor;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Objetivo other = (Objetivo) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
 	}
 
 }
