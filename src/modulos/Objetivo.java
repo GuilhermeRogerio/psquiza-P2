@@ -72,7 +72,7 @@ public class Objetivo {
 	 * descricao - valor".
 	 */
 	public String toString() {
-		return this.tipo + " - " + this.descricao + " - " + this.valor;
+		return this.codigo + " - " + this.tipo + " - " + this.descricao + " - " + this.valor;
 	}
 
 	public String getCodigo() {

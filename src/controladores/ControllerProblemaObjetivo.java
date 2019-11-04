@@ -89,7 +89,7 @@ public class ControllerProblemaObjetivo {
 	 */
 	public String exibeProblema(String codigo) {
 		if (problemas.containsKey(codigo)) {
-			return codigo + " - " + this.problemas.get(codigo).toString();
+			return this.problemas.get(codigo).toString();
 		} else {
 			throw new IllegalArgumentException("Problema nao encontrado");
 		}
@@ -104,7 +104,7 @@ public class ControllerProblemaObjetivo {
 	 */
 	public String exibeObjetivo(String codigo) {
 		if (objetivos.containsKey(codigo)) {
-			return codigo + " - " + this.objetivos.get(codigo).toString();
+			return this.objetivos.get(codigo).toString();
 		} else {
 			throw new IllegalArgumentException("Objetivo nao encontrado");
 		}

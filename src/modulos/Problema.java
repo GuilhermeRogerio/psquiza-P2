@@ -54,7 +54,7 @@ public class Problema {
 	 * "Descrição - viabiladade".
 	 */
 	public String toString() {
-		return this.descricao + " - " + this.viabilidade;
+		return this.codigo + " - " + this.descricao + " - " + this.viabilidade;
 	}
 
 	public String getCodigo() {
