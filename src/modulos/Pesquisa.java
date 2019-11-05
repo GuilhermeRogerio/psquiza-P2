@@ -27,25 +27,7 @@ public class Pesquisa {
 		this.ativa = true;
 
 	}
-
-	/**
-	 * 
-	 * @param pesquisas
-	 */
-	public void geraCodigo(final HashMap<String, Pesquisa> pesquisas) {
-
-		int count = 1;
-		this.codigo = camposInteresse[0].substring(0, 3).toUpperCase();
-
-		for (String key : pesquisas.keySet()) {
-
-			String precode = pesquisas.get(key).getCodigo().substring(0, 3);
-			if (precode.equals(this.codigo))
-				count++;
-		}
-
-		this.codigo += String.valueOf(count);
-	}
+	
 
 	/**
 	 * 
@@ -120,6 +102,11 @@ public class Pesquisa {
 	 */
 	public boolean getAtiva() {
 		return this.ativa;
+	}
+
+
+	public void setCodigo(String codigoPesquisa) {
+		this.codigo	= codigoPesquisa;
 	}
 
 }

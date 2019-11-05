@@ -40,12 +40,36 @@ public class ControllerPesquisa {
         this.validador.validaTamanhoEntrada(campoDeInteresse, "Formato do campo de interesse invalido.");
 
         Pesquisa pesquisa = new Pesquisa(descricao, campoDeInteresse);
-        pesquisa.geraCodigo(pesquisas);
 
-        String codigoPesquisa = pesquisa.getCodigo();
+        String codigoPesquisa = this.geraCodigo(campoDeInteresse);
+        pesquisa.setCodigo(codigoPesquisa);
         this.pesquisas.put(codigoPesquisa, pesquisa);
         return codigoPesquisa;
     }
+
+    /**
+	 * Método retorna codigo para uma pesquisa baseado no campo de interesse
+     * 
+	 * @author adyssonfs  
+     * @param campoDeInteresse
+     * @return String
+	 * */
+	private String geraCodigo(String campoDeInteresse) {
+
+		int count = 1;
+		String codigo = campoDeInteresse.substring(0, 3).toUpperCase();
+
+		for (String key : pesquisas.keySet()) {
+
+            String precode = pesquisas.get(key).getCodigo();
+						
+			if (precode.equals(codigo))
+				count++;
+		}
+
+        codigo += String.valueOf(count);
+        return codigo;
+	}
 
     /**
 	 * Método usado para a alteração em pesquisa
