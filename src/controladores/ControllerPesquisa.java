@@ -61,7 +61,7 @@ public class ControllerPesquisa {
 
 		for (String key : pesquisas.keySet()) {
 
-            String precode = pesquisas.get(key).getCodigo();
+            String precode = pesquisas.get(key).getCodigo().substring(0, 3).toUpperCase();
 						
 			if (precode.equals(codigo))
 				count++;
