@@ -1,6 +1,8 @@
 package controladores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import modulos.Pesquisa;
 import util.Validador;
@@ -169,5 +171,23 @@ public class ControllerPesquisa {
         Pesquisa pesquisa = this.pesquisas.get(codigo);
         return pesquisa.getAtiva();
     }
+    
+    
+    /**
+     * Método retorna um Lista de Pesquisas 
+     * Cadastradas
+     * 
+     * @return List<Pesquisa>
+     */
+    public List<Pesquisa> getPesquisas() {
+    	
+    	List<Pesquisa> listPesquisa = new ArrayList<>();
+    	
+    	for (String key : this.pesquisas.keySet()) 
+			listPesquisa.add(this.pesquisas.get(key));
+		
+    	
+		return listPesquisa;
+	}
 
 }

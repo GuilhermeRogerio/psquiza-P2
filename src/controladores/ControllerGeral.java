@@ -102,6 +102,10 @@ public class ControllerGeral {
 		return this.controllerPesquisa.pesquisaEhAtiva(codigo);
 	}
 	
+	public ControllerPesquisa getControllerPesquisa() {
+		return controllerPesquisa;
+	}
+	
 	/**
 	 * US2
 	 */
