@@ -174,8 +174,7 @@ public class ControllerPesquisa {
     
     
     /**
-     * Método retorna um Lista de Pesquisas 
-     * Cadastradas
+     * Método retorna um Lista de Pesquisas cadastradas
      * 
      * @return List<Pesquisa>
      */

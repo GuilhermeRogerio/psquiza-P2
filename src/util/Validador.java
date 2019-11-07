@@ -201,5 +201,11 @@ public class Validador {
 		}
 	}
 	
+	/**US8*/
+	public void validaPositivo(int num, String msg) {
+		if(num < 0)
+			throw new IllegalArgumentException(msg);
+	}
+	
 	
 }

@@ -177,6 +177,13 @@ public class ControllerGeral {
 	public boolean pesquisadorEhAtivo(String email) {
 		return this.controllerPesquisador.pesquisadorEhAtivo(email);
 	}
+	
+	/**
+	 * Retorna o controlador da classe Pesquisador
+	 * */
+	public ControllerPesquisador getControllerPesquisador() {
+		return controllerPesquisador;
+	}
 
 	/**
 	 * US3
