@@ -1,5 +1,7 @@
 package controladores;
 
+import util.Validador;
+
 /**
  * Controloador responsavel por gerir o sistema.
  *
@@ -23,11 +25,12 @@ public class ControllerGeral {
 	 *
 	 */
 	private ControllerPesquisador controllerPesquisador;
-	
+
 	/**
 	 * Instância do controlador de atividade
 	 */
 	private ControllerAtividade controllerAtividade;
+	private Validador validador;
 
 	/**
 	 * Construtor que inicializa os controladores instâciados.
@@ -37,71 +40,82 @@ public class ControllerGeral {
 		this.controllerProblemaObjetivo = new ControllerProblemaObjetivo();
 		this.controllerPesquisador = new ControllerPesquisador();
 		this.controllerAtividade = new ControllerAtividade();
+		this.validador = new Validador();
 	}
 
 	/**
 	 * US1
 	 */
-	
+
 	/**
 	 * Método passa ao controlador de pesquisa os parâmetros a serem cadastrados
-	 * @author adyssonfs 
+	 * 
+	 * @author adyssonfs
 	 * @param descricao: resumo descritivo da pesquisa
-	 * @param campoDeInteresse: areas que são abrangidas pela pesquisa. 
-	 * A entrada deve ser até 255 caracteres. Cada area é separada por vírgula  
-	 * */
+	 * @param campoDeInteresse: areas que são abrangidas pela pesquisa. A entrada
+	 *        deve ser até 255 caracteres. Cada area é separada por vírgula
+	 */
 	public void cadastraPesquisa(String descricao, String campoDeInteresse) {
 		this.controllerPesquisa.cadastraPesquisa(descricao, campoDeInteresse);
 	}
-	
+
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em pesquisa
-	 * @author adyssonfs 
+	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em
+	 * pesquisa
+	 * 
+	 * @author adyssonfs
 	 * @param codigo: identificador da pesquisa
 	 * @param campoASerAlterado: pode ser "CAMPO" ou "DESCRICAO"
-	 * */
+	 */
 	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
 		this.controllerPesquisa.alteraPesquisa(codigo, conteudoASerAlterado, novoConteudo);
 	}
-	
+
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros que da pesquisa a ser encerrada
-	 * @author adyssonfs 
+	 * Método passa ao controlador de pesquisa os parâmetros que da pesquisa a ser
+	 * encerrada
+	 * 
+	 * @author adyssonfs
 	 * @param codigo: identificador da pesquisa
 	 * @param motivo: motivação para o encerramento da pesquisa"
-	 * */
+	 */
 	public void encerraPesquisa(String codigo, String motivo) {
 		this.controllerPesquisa.encerraPesquisa(codigo, motivo);
 	}
-	
-	
+
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a ativação da pesquisa
-	 * @author adyssonfs 
+	 * Método passa ao controlador de pesquisa os parâmetros para a ativação da
+	 * pesquisa
+	 * 
+	 * @author adyssonfs
 	 * @param codigo: identificador da pesquisa
-	 * */
+	 */
 	public void ativaPesquisa(String codigo) {
 		this.controllerPesquisa.ativaPesquisa(codigo);
 	}
-	
+
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a exibição da pesquisa
-	 * @author adyssonfs 
+	 * Método passa ao controlador de pesquisa os parâmetros para a exibição da
+	 * pesquisa
+	 * 
+	 * @author adyssonfs
 	 * @param codigo: identificador da pesquisa
-	 * */
+	 */
 	public String exibePesquisa(String codigo) {
 		return this.controllerPesquisa.exibePesquisa(codigo);
 	}
-	
+
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a verificação da atividade da pesquisa
-	 * @author adyssonfs 
+	 * Método passa ao controlador de pesquisa os parâmetros para a verificação da
+	 * atividade da pesquisa
+	 * 
+	 * @author adyssonfs
 	 * @param codigo: identificador da pesquisa
-	 * */
+	 */
 	public boolean pesquisaEhAtiva(String codigo) {
 		return this.controllerPesquisa.pesquisaEhAtiva(codigo);
 	}
-	
+
 	/**
 	 * US2
 	 */
@@ -243,70 +257,95 @@ public class ControllerGeral {
 	public String exibeObjetivo(String codigo) {
 		return this.controllerProblemaObjetivo.exibeObjetivo(codigo);
 	}
-	
+
 	/**
 	 * US4
 	 */
-	
+
 	/**
-	 * Método que cadastra a atividade no sistema. 
+	 * Método que cadastra a atividade no sistema.
 	 * 
-	 * @param descricao - Objetivo da atividade
-	 * @param nivelRisco - Nivel de risco que a atividade apresenta
+	 * @param descricao      - Objetivo da atividade
+	 * @param nivelRisco     - Nivel de risco que a atividade apresenta
 	 * @param descricaoRisco - Descrição que explica o nivel de risco apresentado
 	 * @return Código da atividade que acabou de ser cadastrada
 	 */
 	public String cadastraAtividade(String Descricao, String nivelRisco, String descricaoRisco) {
 		return this.controllerAtividade.cadastraAtividade(Descricao, nivelRisco, descricaoRisco);
 	}
-	
+
 	/**
-	 * Método responsável por apagar uma atividade do sistema. 
+	 * Método responsável por apagar uma atividade do sistema.
 	 * 
-	 * @param codigo - Código da atividade a ser apagada. 
+	 * @param codigo - Código da atividade a ser apagada.
 	 */
 	public void apagaAtividade(String codigo) {
 		this.controllerAtividade.apagaAtividade(codigo);
 	}
-	
+
 	/**
-	 * Método que cadastra um item à atividade indicada. 
+	 * Método que cadastra um item à atividade indicada.
 	 * 
 	 * @param codigo - Código da atividade
-	 * @param item - Código do item a ser cadastrado. 
+	 * @param item   - Código do item a ser cadastrado.
 	 */
 	public void cadastraItem(String codigo, String item) {
 		this.controllerAtividade.cadastraItem(codigo, item);
 	}
-	
+
 	/**
 	 * Exibe informações sobre a atividade e seus respectivos itens.
 	 * 
 	 * @param codigo - Código da atividade que se deseja
-	 * @return - Representação textual da atividade. 
+	 * @return - Representação textual da atividade.
 	 */
 	public String exibeAtividade(String codigo) {
 		return this.controllerAtividade.exibeAtividade(codigo);
 	}
-	
+
 	/**
-	 * Retorna quantos itens ainda estão pendentes na atividade. 
+	 * Retorna quantos itens ainda estão pendentes na atividade.
 	 * 
 	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens pendentes. 
+	 * @return - Quantia de itens pendentes.
 	 */
 	public int contaItensPendentes(String codigo) {
 		return this.controllerAtividade.contaItensPendentes(codigo);
 	}
-	
+
 	/**
 	 * Retorna quantos itens já foram realizados na atividade.
 	 * 
 	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens resolvidos. 
+	 * @return - Quantia de itens resolvidos.
 	 */
 	public int contaItensRealizados(String codigo) {
 		return this.controllerAtividade.contaItensRealizados(codigo);
+	}
+
+	/**
+	 * US7
+	 */
+
+	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
+			return this.controllerPesquisa.associaAtividade(codigoPesquisa,
+					this.controllerAtividade.getAtividade(codigoAtividade));
+		} else {
+			throw new IllegalArgumentException("Atividade nao encontrada");
+		}
+
+	}
+
+	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
+			return this.controllerPesquisa.desassociaAtividade(codigoPesquisa,
+					this.controllerAtividade.getAtividade(codigoAtividade));
+		} else {
+			throw new IllegalArgumentException("Atividade nao encontrada");
+		}
 	}
 
 }

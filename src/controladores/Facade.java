@@ -8,8 +8,9 @@ public class Facade {
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
-				"testes_aceitacao/use_case_2.txt", "testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_4.txt", 
-				"testes_aceitacao/use_case_5.txt","testes_aceitacao/use_case_6.txt","testes_aceitacao/use_case_7.txt","testes_aceitacao/use_case_8.txt" };
+				"testes_aceitacao/use_case_2.txt", "testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_4.txt",
+				"testes_aceitacao/use_case_5.txt", "testes_aceitacao/use_case_6.txt", "testes_aceitacao/use_case_7.txt",
+				"testes_aceitacao/use_case_8.txt" };
 		EasyAccept.main(args);
 	}
 
@@ -20,7 +21,7 @@ public class Facade {
 	/**
 	 * US1
 	 */
-	public void cadastraPesquisa (String descricao, String campoDeInteresse) {
+	public void cadastraPesquisa(String descricao, String campoDeInteresse) {
 		this.controllerGeral.cadastraPesquisa(descricao, campoDeInteresse);
 	}
 
@@ -44,7 +45,6 @@ public class Facade {
 	public boolean pesquisaEhAtiva(String codigo) {
 		return this.controllerGeral.pesquisaEhAtiva(codigo);
 	}
-	
 
 	/**
 	 * US2
@@ -99,33 +99,45 @@ public class Facade {
 	public String exibeObjetivo(String codigo) {
 		return this.controllerGeral.exibeObjetivo(codigo);
 	}
-	
+
 	/**
 	 * US4
 	 */
-	
+
 	public String cadastraAtividade(String Descricao, String nivelRisco, String descricaoRisco) {
 		return this.controllerGeral.cadastraAtividade(Descricao, nivelRisco, descricaoRisco);
 	}
-	
+
 	public void apagaAtividade(String codigo) {
 		this.controllerGeral.apagaAtividade(codigo);
 	}
-	
+
 	public void cadastraItem(String codigo, String item) {
 		this.controllerGeral.cadastraItem(codigo, item);
 	}
-	
+
 	public String exibeAtividade(String codigo) {
 		return this.controllerGeral.exibeAtividade(codigo);
 	}
-	
+
 	public int contaItensPendentes(String codigo) {
 		return this.controllerGeral.contaItensPendentes(codigo);
 	}
-	
+
 	public int contaItensRealizados(String codigo) {
 		return this.controllerGeral.contaItensRealizados(codigo);
+	}
+
+	/**
+	 * US7
+	 */
+
+	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade) {
+		return this.controllerGeral.associaAtividade(codigoPesquisa, codigoAtividade);
+	}
+
+	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {
+		return this.controllerGeral.desassociaAtividade(codigoPesquisa, codigoAtividade);
 	}
 
 }

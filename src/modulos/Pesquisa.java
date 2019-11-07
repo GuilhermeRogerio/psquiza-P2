@@ -1,6 +1,8 @@
 package modulos;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 import util.Validador;
 
@@ -13,6 +15,7 @@ public class Pesquisa {
 	private String camposInteresse[];
 	private String codigo;
 	private boolean ativa;
+	private Set<Atividade> atividades;
 
 	/**
 	 * 
@@ -25,9 +28,19 @@ public class Pesquisa {
 		this.gerarCamposInteresse(camposInteresse);
 		this.descricao = descricao;
 		this.ativa = true;
+		this.atividades = new HashSet<>();
 
 	}
-	
+
+	public boolean addAtividade(Atividade atividade) {
+		this.atividades.add(atividade);
+		return true;
+	}
+
+	public boolean removeAtividade(Atividade atividade) {
+		this.atividades.remove(atividade);
+		return true;
+	}
 
 	/**
 	 * 
@@ -104,9 +117,8 @@ public class Pesquisa {
 		return this.ativa;
 	}
 
-
 	public void setCodigo(String codigoPesquisa) {
-		this.codigo	= codigoPesquisa;
+		this.codigo = codigoPesquisa;
 	}
 
 }
