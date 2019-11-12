@@ -133,8 +133,13 @@ public class ControllerAtividade {
 		}
 	}
 	
-	public Atividade getAtividade(String id) {
-		return this.atividades.get(id);
+	/**
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return Retorna a atividade desejada.
+	 */
+	public Atividade getAtividade(String codigoAtividade) {
+		return this.atividades.get(codigoAtividade);
 	}
 
 	/**

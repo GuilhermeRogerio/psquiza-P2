@@ -27,9 +27,12 @@ public class ControllerGeral {
 	private ControllerPesquisador controllerPesquisador;
 
 	/**
-	 * Instância do controlador de atividade
+	 * Instância do controlador de atividade.
 	 */
 	private ControllerAtividade controllerAtividade;
+	/**
+	 * Objeto para validar os parâmetros.
+	 */
 	private Validador validador;
 
 	/**
@@ -327,10 +330,18 @@ public class ControllerGeral {
 	 * US7
 	 */
 
+	/**
+	 * Método que passa ao controlador de atividade os parâmetro para a associação.
+	 * 
+	 * @param codigoPesquisa  Código da pesquisa.
+	 * @param codigoAtividade Código da atividade.
+	 * @return "True" se a associação for bem sucedida e "False" se a associação não
+	 *         acontecer.
+	 */
 	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
 		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
-			return this.controllerPesquisa.associaAtividade(codigoPesquisa,codigoAtividade,
+			return this.controllerPesquisa.associaAtividade(codigoPesquisa, codigoAtividade,
 					this.controllerAtividade.getAtividade(codigoAtividade));
 		} else {
 			throw new IllegalArgumentException("Atividade nao encontrada");
@@ -338,11 +349,19 @@ public class ControllerGeral {
 
 	}
 
+	/**
+	 * Método que passa ao controlador de atividade os parâmetro para a
+	 * desassociação.
+	 * 
+	 * @param codigoPesquisa  Código da pesquisa.
+	 * @param codigoAtividade Código da atividade.
+	 * @return "True" se a desassociação for bem sucedida e "False" se a
+	 *         desassociação não acontecer.
+	 */
 	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
 		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
-			return this.controllerPesquisa.desassociaAtividade(codigoPesquisa,
-					codigoAtividade);
+			return this.controllerPesquisa.desassociaAtividade(codigoPesquisa, codigoAtividade);
 		} else {
 			throw new IllegalArgumentException("Atividade nao encontrada");
 		}

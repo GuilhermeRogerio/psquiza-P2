@@ -16,7 +16,10 @@ public class Pesquisa {
 	private String camposInteresse[];
 	private String codigo;
 	private boolean ativa;
-	private Map<String,Atividade> atividades;
+	/**
+	 * Mapa de atividade.
+	 */
+	private Map<String, Atividade> atividades;
 
 	/**
 	 * 
@@ -33,33 +36,40 @@ public class Pesquisa {
 
 	}
 
-	public boolean addAtividade(String codigoAtividade,Atividade atividade) {
-		if(!atividades.containsKey(codigoAtividade)) {
+	/**
+	 * Adiciona uma atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param atividade       Atividade a ser adicionada.
+	 * @return "True" se a adição for bem sucedida e "False" se a adição não
+	 *         acontecer.
+	 */
+	public boolean addAtividade(String codigoAtividade, Atividade atividade) {
+		if (!atividades.containsKey(codigoAtividade)) {
 			this.atividades.put(codigoAtividade, atividade);
 			this.atividades.get(codigoAtividade).setEhAssociada();
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
-	/*public boolean ehAssociada(Atividade atividade) {
-		if(this.atividades.contains(atividade)) {
-			return true;
-		}else {
-			return false;
-		}
-	}*/
 
+	/**
+	 * Remove uma atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return "True" se a remoção for bem sucedida e "False" se a remocão não
+	 *         acontecer.
+	 */
 	public boolean removeAtividade(String codigoAtividade) {
-		if(atividades.get(codigoAtividade) != null) {
+		if (atividades.get(codigoAtividade) != null) {
 			this.atividades.get(codigoAtividade).setNaoAssociada();
 			this.atividades.remove(codigoAtividade);
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-		
+
 	}
 
 	/**
@@ -136,11 +146,11 @@ public class Pesquisa {
 	public boolean getAtiva() {
 		return this.ativa;
 	}
-	
+
 	public void setAssociada(String codigoAtividade) {
 		this.atividades.get(codigoAtividade).setEhAssociada();
 	}
-	
+
 	public void setNaoAssociada(String codigoAtividade) {
 		this.atividades.get(codigoAtividade).setNaoAssociada();
 	}

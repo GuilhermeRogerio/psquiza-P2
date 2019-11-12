@@ -19,7 +19,7 @@ public class ControllerPesquisa {
 	 * Mapa onde os pesquisas serão armazenados para as operações do sistema.
 	 * 
 	 */
-	private HashMap<String, Pesquisa> pesquisas;
+	private Map<String, Pesquisa> pesquisas;
 
 	/**
 	 * Construtor do mapa e do verificador do validador.
@@ -186,7 +186,7 @@ public class ControllerPesquisa {
 	 * @return "True" se a associação for bem sucedida e "False" se a associação não
 	 *         acontecer.
 	 */
-	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade,Atividade atividade) {
+	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade, Atividade atividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
 		if (pesquisas.containsKey(codigoPesquisa)) {
 			if (pesquisas.get(codigoPesquisa).getAtiva()) {

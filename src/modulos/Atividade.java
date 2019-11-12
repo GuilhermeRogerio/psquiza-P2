@@ -6,7 +6,7 @@ import java.util.List;
 import util.Validador;
 
 public class Atividade {
-	
+
 	/**
 	 * Descrição da atividade
 	 */
@@ -15,39 +15,50 @@ public class Atividade {
 	/**
 	 * Resultados (items) da atividade.
 	 */
-	private ArrayList<Item> items;
-	private List<String> resultados;
-	private boolean ehAssociada;
-	
+	private List<Item> items;
 	/**
-	 * Nivel de risco da atividade
+	 * Lista de resultados.
+	 */
+	private List<String> resultados;
+	/**
+	 * booleano que representa se uma atividade está associada a uma pesquisa.
+	 */
+	private boolean ehAssociada;
+
+	/**
+	 * Nivel de risco da atividade.
 	 */
 	private String nivelRisco;
-	
+
 	/**
-	 * Descrição que justifica o nivel de risco da atividade
+	 * Descrição que justifica o nivel de risco da atividade.
 	 */
 	private String descricaoRisco;
-	
+
 	/**
-	 * Codigo identificador da atividade
+	 * Codigo identificador da atividade.
 	 */
 	private String codigo;
-	
+
 	/**
-	 * Instância validador
+	 * Instância validador.
 	 */
 	private Validador validador;
-	private int contResultado;
-	private int duracao;
-	
-	
 	/**
-	 * Construtor de Atividade de uma pesquisa científica
+	 * Codigo identificador dos resultado.
+	 */
+	private int contResultado;
+	/**
+	 * A quantidade de horas gastas em determinada atividade.
+	 */
+	private int duracao;
+
+	/**
+	 * Construtor de Atividade de uma pesquisa científica.
 	 * 
-	 * @param descricao - Descrição da atividade
-	 * @param nivelRisco - Nivel de risco da atividade
-	 * @param descricaoRisco - Descrição do risco da atividade
+	 * @param descricao      - Descrição da atividade.
+	 * @param nivelRisco     - Nivel de risco da atividade.
+	 * @param descricaoRisco - Descrição do risco da atividade.
 	 */
 	public Atividade(String descricao, String nivelRisco, String descricaoRisco) {
 		this.descricao = descricao;
@@ -61,11 +72,11 @@ public class Atividade {
 		this.ehAssociada = false;
 		this.validador = new Validador();
 	}
-	
+
 	/**
-	 * Método responsável por lista a representação textual dos itens da atividade
+	 * Método responsável por lista a representação textual dos itens da atividade.
 	 * 
-	 * @return - Todos os itens cadastrados da atividade
+	 * @return - Todos os itens cadastrados da atividade.
 	 */
 	public String listaItens() {
 		if (this.items.size() > 0) {
@@ -78,11 +89,11 @@ public class Atividade {
 			return "";
 		}
 	}
-	
+
 	/**
-	 * Método que cadastra um item na atividade
+	 * Método que cadastra um item na atividade.
 	 * 
-	 * @param item - Código do item a ser cadastrado
+	 * @param item - Código do item a ser cadastrado.
 	 */
 	public void cadastraItem(String item) {
 		this.validador.valida(item, "Campo codigo nao pode ser nulo ou vazio.");
@@ -93,12 +104,11 @@ public class Atividade {
 			this.items.add(novoItem);
 		}
 	}
-	
-	
+
 	/**
-	 * Retorna quantos itens ainda estão pendentes na atividade. 
+	 * Retorna quantos itens ainda estão pendentes na atividade.
 	 * 
-	 * @return Número que representa quantos itens estão pendentes
+	 * @return Número que representa quantos itens estão pendentes.
 	 */
 	public int contaItensPendentes() {
 		int contador = 0;
@@ -109,11 +119,11 @@ public class Atividade {
 		}
 		return contador;
 	}
-	
+
 	/**
-	 * Retorna quantos itens foram realizados na atividade. 
+	 * Retorna quantos itens foram realizados na atividade.
 	 * 
-	 * @return Número que representa quantos itens foram realizados
+	 * @return Número que representa quantos itens foram realizados.
 	 */
 	public int contaItensRealizados() {
 		int contador = 0;
@@ -124,7 +134,7 @@ public class Atividade {
 		}
 		return contador;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -151,87 +161,107 @@ public class Atividade {
 	}
 
 	/**
-	 * Forma o código da atividade
+	 * Forma o código da atividade.
 	 * 
-	 * @param numero - Código a ser usado na atividade
+	 * @param numero - Código a ser usado na atividade.
 	 */
 	public void concatenaCodigo(int numero) {
 		this.codigo += numero;
 	}
-	
+
 	/**
-	 * Recupera o código da atividade
+	 * Recupera o código da atividade.
 	 * 
-	 * @return - Código da atividade
+	 * @return - Código da atividade.
 	 */
 	public String getCodigo() {
 		return this.codigo;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		String retorno = this.descricao + " (" + this.nivelRisco + " - " + this.descricaoRisco + ")" + " | " + listaItens();
+		String retorno = this.descricao + " (" + this.nivelRisco + " - " + this.descricaoRisco + ")" + " | "
+				+ listaItens();
 		return retorno.substring(0, retorno.length() - 3);
 	}
-	
-	public void executaAtividade(String codigoAtividade,int item,int duracao) {
+
+	/**
+	 * Executa uma atividade já associada a uma pesquisa.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param item            Item a ser executado.
+	 * @param duracao         Quantidade de horas gastas nessa execução.
+	 */
+	public void executaAtividade(String codigoAtividade, int item, int duracao) {
 		for (int i = 0; i < items.size(); i++) {
-				items.get(item - 1).setStatus("REALIZADO");
-				
+			items.get(item - 1).setStatus("REALIZADO");
+
 		}
 		this.duracao += duracao;
 	}
-	
+
+	/**
+	 * Adiciona um resultado.
+	 * 
+	 * @param resultado Resultado a ser adicionado.
+	 * @return Codigo identificador dos resultado.
+	 */
 	public int addResultado(String resultado) {
 		this.resultados.add(resultado);
-		if(!resultado.equals(resultado)) {
+		if (!resultado.equals(resultado)) {
 			this.contResultado = 0;
 		}
 		this.contResultado += 1;
-		
+
 		return this.contResultado;
 	}
-	
+
+	/**
+	 * Remove um resultado.
+	 * 
+	 * @param numeroResultado
+	 * @return Codigo identificador dos resultado.
+	 */
 	public boolean removeResultado(int numeroResultado) {
-		if(numeroResultado - 1 > this.resultados.size()) {
+		if (numeroResultado - 1 > this.resultados.size()) {
 			throw new IllegalArgumentException("Resultado nao encontrado.");
-		}else {
-			this.resultados.remove(numeroResultado -1);
+		} else {
+			this.resultados.remove(numeroResultado - 1);
 			return true;
 		}
 	}
-	
+
+	/**
+	 * Lista todos os resultados.
+	 * 
+	 * @return Uma string com todos os resultados.
+	 */
 	public String listaResultados() {
 		String retorno = "";
-		for(int i = 0 ; i < resultados.size();i++) {
+		for (int i = 0; i < resultados.size(); i++) {
 			retorno += resultados.get(i).toString() + " | ";
 		}
-		return retorno = retorno.substring(0, retorno.length() -3);	
+		return retorno = retorno.substring(0, retorno.length() - 3);
 	}
-	
-	
 
 	public int getDuracao() {
-		return duracao ;
+		return duracao;
 	}
-	
+
 	public void setEhAssociada() {
 		this.ehAssociada = true;
 	}
-	
+
 	public boolean isEhAssociada() {
 		return ehAssociada;
 	}
-	
+
 	public void setNaoAssociada() {
 		this.ehAssociada = false;
 	}
 
 	public String getStatus(int item) {
-		return this.items.get(item -1).getStatus();
+		return this.items.get(item - 1).getStatus();
 	}
-	
-	
 
 }
