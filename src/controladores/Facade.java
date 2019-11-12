@@ -1,10 +1,12 @@
 package controladores;
 
 import easyaccept.EasyAccept;
+import util.Busca;
 
 public class Facade {
 
 	private ControllerGeral controllerGeral;
+	private Busca busca;
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
@@ -126,6 +128,22 @@ public class Facade {
 	
 	public int contaItensRealizados(String codigo) {
 		return this.controllerGeral.contaItensRealizados(codigo);
+	}
+	
+	/**
+	 * US8
+	 */
+	
+	public int contaResultadosBusca(String termo) {
+		return this.busca.contaResultadosBusca(termo);
+	}
+	
+	public String busca(String termo) {
+		return this.busca.busca(termo);
+	}
+	
+	public String busca(String termo, int numeroDoResultado) {
+		return this.busca.busca(termo, numeroDoResultado);
 	}
 
 }

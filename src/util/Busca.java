@@ -21,9 +21,16 @@ public class Busca {
 	
 	Busca(){
 		this.controller = new ControllerGeral();
+		this.validador = new Validador();
 	}
 	
 	
+	/**
+	 * Metodo interno para a busca específica de Pesquisa
+	 * 
+	 * @param String termo
+	 * @return List<String>
+	 * */
 	private List<String> buscaPesquisa(String termo) {
 		
 		List<String> resultados = new ArrayList<String>();
@@ -42,6 +49,12 @@ public class Busca {
 		return resultados;
 	}
 	
+	/**
+	 * Metodo interno para a busca específica de Pesquisador
+	 * 
+	 * @param String termo
+	 * @return List<String>
+	 * */
 	private List<String> buscaPesquisador(String termo) {
 		
 		List<String> resultados = new ArrayList<String>();
@@ -62,8 +75,10 @@ public class Busca {
 
 	
 	/**
+	 * Metodo interno para a busca específica de Problemas
 	 * 
-	 * 
+	 * @param String termo
+	 * @return List<String>
 	 * */
 	private List<String> buscaProblema(String termo) {
 		
@@ -83,6 +98,12 @@ public class Busca {
 		return resultados;
 	}
 	
+	/**
+	 * Metodo interno para a busca específica de Objetivos
+	 * 
+	 * @param String termo
+	 * @return List<String>
+	 * */
 	private List<String> buscaObjetivo(String termo) {
 		
 		List<String> resultados = new ArrayList<String>();
@@ -102,6 +123,12 @@ public class Busca {
 		return resultados;
 	}
 	
+	/**
+	 * Metodo interno para a busca específica de Atividades
+	 * 
+	 * @param String termo
+	 * @return List<String>
+	 * */
 	private List<String> buscaAtividade(String termo) {
 		
 		List<String> resultados = new ArrayList<String>();
@@ -205,7 +232,7 @@ public class Busca {
 			if(cont<= numeroDoResultado) 
 				sb.append(res+" | ");
 			
-			if(numeroDoResultado!=0)cont++;
+			if(numeroDoResultado!=0) cont++;
 		}
 		
 		//Busca em Atividades
@@ -215,7 +242,7 @@ public class Busca {
 			if(cont<= numeroDoResultado) 
 				sb.append(res+" | ");
 			
-			if(numeroDoResultado!=0)cont++;
+			if(numeroDoResultado!=0) cont++;
 		}
 			
 		
@@ -226,7 +253,15 @@ public class Busca {
 
 
 	public int contaResultadosBusca(String termo) {
-		return 0;
+		
+		
+		validador.valida(termo, "Campo termo nao pode ser nulo ou vazio.");
+		int cont = 0;
+		
+		if(cont==0)
+			throw new Error("Nenhum resultado encontrado");
+		
+		return cont;
 	}
 	
 	
