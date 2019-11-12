@@ -16,6 +16,7 @@ public class Validador {
 		this.validaNulo(dado, msg);
 		this.validaVazio(dado, msg);
 	}
+	
 
 	/**
 	 * US1
@@ -201,5 +202,14 @@ public class Validador {
 		}
 	}
 	
+	/**
+	 * US6
+	 */
 	
+	public void validaData(String data) {
+		if ((data.length() != 10) || (Integer.parseInt(data.substring(0, data.length() - 8)) > 31) || 
+		(Integer.parseInt(data.substring(3, data.length() - 5)) > 12)) {
+			throw new IllegalArgumentException("Atributo data com formato invalido.");
+		}
+	}
 }

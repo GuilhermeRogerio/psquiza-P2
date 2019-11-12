@@ -1,5 +1,6 @@
 package modulos;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -43,6 +44,13 @@ public class Pesquisador {
      *
      */
 	private boolean ativo;
+	
+	/**
+	 * Interface que representa a especialização do Pesquisandor (Aluno ou Professor).
+	 */
+	private InterfacePesquisador especialidade;
+	
+	private HashMap<String, Pesquisa> pesquisas;
     
 	/**
 	 * Construtor do pesquisador.
@@ -61,8 +69,28 @@ public class Pesquisador {
 		this.email = email;
 		this.foto = foto;
 		this.ativo = true;
+		this.pesquisas = new HashMap<>();
+		this.especialidade = null;
 	}
-
+	
+	public void cadastraEspecialidadeAluno(String semestre, String iea) {
+		InterfacePesquisador aluno = new Aluno(semestre, iea);
+		this.especialidade = aluno;
+	}
+	
+	public void cadastraEspecialidadeProfessor(String formacao, String unidade, String data) {
+		InterfacePesquisador professor = new Professor(formacao, unidade, data);
+		this.especialidade = professor;
+	}
+	
+	public void alteraEspecialidade(String atributo, String novoValor) {
+		this.especialidade.alteraEspecialidade(atributo, novoValor);
+	}
+	
+	public boolean associaPesquisador(Pesquisa pesquisa) {
+		
+	}
+	
 	/**
      * Representação textual do pesquisador.
      *
@@ -70,7 +98,11 @@ public class Pesquisador {
      */
 	@Override
 	public String toString() {
-		return nome + " (" + funcao + ")" + " - " + biografia + " - " + email + " - " + foto;
+		String retorno = nome + " (" + funcao + ")" + " - " + biografia + " - " + email + " - " + foto;
+		if (this.especialidade != null) {
+			retorno += " - " + this.especialidade.toString();
+		}
+		return retorno;
 	}
 
 	/**

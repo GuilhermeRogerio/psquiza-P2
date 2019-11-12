@@ -61,33 +61,46 @@ public class ControllerPesquisador {
      */
     public void alteraPesquisador(String email, String atributo, String novoValor) {
         this.validador.valida(atributo, "Atributo nao pode ser vazio ou nulo.");
+        this.validaAlteraPesquisador(atributo, novoValor);
         if(this.mapaPesquisador.containsKey(email)) {
+        	Pesquisador pesquisador = this.mapaPesquisador.get(email);
             if (atributo.equals("NOME")) {
-            this.validador.valida(novoValor, "Campo nome nao pode ser nulo ou vazio.");
-            this.mapaPesquisador.get(email).setNome(novoValor);
-        } else if (atributo.equals("FUNCAO")) {
-            this.validador.valida(novoValor, "Campo funcao nao pode ser nulo ou vazio.");
-            this.mapaPesquisador.get(email).setFuncao(novoValor);
-        } else if (atributo.equals("BIOGRAFIA")) {
-            this.validador.valida(novoValor, "Campo biografia nao pode ser nulo ou vazio.");
-            this.mapaPesquisador.get(email).setBiografia(novoValor);
-        } else if (atributo.equals("FOTO")) {
-            this.validador.valida(novoValor, "Campo fotoURL nao pode ser nulo ou vazio.");
-            this.validador.validaFotoURL(novoValor, "Formato de foto invalido.");
-            this.mapaPesquisador.get(email).setFoto(novoValor);
-        } else if (atributo.equals("EMAIL")) {
-            this.validador.valida(novoValor, "Campo email nao pode ser nulo ou vazio.");
-            this.validador.validaEmail(novoValor, "Formato de email invalido.");
-            this.mapaPesquisador.get(email).setEmail(novoValor);
-            Pesquisador pesquisador = this.mapaPesquisador.get(email);
-            this.mapaPesquisador.put(novoValor, pesquisador);
-            this.mapaPesquisador.remove(email);
+            	pesquisador.setNome(novoValor);
+	        } else if (atributo.equals("FUNCAO")) {
+	            pesquisador.setFuncao(novoValor);
+	        } else if (atributo.equals("BIOGRAFIA")) {
+	            pesquisador.setBiografia(novoValor);
+	        } else if (atributo.equals("FOTO")) {
+	            this.validador.validaFotoURL(novoValor, "Formato de foto invalido.");
+	            pesquisador.setFoto(novoValor);
+	        } else if (atributo.equals("EMAIL")) {
+	            this.validador.validaEmail(novoValor, "Formato de email invalido.");
+	            pesquisador.setEmail(novoValor);
+	            this.mapaPesquisador.put(novoValor, pesquisador);
+	            this.mapaPesquisador.remove(email);
+	        } else if (this.verificaAtributos(atributo)) {
+	        	pesquisador.alteraEspecialidade(atributo, novoValor);
+	        }
+	        else {
+	            throw new IllegalArgumentException("Atributo invalido.");
+	        }
         } else {
-            throw new IllegalArgumentException("Atributo invalido.");
-            }
-        }else{
             throw new IllegalArgumentException("Pesquisador nao encontrado");
         }
+        
+    }
+    
+    private boolean verificaAtributos(String atributo) {
+    	return ("FORMACAO".equals(atributo) || "DATA".equals(atributo) || "UNIDADE".equals(atributo) || 
+    			"SEMESTRE".equals(atributo) || "IEA".equals(atributo));
+    }
+    
+    private void validaAlteraPesquisador(String atributo, String novoValor) {
+    	if ("FOTO".equals(atributo)) {
+    		this.validador.valida(novoValor, "Campo fotoURL nao pode ser nulo ou vazio.");
+    	} else {
+    		this.validador.valida(novoValor, "Campo " + atributo.toLowerCase() + " nao pode ser nulo ou vazio.");
+    	}
     }
 
     /**
