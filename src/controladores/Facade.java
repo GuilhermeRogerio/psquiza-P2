@@ -140,4 +140,24 @@ public class Facade {
 		return this.controllerGeral.desassociaAtividade(codigoPesquisa, codigoAtividade);
 	}
 
+	public void executaAtividade(String codigoAtividade, int item, int duracao) {
+		this.controllerGeral.executaAtividade(codigoAtividade, item, duracao);
+	}
+	
+	public int cadastraResultado(String codigoAtividade, String resultado) {
+		return this.controllerGeral.cadastraResultado(codigoAtividade, resultado);
+	}
+	
+	public boolean removeResultado(String codigoAtividade, int numeroResultado) {
+		return this.controllerGeral.removeResultado(codigoAtividade, numeroResultado);
+	}
+	
+	public int getDuracao(String codigoAtividade) {
+		return this.controllerGeral.getDuracao(codigoAtividade);
+	}
+	
+	public String listaResultados(String codigoAtividade) {
+		return this.controllerGeral.listaResultados(codigoAtividade);
+	}
+
 }

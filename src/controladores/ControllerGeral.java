@@ -348,4 +348,58 @@ public class ControllerGeral {
 		}
 	}
 
+	/**
+	 * Método passa ao controlador de atividade os parâmetros a serem executados.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param item            Item a ser executado.
+	 * @param duracao         Quantidade de horas gastas em determinada atividade.
+	 */
+	public void executaAtividade(String codigoAtividade, int item, int duracao) {
+		this.controllerAtividade.executaAtividade(codigoAtividade, item, duracao);
+	}
+
+	/**
+	 * Método passa ao controlador de atividade os parâmetros a serem cadastrados.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param resultado       Resultado da atividade.
+	 * @return Número identificador do resultado.
+	 */
+	public int cadastraResultado(String codigoAtividade, String resultado) {
+		return this.controllerAtividade.cadastraResultado(codigoAtividade, resultado);
+	}
+
+	/**
+	 * Método passa ao controlador de atividade os parâmetros a serem removidos.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param numeroResultado Número identificador do resultado.
+	 * @return "True" se a remoção for bem sucedida e "False" se a remocão não
+	 *         acontecer.
+	 */
+	public boolean removeResultado(String codigoAtividade, int numeroResultado) {
+		return this.controllerAtividade.removeResultado(codigoAtividade, numeroResultado);
+	}
+
+	/**
+	 * Método passa ao controlador de atividade os parâmetros a serem retornados.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return A quantidade de horas gastas em determinada atividade.
+	 */
+	public int getDuracao(String codigoAtividade) {
+		return this.controllerAtividade.getDuracao(codigoAtividade);
+	}
+
+	/**
+	 * Método passa ao controlador de atividade os parâmetros a serem listados.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return Os resultados de uma determinada atividade.
+	 */
+	public String listaResultados(String codigoAtividade) {
+		return this.controllerAtividade.listaResultados(codigoAtividade);
+	}
+
 }

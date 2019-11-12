@@ -39,7 +39,10 @@ public class Item {
 		return this.status;
 	}
 	
-	
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return this.status + " - " + this.item;

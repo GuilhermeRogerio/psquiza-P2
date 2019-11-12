@@ -178,6 +178,14 @@ public class ControllerPesquisa {
 		return pesquisa.getAtiva();
 	}
 
+	/**
+	 * Associa uma atividade a uma pesquisa.
+	 * 
+	 * @param codigoPesquisa Código da pesquisa.
+	 * @param atividade      Código da atividade.
+	 * @return "True" se a associação for bem sucedida e "False" se a associação não
+	 *         acontecer.
+	 */
 	public boolean associaAtividade(String codigoPesquisa, Atividade atividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
 		if (pesquisas.containsKey(codigoPesquisa)) {
@@ -193,6 +201,14 @@ public class ControllerPesquisa {
 
 	}
 
+	/**
+	 * Desassocia uma atividade de uma pesquisa.
+	 * 
+	 * @param codigoPesquisa Código da pesquisa.
+	 * @param atividade      Código da atividade.
+	 * @return "True" se a desassociação for bem sucedida e "False" se a
+	 *         desassociação não acontecer.
+	 */
 	public boolean desassociaAtividade(String codigoPesquisa, Atividade atividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
 		if (pesquisas.containsKey(codigoPesquisa)) {

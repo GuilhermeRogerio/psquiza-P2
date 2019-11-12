@@ -33,13 +33,31 @@ public class Pesquisa {
 	}
 
 	public boolean addAtividade(Atividade atividade) {
-		this.atividades.add(atividade);
-		return true;
+		if(!atividades.contains(atividade)) {
+			this.atividades.add(atividade);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean ehAssociada(Atividade atividade) {
+		if(this.atividades.contains(atividade)) {
+			
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	public boolean removeAtividade(Atividade atividade) {
-		this.atividades.remove(atividade);
-		return true;
+		if(atividades.contains(atividade)) {
+			this.atividades.remove(atividade);
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 	/**

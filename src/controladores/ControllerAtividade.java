@@ -132,9 +132,95 @@ public class ControllerAtividade {
 			return this.atividades.get(codigo).contaItensRealizados();
 		}
 	}
-
+	
 	public Atividade getAtividade(String id) {
 		return this.atividades.get(id);
+	}
+
+	/**
+	 * Executa uma atividade já associada a uma pesquisa.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param item            Item a ser executado.
+	 * @param duracao         Quantidade de horas gastas nessa execução.
+	 */
+	public void executaAtividade(String codigoAtividade, int item, int duracao) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		this.validador.validaItem(item, "Item nao pode ser nulo ou negativo.");
+		this.validador.validaItem(duracao, "Duracao nao pode ser nula ou negativa.");
+		if(item -1 >this.atividades.size()) {
+			throw new IllegalArgumentException("Item nao encontrado.");
+		}
+		else if(this.atividades.get(codigoAtividade).getStatus(item).equals("REALIZADO")) {
+			throw new IllegalArgumentException("Item ja executado.");
+		}else {
+			this.atividades.get(codigoAtividade).executaAtividade(codigoAtividade, item, duracao);
+		}
+		
+		
+	}
+
+	/**
+	 * Cadastra os resultados obtidos por item da atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param resultado       Resultado da atividade.
+	 * @return Número identificador do resultado.
+	 */
+	public int cadastraResultado(String codigoAtividade, String resultado) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		this.validador.valida(resultado, "Resultado nao pode ser nulo ou vazio.");
+		return this.atividades.get(codigoAtividade).addResultado(resultado);
+	}
+
+	/**
+	 * Remove os resultados obtidos por item da atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @param numeroResultado Número identificador do resultado.
+	 * @return "True" se a remoção for bem sucedida e "False" se a remocão não
+	 *         acontecer.
+	 */
+	public boolean removeResultado(String codigoAtividade, int numeroResultado) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		this.validador.validaItem(numeroResultado, "numeroResultado nao pode ser nulo ou negativo.");
+		if (this.atividades.containsKey(codigoAtividade)) {
+			return this.atividades.get(codigoAtividade).removeResultado(numeroResultado);
+		} else {
+			throw new IllegalArgumentException("Atividade nao encontrada");
+		}
+
+	}
+
+	/**
+	 * Retorna a quantidade de horas gastas em determinada atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return A quantidade de horas gastas em determinada atividade.
+	 */
+	public int getDuracao(String codigoAtividade) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		if (this.atividades.containsKey(codigoAtividade)) {
+			return this.atividades.get(codigoAtividade).getDuracao();
+		} else {
+			throw new IllegalArgumentException("Atividade nao encontrada");
+		}
+	}
+
+	/**
+	 * Lista todos os resultados de uma determinada atividade.
+	 * 
+	 * @param codigoAtividade Código da atividade.
+	 * @return Os resultados de uma determinada atividade.
+	 */
+	public String listaResultados(String codigoAtividade) {
+		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
+		if(this.atividades.containsKey(codigoAtividade)) {
+			return this.atividades.get(codigoAtividade).listaResultados();
+		}else {
+			throw new IllegalArgumentException("Atividade nao encontrada");
+		}
+		
 	}
 
 }

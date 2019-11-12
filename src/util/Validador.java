@@ -137,6 +137,12 @@ public class Validador {
 			throw new IllegalArgumentException(msg);
 		}
 	}
+	
+	public void validaItem(int item,String msg) {
+		if(item < 0) {
+			throw new IllegalArgumentException(msg);
+		}
+	}
 
 	/**
 	 * Método responsável pelo validação do objetivo.
