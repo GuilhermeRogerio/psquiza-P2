@@ -1,5 +1,9 @@
 package util;
 
+import java.util.HashMap;
+
+import modulos.Pesquisa;
+
 /**
  * Representação da classe exclusiva para tratamento de excessões.
  *
@@ -210,6 +214,27 @@ public class Validador {
 		if ((data.length() != 10) || (Integer.parseInt(data.substring(0, data.length() - 8)) > 31) || 
 		(Integer.parseInt(data.substring(3, data.length() - 5)) > 12)) {
 			throw new IllegalArgumentException("Atributo data com formato invalido.");
+		}
+	}
+	
+	public void validaPesquisa(Pesquisa pesquisa, String idPesquisa, HashMap<String, Pesquisa> pesquisas) {
+		if (!pesquisa.getAtiva()) {
+			throw new IllegalArgumentException("Pesquisa desativada.");
+		}
+		if (pesquisas.containsKey(idPesquisa)) {
+			throw new IllegalArgumentException("Pesquisa nao encontrada.");
+		}
+	}
+	
+	public void validaEspecialidadeProfessor(String funcao) {
+		if ("aluno".equals(funcao) || "externo".equals(funcao)) {
+			throw new IllegalArgumentException("Pesquisador nao compativel com a especialidade.");
+		}
+	}
+	
+	public void validaEspecialidadeAluno(String funcao) {
+		if ("professor".equals(funcao) || "externo".equals(funcao)) {
+			throw new IllegalArgumentException("Pesquisador nao compativel com a especialidade.");
 		}
 	}
 }

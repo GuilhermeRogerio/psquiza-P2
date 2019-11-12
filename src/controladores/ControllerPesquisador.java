@@ -165,4 +165,6 @@ public class ControllerPesquisador {
             throw new IllegalArgumentException("Pesquisador nao encontrado");
         }
     }
+    
+    
 }

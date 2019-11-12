@@ -2,10 +2,10 @@ package modulos;
 
 public class Aluno implements InterfacePesquisador {
 	
-	private String semestre;
-	private String iea;
+	private int semestre;
+	private double iea;
 	
-	public Aluno(String semestre, String iea) {
+	public Aluno(int semestre, double iea) {
 		this.semestre = semestre;
 		this.iea = iea;
 	}
@@ -17,9 +17,9 @@ public class Aluno implements InterfacePesquisador {
 	
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		if ("SEMESTRE".equals(atributo)) {
-			this.semestre = novoValor;
+			this.semestre = Integer.parseInt(novoValor);
 		} else {
-			this.iea = novoValor;
+			this.iea = Double.parseDouble(novoValor);
 		}
 	}
 
