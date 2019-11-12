@@ -19,7 +19,7 @@ public class Busca {
 	private ControllerGeral controller;
 	private Validador validador;
 	
-	Busca(){
+	public Busca(){
 		this.controller = new ControllerGeral();
 		this.validador = new Validador();
 	}
@@ -183,7 +183,7 @@ public class Busca {
 	public String busca(String termo, int numeroDoResultado) {
 		
 		validador.valida(termo, "Campo termo nao pode ser nulo ou vazio.");
-		validador.validaPositivo(numeroDoResultado, "Numero do resultado nao pode ser negativo.");
+		validador.validaPositivo(numeroDoResultado, "Numero do resultado nao pode ser negativo");
 		
 		
 		

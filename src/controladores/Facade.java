@@ -17,6 +17,7 @@ public class Facade {
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
+		busca = new Busca();
 	}
 
 	/**
