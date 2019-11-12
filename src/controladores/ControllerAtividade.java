@@ -148,14 +148,19 @@ public class ControllerAtividade {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
 		this.validador.validaItem(item, "Item nao pode ser nulo ou negativo.");
 		this.validador.validaItem(duracao, "Duracao nao pode ser nula ou negativa.");
-		if(item -1 >this.atividades.size()) {
-			throw new IllegalArgumentException("Item nao encontrado.");
-		}
-		else if(this.atividades.get(codigoAtividade).getStatus(item).equals("REALIZADO")) {
-			throw new IllegalArgumentException("Item ja executado.");
+		if(this.atividades.get(codigoAtividade).isEhAssociada()) {
+			if(item -1 > this.atividades.size()) {
+				throw new IllegalArgumentException("Item nao encontrado.");
+			}
+			else if(this.atividades.get(codigoAtividade).getStatus(item).equals("REALIZADO")) {
+				throw new IllegalArgumentException("Item ja executado.");
+			}else {
+				this.atividades.get(codigoAtividade).executaAtividade(codigoAtividade, item, duracao);
+			}
 		}else {
-			this.atividades.get(codigoAtividade).executaAtividade(codigoAtividade, item, duracao);
+			throw new IllegalArgumentException("Atividade sem associacoes com pesquisas.");
 		}
+		
 		
 		
 	}

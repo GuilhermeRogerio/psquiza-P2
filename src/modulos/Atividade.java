@@ -17,6 +17,7 @@ public class Atividade {
 	 */
 	private ArrayList<Item> items;
 	private List<String> resultados;
+	private boolean ehAssociada;
 	
 	/**
 	 * Nivel de risco da atividade
@@ -57,6 +58,7 @@ public class Atividade {
 		this.codigo = "A";
 		this.contResultado = 0;
 		this.duracao = 0;
+		this.ehAssociada = false;
 		this.validador = new Validador();
 	}
 	
@@ -214,6 +216,18 @@ public class Atividade {
 		return duracao ;
 	}
 	
+	public void setEhAssociada() {
+		this.ehAssociada = true;
+	}
+	
+	public boolean isEhAssociada() {
+		return ehAssociada;
+	}
+	
+	public void setNaoAssociada() {
+		this.ehAssociada = false;
+	}
+
 	public String getStatus(int item) {
 		return this.items.get(item -1).getStatus();
 	}

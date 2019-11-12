@@ -330,7 +330,7 @@ public class ControllerGeral {
 	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
 		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
-			return this.controllerPesquisa.associaAtividade(codigoPesquisa,
+			return this.controllerPesquisa.associaAtividade(codigoPesquisa,codigoAtividade,
 					this.controllerAtividade.getAtividade(codigoAtividade));
 		} else {
 			throw new IllegalArgumentException("Atividade nao encontrada");
@@ -342,7 +342,7 @@ public class ControllerGeral {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
 		if (this.controllerAtividade.getAtividade(codigoAtividade) != null) {
 			return this.controllerPesquisa.desassociaAtividade(codigoPesquisa,
-					this.controllerAtividade.getAtividade(codigoAtividade));
+					codigoAtividade);
 		} else {
 			throw new IllegalArgumentException("Atividade nao encontrada");
 		}

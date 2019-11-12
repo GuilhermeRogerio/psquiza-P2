@@ -186,11 +186,11 @@ public class ControllerPesquisa {
 	 * @return "True" se a associação for bem sucedida e "False" se a associação não
 	 *         acontecer.
 	 */
-	public boolean associaAtividade(String codigoPesquisa, Atividade atividade) {
+	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade,Atividade atividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
 		if (pesquisas.containsKey(codigoPesquisa)) {
 			if (pesquisas.get(codigoPesquisa).getAtiva()) {
-				return pesquisas.get(codigoPesquisa).addAtividade(atividade);
+				return pesquisas.get(codigoPesquisa).addAtividade(codigoAtividade, atividade);
 
 			} else {
 				throw new IllegalArgumentException("Pesquisa desativada.");
@@ -209,12 +209,11 @@ public class ControllerPesquisa {
 	 * @return "True" se a desassociação for bem sucedida e "False" se a
 	 *         desassociação não acontecer.
 	 */
-	public boolean desassociaAtividade(String codigoPesquisa, Atividade atividade) {
+	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
 		if (pesquisas.containsKey(codigoPesquisa)) {
 			if (pesquisas.get(codigoPesquisa).getAtiva()) {
-				return this.pesquisas.get(codigoPesquisa).removeAtividade(atividade);
-
+				return this.pesquisas.get(codigoPesquisa).removeAtividade(codigoAtividade);
 			} else {
 				throw new IllegalArgumentException("Pesquisa desativada.");
 			}

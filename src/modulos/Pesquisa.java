@@ -2,6 +2,7 @@ package modulos;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import util.Validador;
@@ -15,7 +16,7 @@ public class Pesquisa {
 	private String camposInteresse[];
 	private String codigo;
 	private boolean ativa;
-	private Set<Atividade> atividades;
+	private Map<String,Atividade> atividades;
 
 	/**
 	 * 
@@ -28,31 +29,32 @@ public class Pesquisa {
 		this.gerarCamposInteresse(camposInteresse);
 		this.descricao = descricao;
 		this.ativa = true;
-		this.atividades = new HashSet<>();
+		this.atividades = new HashMap<>();
 
 	}
 
-	public boolean addAtividade(Atividade atividade) {
-		if(!atividades.contains(atividade)) {
-			this.atividades.add(atividade);
+	public boolean addAtividade(String codigoAtividade,Atividade atividade) {
+		if(!atividades.containsKey(codigoAtividade)) {
+			this.atividades.put(codigoAtividade, atividade);
+			this.atividades.get(codigoAtividade).setEhAssociada();
 			return true;
 		}else {
 			return false;
 		}
 	}
 	
-	public boolean ehAssociada(Atividade atividade) {
+	/*public boolean ehAssociada(Atividade atividade) {
 		if(this.atividades.contains(atividade)) {
-			
 			return true;
 		}else {
 			return false;
 		}
-	}
+	}*/
 
-	public boolean removeAtividade(Atividade atividade) {
-		if(atividades.contains(atividade)) {
-			this.atividades.remove(atividade);
+	public boolean removeAtividade(String codigoAtividade) {
+		if(atividades.get(codigoAtividade) != null) {
+			this.atividades.get(codigoAtividade).setNaoAssociada();
+			this.atividades.remove(codigoAtividade);
 			return true;
 		}else {
 			return false;
@@ -133,6 +135,14 @@ public class Pesquisa {
 	 */
 	public boolean getAtiva() {
 		return this.ativa;
+	}
+	
+	public void setAssociada(String codigoAtividade) {
+		this.atividades.get(codigoAtividade).setEhAssociada();
+	}
+	
+	public void setNaoAssociada(String codigoAtividade) {
+		this.atividades.get(codigoAtividade).setNaoAssociada();
 	}
 
 	public void setCodigo(String codigoPesquisa) {
