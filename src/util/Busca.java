@@ -102,6 +102,25 @@ public class Busca {
 		return resultados;
 	}
 	
+	private List<String> buscaAtividade(String termo) {
+		
+		List<String> resultados = new ArrayList<String>();
+		
+		ControllerAtividade ctrlAtividade = this.controller.getControllerAtividade();
+		
+		List<Atividade> atividades = ctrlAtividade.getaAtividades();
+		
+		for (Atividade atividade : atividades) {
+			
+			final String stringAtividade = atividade.toString();
+			
+			if(stringAtividade.matches(termo))
+				resultados.add(stringAtividade);
+		}
+		
+		return resultados;
+	}
+	
 	
 	/**
 	 * Método público que realiza uma busca a partir de um termo nas entidades:
@@ -146,15 +165,15 @@ public class Busca {
 		StringBuilder sb = new StringBuilder();
 		
 		///Busca em pesquisa
-		List<String> resultPesquisa = buscaPesquisa(termo);
+		List<String> resultPesquisa = buscaPesquisa(termo);		
 		
-		
-		for(int i=0; i< resultPesquisa.size(); i++) {
+		for(String res: resultPesquisa) {
 			
-			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+			if(cont <= numeroDoResultado) 
 				sb.append(resultPesquisa+" | ");
-				cont++;
-			}			
+			
+			if(numeroDoResultado!=0)cont++;
+						
 		}
 			
 		
@@ -162,30 +181,41 @@ public class Busca {
 		List<String> resultPesquisador = buscaPesquisador(termo);
 		
 		for(String res: resultPesquisador) {
-			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
-				sb.append(resultPesquisa+" | ");
-				cont++;
-			}
+			
+			if(cont<= numeroDoResultado) 
+				sb.append(res+" | ");
+			
+			if(numeroDoResultado!=0)cont++;
 		}
 		
 		///Busca em Problema
 		List<String> resultProblema = buscaProblema(termo);
 		
-		for(String res: resultPesquisador) {
-			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+		for(String res: resultProblema) {
+			if(cont<= numeroDoResultado) 
 				sb.append(res+" | ");
-				cont++;
-			}
+			
+			if(numeroDoResultado!=0)cont++;
 		}
 		
 		//Busca em Objetivos
 		List<String> resultObjetivos = buscaObjetivo(termo);
 		
 		for(String res: resultObjetivos) {
-			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+			if(cont<= numeroDoResultado) 
 				sb.append(res+" | ");
-				cont++;
-			}
+			
+			if(numeroDoResultado!=0)cont++;
+		}
+		
+		//Busca em Atividades
+		List<String> resultAtividades = buscaAtividade(termo);
+		
+		for(String res: resultAtividades) {
+			if(cont<= numeroDoResultado) 
+				sb.append(res+" | ");
+			
+			if(numeroDoResultado!=0)cont++;
 		}
 			
 		

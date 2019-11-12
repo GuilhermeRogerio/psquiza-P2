@@ -330,5 +330,15 @@ public class ControllerGeral {
 		// TODO Auto-generated method stub
 		return this.controllerProblemaObjetivo;
 	}
+	
+	/**
+	 * Retorna o controlador dos módulos Atividade
+	 * 
+	 * @return ControllerAtividade
+	 * */
+	public ControllerAtividade getControllerAtividade() {
+		// TODO Auto-generated method stub
+		return this.controllerAtividade;
+	}
 
 }
