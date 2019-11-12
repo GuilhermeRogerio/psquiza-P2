@@ -59,6 +59,24 @@ public class Busca {
 		
 		return resultados;
 	}
+
+	private List<String> buscaProblema(String termo) {
+		
+		List<String> resultados = new ArrayList<String>();
+		
+		ControllerPesquisador ctrlProblema = this.controller.getControllerProblema();
+		List<Pesquisador> problemas = ctrlProblema.getProblemas();
+		
+		for (Pesquisador problema : problemas) {
+			
+			final String stringProblemas = problema.toString();
+			
+			if(stringProblemas.matches(termo))
+				resultados.add(stringProblemas);
+		}
+		
+		return resultados;
+	}
 	
 	
 	/**
@@ -111,6 +129,7 @@ public class Busca {
 		
 		for(int i=0; i< resultPesquisa.size(); i++) {
 			sb.append(res+" | ");
+			cont++;
 		}
 			
 		
