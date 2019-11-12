@@ -51,7 +51,7 @@ public class Busca {
 		
 		for (Pesquisador pesquisador : pesquisadores) {
 			
-			final String stringPesquisadores = pesquisadores.toString();
+			final String stringPesquisadores = pesquisador.toString();
 			
 			if(stringPesquisadores.matches(termo))
 				resultados.add(stringPesquisadores);
@@ -60,19 +60,43 @@ public class Busca {
 		return resultados;
 	}
 
+	
+	/**
+	 * 
+	 * 
+	 * */
 	private List<String> buscaProblema(String termo) {
 		
 		List<String> resultados = new ArrayList<String>();
 		
-		ControllerPesquisador ctrlProblema = this.controller.getControllerProblema();
-		List<Pesquisador> problemas = ctrlProblema.getProblemas();
+		ControllerProblemaObjetivo ctrlProblema = this.controller.getControllerProblema();
+		List<Problema> problemas = ctrlProblema.getProblemas();
 		
-		for (Pesquisador problema : problemas) {
+		for (Problema problema : problemas) {
 			
 			final String stringProblemas = problema.toString();
 			
 			if(stringProblemas.matches(termo))
 				resultados.add(stringProblemas);
+		}
+		
+		return resultados;
+	}
+	
+	private List<String> buscaObjetivo(String termo) {
+		
+		List<String> resultados = new ArrayList<String>();
+		
+		ControllerProblemaObjetivo ctrlProblema = this.controller.getControllerProblema();
+		
+		List<Objetivo> objetivos = ctrlProblema.getObjetivos();
+		
+		for (Objetivo objetivo : objetivos) {
+			
+			final String stringObjetivos = objetivo.toString();
+			
+			if(stringObjetivos.matches(termo))
+				resultados.add(stringObjetivos);
 		}
 		
 		return resultados;
@@ -115,9 +139,7 @@ public class Busca {
 		validador.valida(termo, "Campo termo nao pode ser nulo ou vazio.");
 		validador.validaPositivo(numeroDoResultado, "Numero do resultado nao pode ser negativo.");
 		
-		if(numeroDoResultado == 0) {
-			
-		}
+		
 		
 		int cont = 0;
 		
@@ -128,22 +150,53 @@ public class Busca {
 		
 		
 		for(int i=0; i< resultPesquisa.size(); i++) {
-			sb.append(res+" | ");
-			cont++;
+			
+			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+				sb.append(resultPesquisa+" | ");
+				cont++;
+			}			
 		}
 			
 		
 		///Busca em pesquisador
 		List<String> resultPesquisador = buscaPesquisador(termo);
 		
-		for(String res: resultPesquisador)
-			sb.append(res+" | ");
+		for(String res: resultPesquisador) {
+			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+				sb.append(resultPesquisa+" | ");
+				cont++;
+			}
+		}
+		
+		///Busca em Problema
+		List<String> resultProblema = buscaProblema(termo);
+		
+		for(String res: resultPesquisador) {
+			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+				sb.append(res+" | ");
+				cont++;
+			}
+		}
+		
+		//Busca em Objetivos
+		List<String> resultObjetivos = buscaObjetivo(termo);
+		
+		for(String res: resultObjetivos) {
+			if(numeroDoResultado!=0 && cont<= numeroDoResultado) {
+				sb.append(res+" | ");
+				cont++;
+			}
+		}
+			
 		
 		return sb.toString().substring(0, sb.toString().length()-3);
 	}
 	
+	
+
+
 	public int contaResultadosBusca(String termo) {
-		
+		return 0;
 	}
 	
 	

@@ -320,4 +320,15 @@ public class ControllerGeral {
 		return this.controllerAtividade.contaItensRealizados(codigo);
 	}
 
+	
+	/**
+	 * Retorna o controlador dos módulos Problema-Objetivo
+	 * 
+	 * @return ControllerProblemaObjetivo
+	 * */
+	public ControllerProblemaObjetivo getControllerProblema() {
+		// TODO Auto-generated method stub
+		return this.controllerProblemaObjetivo;
+	}
+
 }
