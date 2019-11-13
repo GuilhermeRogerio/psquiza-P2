@@ -13,11 +13,15 @@ public class Facade {
 				"testes_aceitacao/use_case_2.txt", "testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_4.txt", 
 				"testes_aceitacao/use_case_5.txt","testes_aceitacao/use_case_6.txt","testes_aceitacao/use_case_7.txt","testes_aceitacao/use_case_8.txt" };
 		EasyAccept.main(args);
+		
+//		System.out.println(new Busca().buscaLimit("computacao", 2));
 	}
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
-		busca = new Busca();
+		busca = new Busca(controllerGeral);
+		
+		//System.out.println(this.busca.buscaLimit("com", 2));
 	}
 
 	/**
@@ -144,7 +148,9 @@ public class Facade {
 	}
 	
 	public String busca(String termo, int numeroDoResultado) {
-		return this.busca.busca(termo, numeroDoResultado);
+		return this.busca.buscaLimit(termo, numeroDoResultado);
 	}
+	
+	
 
 }

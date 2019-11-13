@@ -72,6 +72,16 @@ public class Pesquisador {
 	public String toString() {
 		return nome + " (" + funcao + ")" + " - " + biografia + " - " + email + " - " + foto;
 	}
+	
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {
+
+		return String.format("%s: %s | ",this.email, this.biografia);
+	}
 
 	/**
 	 * Realiza a alteração do valor do atributo nome.
@@ -116,6 +126,16 @@ public class Pesquisador {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+	
+	/**
+     * Método que retorna o valor do atributo Biografia.
+     *
+     * @return o valor do atributo.
+     */
+	public String getBiografia() {
+		return biografia;
+	}
+	
     /**
      * Método que retorna o valor do atributo ativo.
      *

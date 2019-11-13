@@ -165,6 +165,15 @@ public class Atividade {
 		return retorno.substring(0, retorno.length() - 3);
 	}
 	
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {		
+		return String.format("%s: %s | ",this.codigo, this.descricao);
+	}
+	
 	
 
 }
