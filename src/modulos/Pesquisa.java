@@ -244,5 +244,21 @@ public class Pesquisa {
 		
 		return atividades;
 	}
+	
+	/**
+	 * Método retorna uma lista de Objetivos associados à uma pesquisa
+	 * 
+	 * @return List<Objetivo>
+	 * */
+	public List<Objetivo> getObjetivos() {
+		
+		List<Objetivo> objetivos = new ArrayList<>();
+    	
+    	for(String key: this.objetivos.keySet())
+    		objetivos.add(this.objetivos.get(key));
+    	
+    	return objetivos; 
+	}
+	
 
 }
