@@ -73,6 +73,9 @@ public class Item {
 		return true;
 	}
 	
+	public String getItem() {
+		return item;
+	}
 	
 
 	

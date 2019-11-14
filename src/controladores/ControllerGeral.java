@@ -420,5 +420,41 @@ public class ControllerGeral {
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerAtividade.listaResultados(codigoAtividade);
 	}
+	
+	/**
+	 * Retorna o controlador da classe Pesquisador
+	 * 
+	 * @return ControllerPesquisa
+	 * */
+	public ControllerPesquisa getControllerPesquisa() {
+		return controllerPesquisa;
+	}
+	
+	/**
+	 * Retorna o controlador da classe Pesquisador
+	 * 
+	 * @return ControllerPesquisador
+	 * */
+	public ControllerPesquisador getControllerPesquisador() {
+		return controllerPesquisador;
+	}
+	
+	/**
+	 * Retorna o controlador dos módulos Problema-Objetivo
+	 * 
+	 * @return ControllerProblemaObjetivo
+	 * */
+	public ControllerProblemaObjetivo getControllerProblema() {
+		return this.controllerProblemaObjetivo;
+	}
+	
+	/**
+	 * Retorna o controlador dos módulos Atividade
+	 * 
+	 * @return ControllerAtividade
+	 * */
+	public ControllerAtividade getControllerAtividade() {
+		return this.controllerAtividade;
+	}
 
 }

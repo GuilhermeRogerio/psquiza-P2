@@ -1,9 +1,11 @@
 package modulos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
+
 
 import util.Validador;
 
@@ -157,6 +159,22 @@ public class Pesquisa {
 
 	public void setCodigo(String codigoPesquisa) {
 		this.codigo = codigoPesquisa;
+	}
+	
+	/**
+	 * Metodo retorna todas as atividade da pesquisa
+	 * 
+	 * @return List<Atividade> 
+	 * */
+	public List<Atividade> getAtividades() {
+		
+		List<Atividade> atividades = new ArrayList<>();
+		
+		for(String key: this.atividades.keySet()) {
+			atividades.add(this.atividades.get(key));
+		}
+		
+		return atividades;
 	}
 
 }

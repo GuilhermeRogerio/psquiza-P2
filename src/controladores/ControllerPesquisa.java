@@ -1,6 +1,8 @@
 package controladores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import modulos.Atividade;
@@ -222,5 +224,18 @@ public class ControllerPesquisa {
 			throw new IllegalArgumentException("Pesquisa nao encontrada.");
 		}
 	}
+	
+	/**
+     * Método que retorna Pesquisa a partir codigo
+     * 
+     * @return Pesquisa
+     */
+    public Pesquisa getPesquisa(String codigo) {
+    	
+    	if(this.pesquisas.containsKey(codigo))
+    		return this.pesquisas.get(codigo);
+    	else
+    		throw new Error("Pesquisa nao encontrada.");  	
+    }
 
 }

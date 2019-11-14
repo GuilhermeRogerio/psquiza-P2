@@ -1,6 +1,8 @@
 package modulos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -87,9 +89,6 @@ public class Pesquisador {
 		this.especialidade.alteraEspecialidade(atributo, novoValor);
 	}
 	
-	public boolean associaPesquisador(Pesquisa pesquisa) {
-		
-	}
 	
 	/**
      * Representação textual do pesquisador.
@@ -156,6 +155,23 @@ public class Pesquisador {
 	public boolean getAtivo() {
 		return this.ativo;
 	}
+	
+	 /**
+     * Método que retorna todos Pesquisas cadastrados
+     * 
+     * @return List<Pesquisa>
+     */
+    public List<Pesquisa> getPesquisas() {
+    	
+    	List<Pesquisa> pesquisas = new ArrayList<Pesquisa>();
+    	
+    	for(String key: this.pesquisas.keySet())
+    		pesquisas.add(this.pesquisas.get(key));
+    	
+    	return pesquisas;    	
+    }
+
+	
 	/**
 	 * Realiza a alteração do valor do atributo ativo.
      *
