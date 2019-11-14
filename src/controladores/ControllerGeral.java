@@ -329,6 +329,36 @@ public class ControllerGeral {
 	}
 	
 	/**
+	 * US5
+	 */
+	public boolean associaProblema(String idPesquisa, String idProblema) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		this.validador.valida(idProblema, "Campo idProblema nao pode ser nulo ou vazio.");
+		return this.controllerPesquisa.associaProblema(idPesquisa, this.controllerProblemaObjetivo.problema(idProblema));
+	}
+
+	public boolean desassociaProblema(String idPesquisa) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		return this.controllerPesquisa.desassociaProblema(idPesquisa);
+	}
+
+	public boolean associaObjetivo(String idPesquisa, String idObjetivo) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		this.validador.valida(idObjetivo, "Campo idObjetivo nao pode ser nulo ou vazio.");
+		return this.controllerPesquisa.associaObjetivo(idPesquisa, this.controllerProblemaObjetivo.objetivo(idObjetivo), idObjetivo);
+	}
+
+	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		this.validador.valida(idObjetivo, "Campo idObjetivo nao pode ser nulo ou vazio.");
+		return this.controllerPesquisa.desassociaObjetivo(idPesquisa, idObjetivo);
+	}
+
+	public String listaPesquisas(String ordem) {
+		return this.controllerPesquisa.listaPesquisas(ordem);
+	}
+	
+	/**
 	 * US6
 	 */
 	

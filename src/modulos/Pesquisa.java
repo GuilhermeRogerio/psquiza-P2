@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
+import java.util.Optional;
 
 import util.Validador;
 
@@ -18,6 +17,8 @@ public class Pesquisa {
 	private String camposInteresse[];
 	private String codigo;
 	private boolean ativa;
+	private HashMap<String,Objetivo> objetivos;
+	private Optional<Problema> problemaOptional;
 	/**
 	 * Mapa de atividade.
 	 */
@@ -35,6 +36,8 @@ public class Pesquisa {
 		this.descricao = descricao;
 		this.ativa = true;
 		this.atividades = new HashMap<>();
+		this.objetivos = new HashMap<>();
+		this.problemaOptional = Optional.empty();
 
 	}
 
@@ -159,6 +162,71 @@ public class Pesquisa {
 
 	public void setCodigo(String codigoPesquisa) {
 		this.codigo = codigoPesquisa;
+	}
+	public boolean associaProblema(Problema problema) {
+		boolean retorno = false;
+		if (!this.problemaOptional.isPresent()) {
+			this.problemaOptional = Optional.ofNullable(problema);
+			retorno = true;
+
+		} else if (!this.problemaOptional.get().equals(problema)) {
+			throw new IllegalArgumentException("Pesquisa ja associada a um problema.");
+		}
+		return retorno;
+	}
+
+	public boolean desassociaProblema() {
+		boolean retorno = false;
+		if(this.problemaOptional.isPresent()) {
+			this.problemaOptional = Optional.empty();
+			retorno = true;
+		}
+		return retorno;
+	}
+
+	public boolean associaObjetivo(Objetivo objetivo, String idObjetivo) {
+		boolean retorno = false;
+		if (!this.objetivos.containsKey(idObjetivo)) {
+			if (objetivo.isAssociado()) {
+				throw new IllegalArgumentException("Objetivo ja associado a uma pesquisa.");
+			}
+			this.objetivos.put(idObjetivo, objetivo);
+			this.objetivos.get(idObjetivo).setAssociado(true);
+			retorno = true;
+		}
+		return retorno;
+	}
+
+	public boolean desassociaObjetivo(String idObjetivo) {
+		boolean retorno = false;
+		if (this.objetivos.containsKey(idObjetivo)) {
+			this.objetivos.get(idObjetivo).setAssociado(false);
+			this.objetivos.remove(idObjetivo);
+			retorno = true;
+		}
+		return retorno;
+	}
+
+	public Optional<Problema> getProblema() {
+		return this.problemaOptional;
+	}
+
+	public int getQuantiadeDeObjetivos(){
+		return this.objetivos.size();
+	}
+
+	public String maiorId() {
+		String variavelId = "";
+		for (String id : objetivos.keySet()) {
+			if (id == "") {
+				variavelId = id;
+			} else {
+				if (variavelId.compareTo(id) < 0){
+					variavelId = id;
+				}
+			}
+		}
+		return variavelId;
 	}
 	
 	/**

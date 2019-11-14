@@ -131,6 +131,29 @@ public class Facade {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
 	
+	/*
+	 * US5
+	 */
+	public boolean associaProblema(String idPesquisa, String idProblema) {
+		return this.controllerGeral.associaProblema(idPesquisa, idProblema);
+	}
+	
+	public boolean desassociaProblema(String idPesquisa) {
+		return this.controllerGeral.desassociaProblema(idPesquisa);
+	}
+	
+	public boolean associaObjetivo(String idPesquisa, String idObjetivo) {
+		return this.controllerGeral.associaObjetivo(idPesquisa, idObjetivo);
+	}
+	
+	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
+		return this.controllerGeral.desassociaObjetivo(idPesquisa, idObjetivo);
+	}
+
+	public String listaPesquisas(String ordem){
+		return this.controllerGeral.listaPesquisas(ordem);
+	}
+	
 	/**
 	 * US6
 	 */
