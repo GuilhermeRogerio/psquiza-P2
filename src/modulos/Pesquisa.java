@@ -106,7 +106,7 @@ public class Pesquisa {
 		String camposInteresseString = sbCamposInteresse.toString();
 		camposInteresseString = camposInteresseString.substring(0, camposInteresseString.length() - 2);
 
-		return String.format("%s: %s | %s: %s | ",this.codigo, this.descricao, this.codigo, camposInteresseString);
+		return String.format("%s: %s - %s | ",this.codigo, this.descricao, camposInteresseString);
 	}
 
 	/***

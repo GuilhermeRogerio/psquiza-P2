@@ -192,11 +192,9 @@ public class Busca {
 									
 		
 		///Busca em pesquisador		
-		for(String res: resultPesquisador) {	
-			
+		for(String res: resultPesquisador) {			
 				sb.append(res);
-				contResultados++;
-			
+				contResultados++;			
 		}	
 		
 		///Busca em problema	
