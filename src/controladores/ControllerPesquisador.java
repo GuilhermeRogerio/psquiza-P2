@@ -1,6 +1,8 @@
 package controladores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import modulos.Pesquisador;
 import util.Validador;
@@ -164,5 +166,20 @@ public class ControllerPesquisador {
         }else{
             throw new IllegalArgumentException("Pesquisador nao encontrado");
         }
+    }
+    
+    /**
+     * Método que retorna todos Pesquisadores cadastrados
+     * 
+     * @return pesquisador no sistema.
+     */
+    public List<Pesquisador> getPesquisadores() {
+    	
+    	List<Pesquisador> pesquisadores = new ArrayList<Pesquisador>();
+    	
+    	for(String key: this.mapaPesquisador.keySet())
+    		pesquisadores.add(this.mapaPesquisador.get(key));
+    	
+    	return pesquisadores;    	
     }
 }

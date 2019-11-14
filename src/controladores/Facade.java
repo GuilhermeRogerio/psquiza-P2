@@ -1,21 +1,24 @@
 package controladores;
 
 import easyaccept.EasyAccept;
+import util.Resultado;
 
 public class Facade {
 
 	private ControllerGeral controllerGeral;
+	private Resultado resultados;
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
 				"testes_aceitacao/use_case_2.txt", "testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_4.txt",
 				"testes_aceitacao/use_case_5.txt", "testes_aceitacao/use_case_6.txt", "testes_aceitacao/use_case_7.txt",
-				"testes_aceitacao/use_case_8.txt" };
+				"testes_aceitacao/use_case_8.txt","testes_aceitacao/use_case_11.txt" };
 		EasyAccept.main(args);
 	}
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
+		resultados = new Resultado(controllerGeral);
 	}
 
 	/**
@@ -159,5 +162,12 @@ public class Facade {
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerGeral.listaResultados(codigoAtividade);
 	}
-
+	
+	 public void gravarResumo(String codigoPesquisa) {
+		 this.resultados.gravarResumo(codigoPesquisa);
+	 }
+	 
+	 public void gravarResultados(String codigoPesquisa) {
+		 this.resultados.gravarResultados(codigoPesquisa);
+	 }
 }

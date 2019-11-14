@@ -247,6 +247,10 @@ public class Atividade {
 	public int getDuracao() {
 		return duracao;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
 
 	public void setEhAssociada() {
 		this.ehAssociada = true;
@@ -262,6 +266,14 @@ public class Atividade {
 
 	public String getStatus(int item) {
 		return this.items.get(item - 1).getStatus();
+	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public List<String> getResultados() {
+		return resultados;
 	}
 
 }
