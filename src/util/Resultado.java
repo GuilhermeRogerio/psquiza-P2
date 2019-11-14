@@ -9,7 +9,7 @@ import controladores.*;
 import modulos.*;
 
 /**
- * Classe utilitária para a exibição de Resultados 
+ * Classe utilitï¿½ria para a exibiï¿½ï¿½o de Resultados 
  * de uma pesquisa salvo em arquivos de texto
  *  * 
  * */
@@ -25,7 +25,7 @@ public class Resultado {
 	
     
 	/**
-	 * Método interno que retorna uma lista de pequisadores
+	 * Mï¿½todo interno que retorna uma lista de pequisadores
 	 * associado a uma pesquisa
 	 * 
 	 * @param <{@link String}
@@ -56,8 +56,8 @@ public class Resultado {
 
     		
 	/**
-	 * Método interno que retorna uma pesquisa a 
-	 * partir de um código identificador
+	 * Mï¿½todo interno que retorna uma pesquisa a 
+	 * partir de um cï¿½digo identificador
 	 * 
 	 * @param codigo <{@link String}
 	 * @return <@ link Pesquisa>
@@ -72,7 +72,7 @@ public class Resultado {
 	
 
     /**
-     * Método responsável por salvar dados a cerca
+     * Mï¿½todo responsï¿½vel por salvar dados a cerca
      * de uma pesquisa em um arquivo de texto
      * 
      * @param codigo <{@link String}     * 
@@ -98,14 +98,15 @@ public class Resultado {
     	//Problemas
     	sb.append("\t - Problemas: \n\n");   	
     	 
-    	List<Problema> problemas = new ArrayList<Problema>(); //TODO: Modificar os prblemas*/
-    	for(Problema problema: problemas) 
+    	Problema problema = pesquisa.getProblema().get(); //TODO: Modificar os prblemas*/
+    	
+    	if(problema!=null)
     		sb.append("\t\t - "+problema.toString()+"\n");
     	
     	
     	//Objetivos
     	sb.append("\t - Objetivos: \n\n");
-    	List<Objetivo> objetivos = new ArrayList<Objetivo>(); //TODO: Modificar os objetivos*/
+    	List<Objetivo> objetivos = pesquisa.getObjetivos();
     	for(Objetivo objetivo: objetivos) 
     		sb.append("\t\t - "+objetivo.toString()+"\n");
     	
@@ -148,7 +149,7 @@ public class Resultado {
     	
     	
 	/**
-     * Método responsável por salvas resultados obtidos a cerca
+     * Mï¿½todo responsï¿½vel por salvas resultados obtidos a cerca
      * de uma pesquisa em um arquivo de texto
      * 
      * @param codigo <{@link String}     * 
@@ -158,21 +159,21 @@ public class Resultado {
     	validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");
     	
     	/*   
-    	 * - Pesquisa: CÓDIGO - Descrição - Campo de interesse
+    	 * - Pesquisa: Cï¿½DIGO - Descriï¿½ï¿½o - Campo de interesse
 
     - Resultados:
 
-        - DESCRIÇÃO
+        - DESCRIï¿½ï¿½O
 
-            - ITEM1 - DURAÇÃO - DESCRIÇÃO_RESULTADO
+            - ITEM1 - DURAï¿½ï¿½O - DESCRIï¿½ï¿½O_RESULTADO
 
-            - ITEM2 - DURAÇÃO - DESCRIÇÃO_RESULTADO
+            - ITEM2 - DURAï¿½ï¿½O - DESCRIï¿½ï¿½O_RESULTADO
 
-        - DESCRIÇÃO
+        - DESCRIï¿½ï¿½O
 
-            - ITEM4 - DURAÇÃO - DESCRIÇÃO_RESULTADO
+            - ITEM4 - DURAï¿½ï¿½O - DESCRIï¿½ï¿½O_RESULTADO
 
-            - ITEM5 - DURAÇÃO - DESCRIÇÃO_RESULTADO
+            - ITEM5 - DURAï¿½ï¿½O - DESCRIï¿½ï¿½O_RESULTADO
 
     	 * */
     	
