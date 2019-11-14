@@ -5,8 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import comparadores.ComparadorObjetivo;
+import comparadores.ComparadorPesquisa;
+import comparadores.ComparadorProblema;
 import modulos.Atividade;
+import modulos.Objetivo;
 import modulos.Pesquisa;
+import modulos.Problema;
 import util.Validador;
 
 public class ControllerPesquisa {
@@ -178,6 +183,83 @@ public class ControllerPesquisa {
 
 		Pesquisa pesquisa = this.pesquisas.get(codigo);
 		return pesquisa.getAtiva();
+	}
+	
+	/**
+	 * US5
+	 */
+	public boolean associaProblema(String idPesquisa, Problema problema) {
+		if (this.pesquisas.containsKey(idPesquisa)) {
+			if (this.pesquisaEhAtiva(idPesquisa)) {
+				return this.pesquisas.get(idPesquisa).associaProblema(problema);
+			} else {
+				throw new IllegalArgumentException("Pesquisa desativada.");
+			}
+		} else {
+			throw new IllegalArgumentException("Pesquisa nao encontrada.");
+		}
+	}
+
+	public boolean desassociaProblema(String idPesquisa) {
+		if (this.pesquisas.containsKey(idPesquisa)) {
+			if (this.pesquisaEhAtiva(idPesquisa)) {
+				return this.pesquisas.get(idPesquisa).desassociaProblema();
+			} else {
+				throw new IllegalArgumentException("Pesquisa desativada.");
+			}
+		} else {
+			throw new IllegalArgumentException("Pesquisa nao encontrada.");
+		}
+	}
+
+	public boolean associaObjetivo(String idPesquisa, Objetivo objetivo, String idObjetivo) {
+		if (this.pesquisas.containsKey(idPesquisa)) {
+			if (this.pesquisaEhAtiva(idPesquisa)) {
+				return this.pesquisas.get(idPesquisa).associaObjetivo(objetivo, idObjetivo);
+			} else {
+				throw new IllegalArgumentException("Pesquisa desativada.");
+			}
+		} else {
+			throw new IllegalArgumentException("Pesquisa nao encontrada.");
+		}
+	}
+
+	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
+		if (this.pesquisas.containsKey(idPesquisa)) {
+			if (this.pesquisaEhAtiva(idPesquisa)) {
+				return this.pesquisas.get(idPesquisa).desassociaObjetivo(idObjetivo);
+			} else {
+				throw new IllegalArgumentException("Pesquisa desativada.");
+			}
+		} else {
+			throw new IllegalArgumentException("Pesquisa nao encontrada.");
+		}
+	}
+
+	private String percorreLista(ArrayList<Pesquisa> lista){
+		String listar= "";
+		for (Pesquisa dados : lista) {
+			listar += dados.toString() + " | " ;
+		}
+		return listar.substring(0, listar.length()-3);
+	}
+
+	public String listaPesquisas(String ordem) {
+		ArrayList<Pesquisa> listaPesquisas = new ArrayList<>(this.pesquisas.values());
+		String result = "";
+		if (ordem.equals("PROBLEMA")) {
+			listaPesquisas.sort(new ComparadorProblema());
+			result = this.percorreLista(listaPesquisas);
+		} else if (ordem.equals("OBJETIVOS")) {
+			listaPesquisas.sort(new ComparadorObjetivo());
+			result = this.percorreLista(listaPesquisas);
+		} else if (ordem.equals("PESQUISA")) {
+			listaPesquisas.sort(new ComparadorPesquisa());
+			result = this.percorreLista(listaPesquisas);
+		} else {
+			throw new IllegalArgumentException("Valor invalido da ordem");
+		}
+		return result;
 	}
 
 	/**

@@ -37,6 +37,8 @@ public class Objetivo {
 	 * Soma da aderencia + viabilidade.
 	 */
 	private int valor;
+	
+	private boolean associado;
 
 	/**
 	 * Constroi um objetivo,inicia o validador e calcula o valor.
@@ -77,6 +79,18 @@ public class Objetivo {
 
 	public String getCodigo() {
 		return codigo;
+	}
+	
+	/**
+	 * US5
+	 */
+	
+	public boolean isAssociado() {
+		return associado;
+	}
+
+	public void setAssociado(boolean estadoOjetivo) {
+		this.associado = estadoOjetivo;
 	}
 
 	@Override
