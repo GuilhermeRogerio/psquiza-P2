@@ -139,4 +139,15 @@ public class ControllerProblemaObjetivo {
 		}
 	}
 
+	/**
+	 * US5
+	 */
+	
+	public Problema problema(String idProblema) {
+		return this.problemas.get(idProblema);
+	}
+
+	public Objetivo objetivo(String idObjetivo) {
+		return this.objetivos.get(idObjetivo);
+	}
 }
