@@ -92,11 +92,23 @@ public class ControllerPesquisador {
         
     }
     
+    /**
+     * Método que identifica se o atributo passado como parâmetro representa um dos atributos de um pesquisador especializado
+     * 
+     * @param atributo - Atributo a ser comparado
+     * @return - Boolean informado se o atributo é, ou não, um atributo de um pesquisador do tipo Aluno ou Professor
+     */
     private boolean verificaAtributos(String atributo) {
     	return ("FORMACAO".equals(atributo) || "DATA".equals(atributo) || "UNIDADE".equals(atributo) || 
     			"SEMESTRE".equals(atributo) || "IEA".equals(atributo));
     }
     
+    /**
+     * Método feito especialmente para validar a foto do pesquisador
+     * 
+     * @param atributo - Foto do pesquisador
+     * @param novoValor - Foto atualizada
+     */
     private void validaAlteraPesquisador(String atributo, String novoValor) {
     	if ("FOTO".equals(atributo)) {
     		this.validador.valida(novoValor, "Campo fotoURL nao pode ser nulo ou vazio.");
@@ -146,6 +158,7 @@ public class ControllerPesquisador {
      * @return a representação do pesquisador.
      */
     public String exibePesquisador(String email) {
+    	this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");
         if (mapaPesquisador.containsKey(email)) {
             return this.mapaPesquisador.get(email).toString();
         }else{
@@ -181,5 +194,39 @@ public class ControllerPesquisador {
     		pesquisadores.add(this.mapaPesquisador.get(key));
     	
     	return pesquisadores;    	
+    }
+    
+    /**
+     * Método que busca um Pesquisador cadastrado.
+     * 
+     * @param email - Chave de busca do pesquisador
+     * @return - Um objeto Pesquisador
+     */
+    public Pesquisador getPesquisador(String email) {
+    	this.validador.valida(email, "Email nao pode ser vazio ou nulo.");
+    	if (!this.mapaPesquisador.containsKey(email)) {
+    		throw new IllegalArgumentException("Pesquisadora nao encontrada.");
+    	} else {
+    		return this.mapaPesquisador.get(email);
+    	}
+    }
+    
+    /**
+     * Método que lista pesquisadores do tipo especificado
+     * 
+     * @param tipo - Tipo do pesquisador que se quer listar
+     * @return - Representação textual dos pesquisadores
+     */
+    public String listaPesquisadores(String tipo) {
+    	tipo = tipo.toLowerCase();
+    	String retorno = "";
+    	for (String email : this.mapaPesquisador.keySet()) {
+    		Pesquisador pesquisador = this.mapaPesquisador.get(email);
+    		if (tipo.equals(pesquisador.getFuncao())) {
+    			retorno += pesquisador.toString() + " | ";
+    		}
+    	}
+    	retorno = retorno.substring(0, retorno.length() - 3);
+    	return retorno;
     }
 }

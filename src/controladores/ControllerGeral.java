@@ -1,5 +1,7 @@
 package controladores;
 
+import modulos.Pesquisa;
+import modulos.Pesquisador;
 import util.Validador;
 
 /**
@@ -325,6 +327,52 @@ public class ControllerGeral {
 	public int contaItensRealizados(String codigo) {
 		return this.controllerAtividade.contaItensRealizados(codigo);
 	}
+	
+	/**
+	 * US6
+	 */
+	
+	public boolean associaPesquisador(String idPesquisa, String emailPesquisador) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		this.validador.valida(emailPesquisador, "Campo emailPesquisador nao pode ser nulo ou vazio.");
+		Pesquisa pesquisa = this.controllerPesquisa.getPesquisa(idPesquisa);
+		Pesquisador pesquisador = this.controllerPesquisador.getPesquisador(emailPesquisador);
+		this.validador.validaPesquisaAtivada(pesquisa);
+		return pesquisador.associaPesquisa(idPesquisa, pesquisa);
+	}
+	
+	public boolean desassociaPesquisador(String idPesquisa, String emailPesquisador) {
+		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
+		this.validador.valida(emailPesquisador, "Campo emailPesquisador nao pode ser nulo ou vazio.");
+		Pesquisa pesquisa = this.controllerPesquisa.getPesquisa(idPesquisa);
+		Pesquisador pesquisador = this.controllerPesquisador.getPesquisador(emailPesquisador);
+		this.validador.validaPesquisaAtivada(pesquisa);
+		return pesquisador.desassociaPesquisa(idPesquisa, pesquisa);
+	}
+	
+	public void cadastraEspecialidadeProfessor(String email, String formacao, String unidade, String data) {
+		this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");
+		this.validador.valida(formacao, "Campo formacao nao pode ser nulo ou vazio.");
+		this.validador.valida(unidade, "Campo unidade nao pode ser nulo ou vazio.");
+		this.validador.valida(data, "Campo data nao pode ser nulo ou vazio.");
+		this.validador.validaData(data);
+		this.validador.validaEspecialidadeProfessor(this.controllerPesquisador.getPesquisador(email).getFuncao().toLowerCase());
+		this.controllerPesquisador.getPesquisador(email).cadastraEspecialidadeProfessor(formacao, unidade, data);
+	}
+	
+	public void cadastraEspecialidadeAluno(String email, int semestre, double IEA) {
+		this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");
+		this.validador.validaSemestre(semestre);
+		this.validador.validaIEA(IEA);
+		this.validador.validaEspecialidadeAluno(this.controllerPesquisador.getPesquisador(email).getFuncao());
+		this.controllerPesquisador.getPesquisador(email).cadastraEspecialidadeAluno(semestre, IEA);
+	}
+	
+	public String listaPesquisadores(String tipo) {
+		this.validador.valida(tipo, "Campo tipo nao pode ser nulo ou vazio.");
+		this.validador.validaFuncao(tipo);
+		return this.controllerPesquisador.listaPesquisadores(tipo);
+	}
 
 	/**
 	 * US7
@@ -440,7 +488,7 @@ public class ControllerGeral {
 	}
 	
 	/**
-	 * Retorna o controlador dos módulos Problema-Objetivo
+	 * Retorna o controlador dos mï¿½dulos Problema-Objetivo
 	 * 
 	 * @return ControllerProblemaObjetivo
 	 * */
@@ -449,7 +497,7 @@ public class ControllerGeral {
 	}
 	
 	/**
-	 * Retorna o controlador dos módulos Atividade
+	 * Retorna o controlador dos mï¿½dulos Atividade
 	 * 
 	 * @return ControllerAtividade
 	 * */

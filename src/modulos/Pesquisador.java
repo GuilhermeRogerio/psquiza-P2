@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+import util.Validador;
+
 /**
  * Classe destinada a alocação as informação do pesquisador.
  *
@@ -52,7 +54,15 @@ public class Pesquisador {
 	 */
 	private InterfacePesquisador especialidade;
 	
+	/**
+	 * Conjunto que armazena as pesquisas aos quais o pesquisador está asssociado.
+	 */
 	private HashMap<String, Pesquisa> pesquisas;
+	
+	/**
+	 * Validador
+	 */
+	private Validador validador;
     
 	/**
 	 * Construtor do pesquisador.
@@ -73,20 +83,76 @@ public class Pesquisador {
 		this.ativo = true;
 		this.pesquisas = new HashMap<>();
 		this.especialidade = null;
+		this.validador = new Validador();
 	}
 	
-	public void cadastraEspecialidadeAluno(String semestre, String iea) {
+	/**
+	 * Método que cadastra especialidade ALUNO
+	 * 
+	 * @param semestre - Semestre de formação
+	 * @param iea - Indice de eficiencia academica.
+	 */
+	public void cadastraEspecialidadeAluno(int semestre, double iea) {
+		this.validador.validaEspecialidadeAluno(this.funcao);
 		InterfacePesquisador aluno = new Aluno(semestre, iea);
 		this.especialidade = aluno;
 	}
 	
+	/**
+	 * Método que cadastra especialidade PROFESSOR
+	 * 
+	 * @param formacao - Area de formação
+	 * @param unidade - Unidade de alocação
+	 * @param data - Data de contratação
+	 */
 	public void cadastraEspecialidadeProfessor(String formacao, String unidade, String data) {
+		this.validador.validaEspecialidadeProfessor(this.funcao);
 		InterfacePesquisador professor = new Professor(formacao, unidade, data);
 		this.especialidade = professor;
 	}
 	
+	/**
+	 * Altera algum dado cadastral da especialidade do pesquisador
+	 * 
+	 * @param atributo - Dado a ser alterado
+	 * @param novoValor - Dado para substituição
+	 */
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		this.especialidade.alteraEspecialidade(atributo, novoValor);
+	}
+	
+	/**
+	 * Associa o Pesquisador à determinada pesquisa
+	 * 
+	 * @param idPesquisa - Identificação da pesquisa
+	 * @param pesquisa - Pesquisa a ser associada
+	 * @return - Boolean representando se a ação foi, ou não, bem sucedida.
+	 */
+	public boolean associaPesquisa(String idPesquisa, Pesquisa pesquisa) {
+		this.validador.validaPesquisa(pesquisa, idPesquisa, this.pesquisas);
+		if (!this.pesquisas.containsKey(idPesquisa)) {
+			this.pesquisas.put(idPesquisa, pesquisa);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Desassocia o pesquisador a determinada pesquisa
+	 * 
+	 * @param idPesquisa - Identificação da pesquisa
+	 * @param pesquisa - Pesquisa a ser associada
+	 * @return - Boolean representando se a ação foi, ou não, bem sucedida.
+	 */
+	public boolean desassociaPesquisa(String idPesquisa, Pesquisa pesquisa) {
+		this.validador.validaPesquisa(pesquisa, idPesquisa, this.pesquisas);
+		if (this.pesquisas.containsKey(idPesquisa)) {
+			this.pesquisas.remove(idPesquisa, pesquisa);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	
@@ -154,6 +220,13 @@ public class Pesquisador {
      */
 	public boolean getAtivo() {
 		return this.ativo;
+	}
+	
+	/**
+	 * Retorna a funcao do pesquisador
+	 */
+	public String getFuncao() {
+		return this.funcao;
 	}
 	
 	 /**

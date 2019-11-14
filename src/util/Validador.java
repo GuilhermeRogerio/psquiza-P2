@@ -1,5 +1,9 @@
 package util;
 
+import java.util.HashMap;
+
+import modulos.Pesquisa;
+
 /**
  * Representação da classe exclusiva para tratamento de excessões.
  *
@@ -216,6 +220,48 @@ public class Validador {
 		if ((data.length() != 10) || (Integer.parseInt(data.substring(0, data.length() - 8)) > 31) || 
 		(Integer.parseInt(data.substring(3, data.length() - 5)) > 12)) {
 			throw new IllegalArgumentException("Atributo data com formato invalido.");
+		}
+	}
+	
+	public void validaPesquisa(Pesquisa pesquisa, String idPesquisa, HashMap<String, Pesquisa> pesquisas) {
+		if (!pesquisa.getAtiva()) {
+			throw new IllegalArgumentException("Pesquisa desativada.");
+		}
+	}
+	
+	public void validaEspecialidadeProfessor(String funcao) {
+		if ("estudante".equals(funcao) || "externo".equals(funcao)) {
+			throw new IllegalArgumentException("Pesquisador nao compativel com a especialidade.");
+		}
+	}
+	
+	public void validaEspecialidadeAluno(String funcao) {
+		if ("professor".equals(funcao) || "externo".equals(funcao)) {
+			throw new IllegalArgumentException("Pesquisador nao compativel com a especialidade.");
+		}
+	}
+	
+	public void validaPesquisaAtivada(Pesquisa pesquisa) {
+		if (!pesquisa.getAtiva()) {
+			throw new IllegalArgumentException("Pesquisa desativada.");
+		}
+	}
+	
+	public void validaSemestre(int semestre) {
+		if (semestre < 1) {
+			throw new IllegalArgumentException("Atributo semestre com formato invalido.");
+		}
+	}
+	
+	public void validaIEA(double iea) {
+		if ((iea < 0) || (iea > 10)) {
+			throw new IllegalArgumentException("Atributo IEA com formato invalido.");
+		}
+	}
+	
+	public void validaFuncao(String funcao) {
+		if (!"externo".equals(funcao.toLowerCase()) && !"aluna".equals(funcao.toLowerCase()) && !"professora".equals(funcao.toLowerCase())) {
+			throw new IllegalArgumentException("Tipo " + funcao + " inexistente.");
 		}
 	}
 }

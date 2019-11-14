@@ -1,25 +1,50 @@
 package modulos;
 
+/**
+ * Representação da especialidade Aluno
+ * 
+ * @author Matheus Filipe
+ *
+ */
 public class Aluno implements InterfacePesquisador {
 	
-	private String semestre;
-	private String iea;
+	/**
+	 * Semestre de formação
+	 */
+	private int semestre;
 	
-	public Aluno(String semestre, String iea) {
+	/**
+	 * Indice de Eficiencia Academica, IEA
+	 */
+	private double iea;
+	
+	/**
+	 * Construtor da entidade Aluno
+	 * 
+	 * @param semestre - Semestre de formação
+	 * @param iea - IEA do aluno
+	 */
+	public Aluno(int semestre, double iea) {
 		this.semestre = semestre;
 		this.iea = iea;
 	}
 	
 	@Override
 	public String toString() {
-		return this.semestre + " - " + this.iea;
+		return this.semestre + "o SEMESTRE" + " - " + this.iea;
 	}
 	
+	/**
+	 * Método que altera um atributo do Aluno
+	 * 
+	 * @param atributo - Atributo a ser alterado
+	 * @param novoValor - Valor atualizado
+	 */
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		if ("SEMESTRE".equals(atributo)) {
-			this.semestre = novoValor;
+			this.semestre = Integer.parseInt(novoValor);
 		} else {
-			this.iea = novoValor;
+			this.iea = Double.parseDouble(novoValor);
 		}
 	}
 

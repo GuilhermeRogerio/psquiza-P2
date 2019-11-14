@@ -2,10 +2,28 @@ package modulos;
 
 public class Professor implements InterfacePesquisador {
 	
+	/**
+	 * Area de formacao
+	 */
 	private String formacao;
+	
+	/**
+	 * Unidade Alocada
+	 */
 	private String unidade;
+	
+	/**
+	 * Data de contratação
+	 */
 	private String data;
 	
+	/**
+	 * Construtor de Professor
+	 * 
+	 * @param formacao
+	 * @param unidade
+	 * @param data
+	 */
 	public Professor(String formacao, String unidade, String data) {
 		this.formacao = formacao;
 		this.unidade = unidade;
@@ -17,6 +35,9 @@ public class Professor implements InterfacePesquisador {
 		return this.formacao + " - " + this.unidade + " - " + this.data;
 	}
 	
+	/**
+	 * Altera atributos do professor
+	 */
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		if ("FORMACAO".equals(atributo)) {
 			this.formacao = novoValor;
