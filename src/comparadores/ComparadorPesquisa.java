@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class ComparadorPesquisa implements Comparator<Pesquisa> {
     @Override
-    public int compare(Pesquisa pesquisa, Pesquisa t1) {
-        return pesquisa.getCodigo().compareTo(t1.getCodigo());
+    public int compare(Pesquisa p1, Pesquisa p2) {
+        return p2.getCodigo().compareTo(p1.getCodigo());
     }
 }

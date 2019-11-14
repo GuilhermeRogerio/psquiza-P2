@@ -340,4 +340,7 @@ public class ControllerGeral {
 		return this.controllerPesquisa.desassociaObjetivo(idPesquisa, idObjetivo);
 	}
 
+	public String listaPesquisas(String ordem) {
+		return this.controllerPesquisa.listaPesquisas(ordem);
+	}
 }

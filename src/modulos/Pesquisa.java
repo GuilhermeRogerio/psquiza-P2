@@ -8,7 +8,7 @@ import util.Validador;
 /**
  * Representação de Pesquisa no Sistema
  */
-public class Pesquisa {
+public class Pesquisa{
 
 	private String descricao;
 	private String camposInteresse[];
@@ -116,6 +116,9 @@ public class Pesquisa {
 		if (!this.problemaOptional.isPresent()) {
 			this.problemaOptional = Optional.ofNullable(problema);
 			retorno = true;
+
+		} else if (!this.problemaOptional.get().equals(problema)) {
+			throw new IllegalArgumentException("Pesquisa ja associada a um problema.");
 		}
 		return retorno;
 	}
@@ -129,34 +132,48 @@ public class Pesquisa {
 		return retorno;
 	}
 
-
 	public boolean associaObjetivo(Objetivo objetivo, String idObjetivo) {
 		boolean retorno = false;
 		if (!this.objetivos.containsKey(idObjetivo)) {
-			this.objetivos.put(idObjetivo,objetivo);
+			if (objetivo.isAssociado()) {
+				throw new IllegalArgumentException("Objetivo ja associado a uma pesquisa.");
+			}
+			this.objetivos.put(idObjetivo, objetivo);
 			this.objetivos.get(idObjetivo).setAssociado(true);
 			retorno = true;
 		}
 		return retorno;
 	}
 
-
 	public boolean desassociaObjetivo(String idObjetivo) {
 		boolean retorno = false;
 		if (this.objetivos.containsKey(idObjetivo)) {
-			this.objetivos.remove(idObjetivo);
 			this.objetivos.get(idObjetivo).setAssociado(false);
+			this.objetivos.remove(idObjetivo);
 			retorno = true;
 		}
 		return retorno;
 	}
-	
-	public boolean existeObjetivo(String idObjetivo) {
-		return this.objetivos.containsKey(idObjetivo);
+
+	public Optional<Problema> getProblema() {
+		return this.problemaOptional;
 	}
 
-	public boolean existeProblema(){
-		return this.problemaOptional.isPresent();
+	public int getQuantiadeDeObjetivos(){
+		return this.objetivos.size();
 	}
-	
+
+	public String maiorId() {
+		String variavelId = "";
+		for (String id : objetivos.keySet()) {
+			if (id == "") {
+				variavelId = id;
+			} else {
+				if (variavelId.compareTo(id) < 0){
+					variavelId = id;
+				}
+			}
+		}
+		return variavelId;
+	}
 }

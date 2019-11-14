@@ -147,4 +147,7 @@ public class Facade {
 		return this.controllerGeral.desassociaObjetivo(idPesquisa, idObjetivo);
 	}
 
+	public String listaPesquisas(String ordem){
+		return this.controllerGeral.listaPesquisas(ordem);
+	}
 }
