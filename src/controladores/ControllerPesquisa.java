@@ -3,6 +3,7 @@ package controladores;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
 
 import comparadores.ComparadorObjetivo;
@@ -10,6 +11,9 @@ import comparadores.ComparadorPesquisa;
 import comparadores.ComparadorProblema;
 import modulos.Atividade;
 import modulos.Objetivo;
+=======
+
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 import modulos.Pesquisa;
 import modulos.Problema;
 import util.Validador;
@@ -320,8 +324,14 @@ public class ControllerPesquisa {
     		throw new Error("Pesquisa nao encontrada.");  	
     }
     
+<<<<<<< HEAD
     /**
      * Método retorna um Lista de Pesquisas cadastradas
+=======
+    
+    /**
+     * MÃ©todo retorna um Lista de Pesquisas cadastradas
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
      * 
      * @return List<Pesquisa>
      */

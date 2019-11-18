@@ -76,6 +76,15 @@ public class Objetivo {
 	public String toString() {
 		return this.codigo + " - " + this.tipo + " - " + this.descricao + " - " + this.valor;
 	}
+	
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {		
+		return String.format("%s: %s | ",this.codigo, this.descricao);
+	}
 
 	public String getCodigo() {
 		return codigo;

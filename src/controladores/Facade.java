@@ -2,12 +2,19 @@ package controladores;
 
 import busca.Busca;
 import easyaccept.EasyAccept;
+<<<<<<< HEAD
 import util.Resultado;
+=======
+import util.Busca;
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 
 public class Facade {
 
 	private ControllerGeral controllerGeral;
+<<<<<<< HEAD
 	private Resultado resultados;
+=======
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 	private Busca busca;
 
 	public static void main(String[] args) {
@@ -16,13 +23,21 @@ public class Facade {
 				"testes_aceitacao/use_case_5.txt", "testes_aceitacao/use_case_6.txt", "testes_aceitacao/use_case_7.txt",
 				"testes_aceitacao/use_case_8.txt","testes_aceitacao/use_case_11.txt" };
 		EasyAccept.main(args);
+		
+//		System.out.println(new Busca().buscaLimit("computacao", 2));
 	}
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
+<<<<<<< HEAD
 		resultados = new Resultado(controllerGeral);
 		busca = new Busca(controllerGeral);
 		
+=======
+		busca = new Busca(controllerGeral);
+		
+		//System.out.println(this.busca.buscaLimit("com", 2));
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 	}
 
 	/**
@@ -135,6 +150,7 @@ public class Facade {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
 	
+<<<<<<< HEAD
 	/*
 	 * US5
 	 */
@@ -181,6 +197,25 @@ public class Facade {
 	public String listaPesquisadores(String tipo) {
 		return this.controllerGeral.listaPesquisadores(tipo);
 	}
+=======
+	/**
+	 * US8
+	 */
+	
+	public int contaResultadosBusca(String termo) {
+		return this.busca.contaResultadosBusca(termo);
+	}
+	
+	public String busca(String termo) {
+		return this.busca.busca(termo);
+	}
+	
+	public String busca(String termo, int numeroDoResultado) {
+		return this.busca.buscaLimit(termo, numeroDoResultado);
+	}
+	
+	
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 
 	/**
 	 * US7

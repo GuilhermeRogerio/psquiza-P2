@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import modulos.Pesquisa;
 import modulos.Pesquisador;
 import util.Validador;
 
@@ -182,6 +183,7 @@ public class ControllerPesquisador {
     }
     
     /**
+<<<<<<< HEAD
      * Método que retorna todos Pesquisadores cadastrados
      * 
      * @return pesquisador no sistema.
@@ -229,4 +231,20 @@ public class ControllerPesquisador {
     	retorno = retorno.substring(0, retorno.length() - 3);
     	return retorno;
     }
+=======
+     * Método retorna uma lista de Pesquisadores cadastradas
+     * 
+     * @return List<Pesquisador>
+     */
+    public List<Pesquisador> getPesquisadores() {
+    	
+    	List<Pesquisador> listPesquisador = new ArrayList<>();
+    	
+    	for (String key : this.mapaPesquisador.keySet()) 
+			listPesquisador.add(this.mapaPesquisador.get(key));
+		
+    	
+		return listPesquisador;
+	}
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 }

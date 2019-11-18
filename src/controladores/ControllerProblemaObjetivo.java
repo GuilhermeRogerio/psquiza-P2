@@ -142,6 +142,7 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * US5
 	 */
 	
@@ -151,6 +152,9 @@ public class ControllerProblemaObjetivo {
 	
 	/**
      * Método retorna um Lista de Problema cadastradas
+=======
+     * MÃ©todo retorna um Lista de Problema cadastradas
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
      * 
      * @return List<Problema>
      */
@@ -166,7 +170,11 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
+<<<<<<< HEAD
      * Método retorna um Lista de Objetivo cadastradas
+=======
+     * MÃ©todo retorna um Lista de Objetivo cadastradas
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
      * 
      * @return List<Objetivo>
      */
@@ -180,8 +188,12 @@ public class ControllerProblemaObjetivo {
     	
 		return listObjetivo;
 	}
+<<<<<<< HEAD
     
 	public Objetivo objetivo(String idObjetivo) {
 		return this.objetivos.get(idObjetivo);
 	}
+=======
+
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 }

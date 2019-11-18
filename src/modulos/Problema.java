@@ -48,13 +48,23 @@ public class Problema {
 	public void geraCodigo(int numero) {
 		this.codigo += numero;
 	}
-
+	
+	
 	/**
 	 * Retorna uma string com a representação textual de problema no formato de
 	 * "Descrição - viabiladade".
 	 */
 	public String toString() {
 		return this.codigo + " - " + this.descricao + " - " + this.viabilidade;
+	}
+	
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {		
+		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
 
 	public String getCodigo() {
@@ -64,6 +74,10 @@ public class Problema {
 	public String getDescricao() {
 		return descricao;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 
 	@Override
 	public int hashCode() {
