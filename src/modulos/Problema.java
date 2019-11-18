@@ -74,10 +74,6 @@ public class Problema {
 	public String getDescricao() {
 		return descricao;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 
 	@Override
 	public int hashCode() {

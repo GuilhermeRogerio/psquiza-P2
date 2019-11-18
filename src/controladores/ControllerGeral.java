@@ -120,15 +120,7 @@ public class ControllerGeral {
 	public boolean pesquisaEhAtiva(String codigo) {
 		return this.controllerPesquisa.pesquisaEhAtiva(codigo);
 	}
-<<<<<<< HEAD
 
-=======
-	
-	public ControllerPesquisa getControllerPesquisa() {
-		return controllerPesquisa;
-	}
-	
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 	/**
 	 * US2
 	 */
@@ -201,13 +193,6 @@ public class ControllerGeral {
 		return this.controllerPesquisador.pesquisadorEhAtivo(email);
 	}
 	
-	/**
-	 * Retorna o controlador da classe Pesquisador
-	 * */
-	public ControllerPesquisador getControllerPesquisador() {
-		return controllerPesquisador;
-	}
-
 	/**
 	 * US3
 	 */
@@ -527,10 +512,6 @@ public class ControllerGeral {
 	public ControllerProblemaObjetivo getControllerProblemaObjetivo() {
 		return controllerProblemaObjetivo;
 	}
-	
-	public ControllerAtividade getControllerAtividade() {
-		return controllerAtividade;
-	}
 
 	
 	/**
@@ -539,7 +520,6 @@ public class ControllerGeral {
 	 * @return ControllerProblemaObjetivo
 	 * */
 	public ControllerProblemaObjetivo getControllerProblema() {
-		// TODO Auto-generated method stub
 		return this.controllerProblemaObjetivo;
 	}
 	
@@ -549,7 +529,6 @@ public class ControllerGeral {
 	 * @return ControllerAtividade
 	 * */
 	public ControllerAtividade getControllerAtividade() {
-		// TODO Auto-generated method stub
 		return this.controllerAtividade;
 	}
 

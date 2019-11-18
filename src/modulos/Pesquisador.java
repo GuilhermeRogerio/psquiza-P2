@@ -249,9 +249,6 @@ public class Pesquisador {
 		return this.funcao;
 	}
 	
-	public String getBiografia() {
-		return biografia;
-	}
 	
 	public String getEmail() {
 		return email;

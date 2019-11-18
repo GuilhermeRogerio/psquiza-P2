@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import modulos.Pesquisa;
 import modulos.Pesquisador;
 import util.Validador;
 
@@ -21,7 +20,7 @@ public class ControllerPesquisador {
     private Validador validador;
 
     /**
-     * Mapa onde os pesquisadores ser√£o armazenados para as opera√ß√µes do sistema.
+     * Mapa onde os pesquisadores ser„o armazenados para as operaÁıes do sistema.
      * 
      */
     private HashMap<String, Pesquisador> mapaPesquisador;
@@ -36,10 +35,10 @@ public class ControllerPesquisador {
     }
 
     /**
-     * M√©todo que cadastra os pesquisadores no sistema.
+     * MÈtodo que cadastra os pesquisadores no sistema.
      * 
      * @param nome o nome do pesquisador.
-     * @param funcao a fun√ß√£o do pesquisador.
+     * @param funcao a funÁ„o do pesquisador.
      * @param biografia a biografia do pesquisador.
      * @param email o email do pesquisador.
      * @param foto a foto do pesquisador.
@@ -56,7 +55,7 @@ public class ControllerPesquisador {
         this.mapaPesquisador.put(email, pesquisador);
     }
     /**
-     * M√©todo que realiza altera√ß√µes no pesquisador.
+     * MÈtodo que realiza alteraÁıes no pesquisador.
      * 
      * @param email o email idetificador do pesquisador.
      * @param atributo o atributo a ser alterado.
@@ -94,10 +93,10 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo que identifica se o atributo passado como par√¢metro representa um dos atributos de um pesquisador especializado
+     * MÈtodo que identifica se o atributo passado como par‚metro representa um dos atributos de um pesquisador especializado
      * 
      * @param atributo - Atributo a ser comparado
-     * @return - Boolean informado se o atributo √©, ou n√£o, um atributo de um pesquisador do tipo Aluno ou Professor
+     * @return - Boolean informado se o atributo È, ou n„o, um atributo de um pesquisador do tipo Aluno ou Professor
      */
     private boolean verificaAtributos(String atributo) {
     	return ("FORMACAO".equals(atributo) || "DATA".equals(atributo) || "UNIDADE".equals(atributo) || 
@@ -105,7 +104,7 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo feito especialmente para validar a foto do pesquisador
+     * MÈtodo feito especialmente para validar a foto do pesquisador
      * 
      * @param atributo - Foto do pesquisador
      * @param novoValor - Foto atualizada
@@ -119,7 +118,7 @@ public class ControllerPesquisador {
     }
 
     /**
-     * M√©todo que realiza a desativa√ß√£o do pesquisador no sistema.
+     * MÈtodo que realiza a desativaÁ„o do pesquisador no sistema.
      * 
      * @param email o email idetificador do pesquisador.
      */
@@ -136,7 +135,7 @@ public class ControllerPesquisador {
     }
 
     /**
-     * M√©todo que realiza a ativa√ß√£o do pesquisador no sistema.
+     * MÈtodo que realiza a ativaÁ„o do pesquisador no sistema.
      * 
      * @param email o email idetificador do pesquisador.
      */
@@ -153,10 +152,10 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo que realiza a exibi√ß√£o um determinado pesquisador.
+     * MÈtodo que realiza a exibiÁ„o um determinado pesquisador.
      * 
      * @param email o email idetificador do pesquisador.
-     * @return a representa√ß√£o do pesquisador.
+     * @return a representaÁ„o do pesquisador.
      */
     public String exibePesquisador(String email) {
     	this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");
@@ -168,7 +167,7 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo que realiza a checagem do estado de um determinado pesquisador.
+     * MÈtodo que realiza a checagem do estado de um determinado pesquisador.
      * 
      * @param email o email idetificador do pesquisador.
      * @return a estado do pesquisador no sistema.
@@ -183,8 +182,7 @@ public class ControllerPesquisador {
     }
     
     /**
-<<<<<<< HEAD
-     * M√©todo que retorna todos Pesquisadores cadastrados
+     * MÈtodo que retorna todos Pesquisadores cadastrados
      * 
      * @return pesquisador no sistema.
      */
@@ -199,7 +197,7 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo que busca um Pesquisador cadastrado.
+     * MÈtodo que busca um Pesquisador cadastrado.
      * 
      * @param email - Chave de busca do pesquisador
      * @return - Um objeto Pesquisador
@@ -214,10 +212,10 @@ public class ControllerPesquisador {
     }
     
     /**
-     * M√©todo que lista pesquisadores do tipo especificado
+     * MÈtodo que lista pesquisadores do tipo especificado
      * 
      * @param tipo - Tipo do pesquisador que se quer listar
-     * @return - Representa√ß√£o textual dos pesquisadores
+     * @return - RepresentaÁ„o textual dos pesquisadores
      */
     public String listaPesquisadores(String tipo) {
     	tipo = tipo.toLowerCase();
@@ -231,20 +229,4 @@ public class ControllerPesquisador {
     	retorno = retorno.substring(0, retorno.length() - 3);
     	return retorno;
     }
-=======
-     * M√©todo retorna uma lista de Pesquisadores cadastradas
-     * 
-     * @return List<Pesquisador>
-     */
-    public List<Pesquisador> getPesquisadores() {
-    	
-    	List<Pesquisador> listPesquisador = new ArrayList<>();
-    	
-    	for (String key : this.mapaPesquisador.keySet()) 
-			listPesquisador.add(this.mapaPesquisador.get(key));
-		
-    	
-		return listPesquisador;
-	}
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 }

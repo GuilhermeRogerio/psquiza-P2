@@ -268,11 +268,6 @@ public class Atividade {
 		return this.items.get(item - 1).getStatus();
 	}
 	
-<<<<<<< HEAD
-	public List<Item> getItems() {
-		return items;
-	}
-=======
 	/**
 	 * toString usado para exibir o resultado de busca
 	 * 
@@ -281,11 +276,13 @@ public class Atividade {
 	public String toStringBusca() {		
 		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
-	
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
-	
+		
 	public List<String> getResultados() {
 		return resultados;
+	}
+	
+	public List<Item> getItems() {
+		return items;
 	}
 
 }

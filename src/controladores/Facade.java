@@ -2,19 +2,13 @@ package controladores;
 
 import busca.Busca;
 import easyaccept.EasyAccept;
-<<<<<<< HEAD
+
 import util.Resultado;
-=======
-import util.Busca;
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 
 public class Facade {
 
 	private ControllerGeral controllerGeral;
-<<<<<<< HEAD
 	private Resultado resultados;
-=======
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 	private Busca busca;
 
 	public static void main(String[] args) {
@@ -29,15 +23,8 @@ public class Facade {
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
-<<<<<<< HEAD
 		resultados = new Resultado(controllerGeral);
 		busca = new Busca(controllerGeral);
-		
-=======
-		busca = new Busca(controllerGeral);
-		
-		//System.out.println(this.busca.buscaLimit("com", 2));
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
 	}
 
 	/**
@@ -150,7 +137,7 @@ public class Facade {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
 	
-<<<<<<< HEAD
+
 	/*
 	 * US5
 	 */
@@ -197,26 +184,7 @@ public class Facade {
 	public String listaPesquisadores(String tipo) {
 		return this.controllerGeral.listaPesquisadores(tipo);
 	}
-=======
-	/**
-	 * US8
-	 */
 	
-	public int contaResultadosBusca(String termo) {
-		return this.busca.contaResultadosBusca(termo);
-	}
-	
-	public String busca(String termo) {
-		return this.busca.busca(termo);
-	}
-	
-	public String busca(String termo, int numeroDoResultado) {
-		return this.busca.buscaLimit(termo, numeroDoResultado);
-	}
-	
-	
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
-
 	/**
 	 * US7
 	 */

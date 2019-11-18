@@ -51,16 +51,14 @@ public class Busca {
 		this.resulEncontrados = new ArrayList<ResultadoBusca>();
 		
 		///Busca em pesquisa		
-		this.resulEncontrados.addAll(resultPesquisa);	
-									
+		this.resulEncontrados.addAll(resultPesquisa);									
 		
 		///Busca em pesquisador		
 		this.resulEncontrados.addAll(resultPesquisador);	
 
 		
 		///Busca em problema	
-		this.resulEncontrados.addAll(resultProblema);	
-			
+		this.resulEncontrados.addAll(resultProblema);			
 		
 		///Busca em objetivo
 		this.resulEncontrados.addAll(resultObjetivo);	

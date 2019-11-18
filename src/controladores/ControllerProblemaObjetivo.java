@@ -152,9 +152,6 @@ public class ControllerProblemaObjetivo {
 	
 	/**
      * Método retorna um Lista de Problema cadastradas
-=======
-     * MÃ©todo retorna um Lista de Problema cadastradas
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
      * 
      * @return List<Problema>
      */
@@ -164,36 +161,22 @@ public class ControllerProblemaObjetivo {
     	
     	for (String key : this.problemas.keySet()) 
 			listProblema.add(this.problemas.get(key));
-		
-    	
 		return listProblema;
 	}
 
-	/**
-<<<<<<< HEAD
-     * Método retorna um Lista de Objetivo cadastradas
-=======
-     * MÃ©todo retorna um Lista de Objetivo cadastradas
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
-     * 
-     * @return List<Objetivo>
-     */
-    public List<Objetivo> getObjetivos() {
-    	
-    	List<Objetivo> listObjetivo = new ArrayList<>();
-    	
-    	for (String key : this.objetivos.keySet()) 
-			listObjetivo.add(this.objetivos.get(key));
-		
-    	
-		return listObjetivo;
-	}
-<<<<<<< HEAD
-    
+	
 	public Objetivo objetivo(String idObjetivo) {
 		return this.objetivos.get(idObjetivo);
 	}
-=======
-
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4
+	
+	public List<Objetivo> getObjetivos() {
+		
+		List<Objetivo> objs = new ArrayList<Objetivo>();
+		
+		for(String key: this.objetivos.keySet()) {
+			objs.add(this.objetivos.get(key));
+		}
+		
+		return objs;
+	}
 }
