@@ -14,28 +14,28 @@ public class ControllerGeral {
 	 * Instância do contrololador da Pesquisa
 	 * 
 	 */
-	private ControllerPesquisa controllerPesquisa;
+	protected ControllerPesquisa controllerPesquisa;
 
 	/**
 	 * Instância do controlador do fornecedor
 	 *
 	 */
-	private ControllerProblemaObjetivo controllerProblemaObjetivo;
+	protected ControllerProblemaObjetivo controllerProblemaObjetivo;
 
 	/**
 	 * Instância do controlador do fornecedor
 	 *
 	 */
-	private ControllerPesquisador controllerPesquisador;
+	protected ControllerPesquisador controllerPesquisador;
 
 	/**
 	 * Instância do controlador de atividade.
 	 */
-	private ControllerAtividade controllerAtividade;
+	protected ControllerAtividade controllerAtividade;
 	/**
 	 * Objeto para validar os parâmetros.
 	 */
-	private Validador validador;
+	protected Validador validador;
 
 	/**
 	 * Construtor que inicializa os controladores instâciados.
@@ -497,42 +497,6 @@ public class ControllerGeral {
 	 */
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerAtividade.listaResultados(codigoAtividade);
-	}
-	
-	/**
-	 * Retorna o controlador da classe Pesquisador
-	 * 
-	 * @return ControllerPesquisa
-	 * */
-	public ControllerPesquisa getControllerPesquisa() {
-		return controllerPesquisa;
-	}
-	
-	/**
-	 * Retorna o controlador da classe Pesquisador
-	 * 
-	 * @return ControllerPesquisador
-	 * */
-	public ControllerPesquisador getControllerPesquisador() {
-		return controllerPesquisador;
-	}
-	
-	/**
-	 * Retorna o controlador dos m�dulos Problema-Objetivo
-	 * 
-	 * @return ControllerProblemaObjetivo
-	 * */
-	public ControllerProblemaObjetivo getControllerProblema() {
-		return this.controllerProblemaObjetivo;
-	}
-	
-	/**
-	 * Retorna o controlador dos m�dulos Atividade
-	 * 
-	 * @return ControllerAtividade
-	 * */
-	public ControllerAtividade getControllerAtividade() {
-		return this.controllerAtividade;
 	}
 
 }

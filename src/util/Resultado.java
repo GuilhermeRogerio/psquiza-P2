@@ -13,7 +13,7 @@ import modulos.*;
  * de uma pesquisa salvo em arquivos de texto
  *  * 
  * */
-public class Resultado {
+public class Resultado extends ControllerGeral{
 	
 	private ControllerGeral controller;
 	private Validador validador;
@@ -36,8 +36,7 @@ public class Resultado {
     	
     	List<Pesquisador> pesquisadores = new ArrayList<>();
     	
-    	ControllerPesquisador contlPesquisador = this.controller.getControllerPesquisador();
-    	List<Pesquisador> todosPesquisadores = contlPesquisador.getPesquisadores();
+    	List<Pesquisador> todosPesquisadores = this.controllerPesquisador.getPesquisadores();
     	
     	for(Pesquisador pesquisador: todosPesquisadores){
     		List<Pesquisa> pesquisasDeste = pesquisador.getPesquisas();
@@ -64,8 +63,7 @@ public class Resultado {
 	 * */
 	private Pesquisa buscaPesquisa(String codigo) {
 		
-		ControllerPesquisa contrlPesquisa = this.controller.getControllerPesquisa();
-		Pesquisa pesquisa = contrlPesquisa.getPesquisa(codigo);	
+		Pesquisa pesquisa = this.controllerPesquisa.getPesquisa(codigo);	
 		
 		return pesquisa;
 	}
