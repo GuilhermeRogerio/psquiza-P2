@@ -151,6 +151,10 @@ public class Pesquisa {
 	public boolean getAtiva() {
 		return this.ativa;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
 
 	public void setAssociada(String codigoAtividade) {
 		this.atividades.get(codigoAtividade).setEhAssociada();

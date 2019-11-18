@@ -319,5 +319,21 @@ public class ControllerPesquisa {
     	else
     		throw new Error("Pesquisa nao encontrada.");  	
     }
+    
+    /**
+     * Método retorna um Lista de Pesquisas cadastradas
+     * 
+     * @return List<Pesquisa>
+     */
+    public List<Pesquisa> getPesquisas() {
+    	
+    	List<Pesquisa> listPesquisa = new ArrayList<>();
+    	
+    	for (String key : this.pesquisas.keySet()) 
+			listPesquisa.add(this.pesquisas.get(key));
+		
+    	
+		return listPesquisa;
+	}
 
 }

@@ -60,6 +60,10 @@ public class Problema {
 	public String getCodigo() {
 		return codigo;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
 
 	@Override
 	public int hashCode() {

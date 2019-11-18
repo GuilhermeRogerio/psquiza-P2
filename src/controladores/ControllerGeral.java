@@ -498,5 +498,23 @@ public class ControllerGeral {
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerAtividade.listaResultados(codigoAtividade);
 	}
+	
+	//getter controladores
+	
+	public ControllerPesquisa getControllerPesquisa() {
+		return controllerPesquisa;
+	}
+	
+	public ControllerPesquisador getControllerPesquisador() {
+		return controllerPesquisador;
+	}
+	
+	public ControllerProblemaObjetivo getControllerProblemaObjetivo() {
+		return controllerProblemaObjetivo;
+	}
+	
+	public ControllerAtividade getControllerAtividade() {
+		return controllerAtividade;
+	}
 
 }

@@ -1,5 +1,6 @@
 package controladores;
 
+import busca.Busca;
 import easyaccept.EasyAccept;
 import util.Resultado;
 
@@ -7,6 +8,7 @@ public class Facade {
 
 	private ControllerGeral controllerGeral;
 	private Resultado resultados;
+	private Busca busca;
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
@@ -19,6 +21,8 @@ public class Facade {
 	public Facade() {
 		controllerGeral = new ControllerGeral();
 		resultados = new Resultado(controllerGeral);
+		busca = new Busca(controllerGeral);
+		
 	}
 
 	/**
@@ -208,9 +212,27 @@ public class Facade {
 	
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerGeral.listaResultados(codigoAtividade);
+	}	
+	 
+	 /**
+	  * US8
+	  */
+	 public String busca(String termo) {
+		 return this.busca.busca(termo, false);
+	 }
+	 
+	 public String busca(String termo, int numeroDoResultado) {
+		 return this.busca.busca(termo, numeroDoResultado);
+	 }
+	 
+	 public int contaResultadosBusca(String termo) {
+		return this.busca.contaResultadosBusca(termo);
 	}
-	
-	 public void gravarResumo(String codigoPesquisa) {
+	 
+	 /**
+	  * US11
+	  */
+	public void gravarResumo(String codigoPesquisa) {
 		 this.resultados.gravarResumo(codigoPesquisa);
 	 }
 	 
@@ -218,3 +240,4 @@ public class Facade {
 		 this.resultados.gravarResultados(codigoPesquisa);
 	 }
 }
+	

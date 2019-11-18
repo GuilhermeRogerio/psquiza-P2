@@ -81,6 +81,10 @@ public class Objetivo {
 		return codigo;
 	}
 	
+	public String getDescricao() {
+		return descricao;
+	}
+	
 	/**
 	 * US5
 	 */

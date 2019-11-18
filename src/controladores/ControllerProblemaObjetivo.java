@@ -1,6 +1,8 @@
 package controladores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import modulos.Objetivo;
@@ -146,7 +148,39 @@ public class ControllerProblemaObjetivo {
 	public Problema problema(String idProblema) {
 		return this.problemas.get(idProblema);
 	}
+	
+	/**
+     * Método retorna um Lista de Problema cadastradas
+     * 
+     * @return List<Problema>
+     */
+    public List<Problema> getProblemas() {
+    	
+    	List<Problema> listProblema = new ArrayList<>();
+    	
+    	for (String key : this.problemas.keySet()) 
+			listProblema.add(this.problemas.get(key));
+		
+    	
+		return listProblema;
+	}
 
+	/**
+     * Método retorna um Lista de Objetivo cadastradas
+     * 
+     * @return List<Objetivo>
+     */
+    public List<Objetivo> getObjetivos() {
+    	
+    	List<Objetivo> listObjetivo = new ArrayList<>();
+    	
+    	for (String key : this.objetivos.keySet()) 
+			listObjetivo.add(this.objetivos.get(key));
+		
+    	
+		return listObjetivo;
+	}
+    
 	public Objetivo objetivo(String idObjetivo) {
 		return this.objetivos.get(idObjetivo);
 	}
