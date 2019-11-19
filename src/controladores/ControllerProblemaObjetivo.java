@@ -142,17 +142,34 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * US5
 	 */
 
 	public Problema problema(String idProblema) {
 		return this.problemas.get(idProblema);
 	}
+	
+	/**
+     * Método retorna um Lista de Problema cadastradas
+     * 
+     * @return List<Problema>
+     */
+    public List<Problema> getProblemas() {
+    	
+    	List<Problema> listProblema = new ArrayList<>();
+    	
+    	for (String key : this.problemas.keySet()) 
+			listProblema.add(this.problemas.get(key));
+		return listProblema;
+	}
 
+	
 	public Objetivo objetivo(String idObjetivo) {
 		return this.objetivos.get(idObjetivo);
 	}
 	
+<<<<<<< HEAD
 	/**
      * MÃ©todo retorna um Lista de Problema cadastradas
      * 
@@ -175,6 +192,16 @@ public class ControllerProblemaObjetivo {
 			objs.add(this.objetivos.get(key));
 		}
 
+=======
+	public List<Objetivo> getObjetivos() {
+		
+		List<Objetivo> objs = new ArrayList<Objetivo>();
+		
+		for(String key: this.objetivos.keySet()) {
+			objs.add(this.objetivos.get(key));
+		}
+		
+>>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 		return objs;
 	}
 }

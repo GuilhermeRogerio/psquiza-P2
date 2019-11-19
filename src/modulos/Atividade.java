@@ -268,12 +268,21 @@ public class Atividade {
 		return this.items.get(item - 1).getStatus();
 	}
 	
-	public List<Item> getItems() {
-		return items;
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {		
+		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
-	
+		
 	public List<String> getResultados() {
 		return resultados;
+	}
+	
+	public List<Item> getItems() {
+		return items;
 	}
 
 	public String getNivelRisco() {

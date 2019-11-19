@@ -2,6 +2,7 @@ package controladores;
 
 import busca.Busca;
 import easyaccept.EasyAccept;
+
 import util.Resultado;
 
 public class Facade {
@@ -9,7 +10,10 @@ public class Facade {
 	private ControllerGeral controllerGeral;
 	private Resultado resultados;
 	private Busca busca;
+<<<<<<< HEAD
 
+=======
+>>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
@@ -18,6 +22,8 @@ public class Facade {
 				"testes_aceitacao/use_case_8.txt", "testes_aceitacao/use_case_9.txt",
 				"testes_aceitacao/use_case_10.txt", "testes_aceitacao/use_case_11.txt" };
 		EasyAccept.main(args);
+		
+//		System.out.println(new Busca().buscaLimit("computacao", 2));
 	}
 
 	public Facade() {
@@ -135,6 +141,10 @@ public class Facade {
 	public int contaItensRealizados(String codigo) {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 
 	/*
 	 * US5
@@ -182,7 +192,7 @@ public class Facade {
 	public String listaPesquisadores(String tipo) {
 		return this.controllerGeral.listaPesquisadores(tipo);
 	}
-
+	
 	/**
 	 * US7
 	 */
@@ -213,7 +223,23 @@ public class Facade {
 
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerGeral.listaResultados(codigoAtividade);
+	}	
+	 
+	 /**
+	  * US8
+	  */
+	 public String busca(String termo) {
+		 return this.busca.busca(termo, false);
+	 }
+	 
+	 public String busca(String termo, int numeroDoResultado) {
+		 return this.busca.busca(termo, numeroDoResultado);
+	 }
+	 
+	 public int contaResultadosBusca(String termo) {
+		return this.busca.contaResultadosBusca(termo);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * US8
@@ -252,4 +278,18 @@ public class Facade {
 	public String proximaAtividade(String codigoPesquisa) {
 		return this.controllerGeral.proximaAtividade(codigoPesquisa);
 	}
+=======
+	 
+	 /**
+	  * US11
+	  */
+	public void gravarResumo(String codigoPesquisa) {
+		 this.resultados.gravarResumo(codigoPesquisa);
+	 }
+	 
+	 public void gravarResultados(String codigoPesquisa) {
+		 this.resultados.gravarResultados(codigoPesquisa);
+	 }
+>>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 }
+	

@@ -212,6 +212,7 @@ public class Validador {
 		}
 	}
 	
+
 	/**
 	 * US6
 	 */
@@ -246,6 +247,13 @@ public class Validador {
 			throw new IllegalArgumentException("Pesquisa desativada.");
 		}
 	}
+
+	/**US8*/
+	public void validaPositivo(int num, String msg) {
+		if(num < 0)
+			throw new IllegalArgumentException(msg);
+	}
+	
 	
 	public void validaSemestre(int semestre) {
 		if (semestre < 1) {

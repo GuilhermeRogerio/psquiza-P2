@@ -14,28 +14,28 @@ public class ControllerGeral {
 	 * Instância do contrololador da Pesquisa
 	 * 
 	 */
-	private ControllerPesquisa controllerPesquisa;
+	protected ControllerPesquisa controllerPesquisa;
 
 	/**
 	 * Instância do controlador do fornecedor
 	 *
 	 */
-	private ControllerProblemaObjetivo controllerProblemaObjetivo;
+	protected ControllerProblemaObjetivo controllerProblemaObjetivo;
 
 	/**
 	 * Instância do controlador do fornecedor
 	 *
 	 */
-	private ControllerPesquisador controllerPesquisador;
+	protected ControllerPesquisador controllerPesquisador;
 
 	/**
 	 * Instância do controlador de atividade.
 	 */
-	private ControllerAtividade controllerAtividade;
+	protected ControllerAtividade controllerAtividade;
 	/**
 	 * Objeto para validar os parâmetros.
 	 */
-	private Validador validador;
+	protected Validador validador;
 
 	/**
 	 * Construtor que inicializa os controladores instâciados.
@@ -192,7 +192,7 @@ public class ControllerGeral {
 	public boolean pesquisadorEhAtivo(String email) {
 		return this.controllerPesquisador.pesquisadorEhAtivo(email);
 	}
-
+	
 	/**
 	 * US3
 	 */

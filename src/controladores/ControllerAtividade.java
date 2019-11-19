@@ -134,6 +134,23 @@ public class ControllerAtividade {
 			return this.atividades.get(codigo).contaItensRealizados();
 		}
 	}
+
+
+	/**
+     * Método retorna um Lista de atividades cadastradas
+     * 
+     * @return List<Atividade>
+     */
+    public List<Atividade> getaAtividades() {
+    	
+    	List<Atividade> listAtividade = new ArrayList<>();
+    	
+    	for (String key : this.atividades.keySet()) 
+			listAtividade.add(this.atividades.get(key));
+		
+    	
+		return listAtividade;
+	}
 	
 	/**
 	 * 
@@ -236,7 +253,11 @@ public class ControllerAtividade {
 	}
 	
 	/**
+<<<<<<< HEAD
      * Método retorna um Lista de atividades cadastradas
+=======
+     * M�todo retorna um Lista de atividades cadastradas
+>>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
      * 
      * @return List<Atividade>
      */

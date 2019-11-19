@@ -15,11 +15,11 @@ import modulos.*;
  * */
 public class Resultado {
 	
-	private ControllerGeral controller;
+	private ControllerGeral cg;
 	private Validador validador;
 	
 	public Resultado(ControllerGeral controller){
-		this.controller = controller;
+		this.cg = controller;
 		this.validador = new Validador();
 	}
 	
@@ -36,8 +36,7 @@ public class Resultado {
     	
     	List<Pesquisador> pesquisadores = new ArrayList<>();
     	
-    	ControllerPesquisador contlPesquisador = this.controller.getControllerPesquisador();
-    	List<Pesquisador> todosPesquisadores = contlPesquisador.getPesquisadores();
+    	List<Pesquisador> todosPesquisadores = this.cg.getControllerPesquisador().getPesquisadores();
     	
     	for(Pesquisador pesquisador: todosPesquisadores){
     		List<Pesquisa> pesquisasDeste = pesquisador.getPesquisas();
@@ -64,8 +63,7 @@ public class Resultado {
 	 * */
 	private Pesquisa buscaPesquisa(String codigo) {
 		
-		ControllerPesquisa contrlPesquisa = this.controller.getControllerPesquisa();
-		Pesquisa pesquisa = contrlPesquisa.getPesquisa(codigo);	
+		Pesquisa pesquisa = this.cg.getControllerPesquisa().getPesquisa(codigo);	
 		
 		return pesquisa;
 	}
