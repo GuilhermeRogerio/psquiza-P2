@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
+import comparadores.ComparadorAtividade;
 import util.Validador;
 
 /**
@@ -17,8 +19,10 @@ public class Pesquisa {
 	private String camposInteresse[];
 	private String codigo;
 	private boolean ativa;
-	private HashMap<String,Objetivo> objetivos;
+	private HashMap<String, Objetivo> objetivos;
 	private Optional<Problema> problemaOptional;
+	private Estrategia estrategia;
+
 	/**
 	 * Mapa de atividade.
 	 */
@@ -38,6 +42,7 @@ public class Pesquisa {
 		this.atividades = new HashMap<>();
 		this.objetivos = new HashMap<>();
 		this.problemaOptional = Optional.empty();
+		this.estrategia = new MaisAntiga();
 
 	}
 
@@ -163,6 +168,7 @@ public class Pesquisa {
 	public void setCodigo(String codigoPesquisa) {
 		this.codigo = codigoPesquisa;
 	}
+
 	public boolean associaProblema(Problema problema) {
 		boolean retorno = false;
 		if (!this.problemaOptional.isPresent()) {
@@ -177,7 +183,7 @@ public class Pesquisa {
 
 	public boolean desassociaProblema() {
 		boolean retorno = false;
-		if(this.problemaOptional.isPresent()) {
+		if (this.problemaOptional.isPresent()) {
 			this.problemaOptional = Optional.empty();
 			retorno = true;
 		}
@@ -211,7 +217,7 @@ public class Pesquisa {
 		return this.problemaOptional;
 	}
 
-	public int getQuantiadeDeObjetivos(){
+	public int getQuantiadeDeObjetivos() {
 		return this.objetivos.size();
 	}
 
@@ -221,44 +227,127 @@ public class Pesquisa {
 			if (id == "") {
 				variavelId = id;
 			} else {
-				if (variavelId.compareTo(id) < 0){
+				if (variavelId.compareTo(id) < 0) {
 					variavelId = id;
 				}
 			}
 		}
 		return variavelId;
 	}
-	
+
+	public String menorId() {
+		String variavelId = "";
+		for (String id : atividades.keySet()) {
+			if (id == "") {
+				variavelId = id;
+			} else {
+				if (variavelId.compareTo(id) > 0) {
+					variavelId = id;
+				}
+			}
+		}
+		return variavelId;
+	}
+
 	/**
 	 * Metodo retorna todas as atividade da pesquisa
 	 * 
-	 * @return List<Atividade> 
-	 * */
+	 * @return List<Atividade>
+	 */
 	public List<Atividade> getAtividades() {
-		
+
 		List<Atividade> atividades = new ArrayList<>();
-		
-		for(String key: this.atividades.keySet()) {
+
+		for (String key : this.atividades.keySet()) {
 			atividades.add(this.atividades.get(key));
 		}
-		
+
 		return atividades;
 	}
-	
+
 	/**
 	 * Método retorna uma lista de Objetivos associados à uma pesquisa
 	 * 
 	 * @return List<Objetivo>
-	 * */
+	 */
 	public List<Objetivo> getObjetivos() {
-		
+
 		List<Objetivo> objetivos = new ArrayList<>();
-    	
-    	for(String key: this.objetivos.keySet())
-    		objetivos.add(this.objetivos.get(key));
-    	
-    	return objetivos; 
+
+		for (String key : this.objetivos.keySet())
+			objetivos.add(this.objetivos.get(key));
+
+		return objetivos;
 	}
 	
+	public String[] getCamposInteresse() {
+		return camposInteresse;
+	}
 
+	public String maiorDuracao() {
+		String id = "";
+		int maior = 0;
+		for (String atividades : this.atividades.keySet()) {
+			if (this.atividades.get(atividades).contaItensPendentes() > 0) {
+				if (this.atividades.get(atividades).getDuracao() > maior) {
+					maior = this.atividades.get(atividades).getDuracao();
+					id = this.atividades.get(atividades).getCodigo();
+				}
+			}
+		}
+		return id;
+	}
+
+	public String menosPendencias() {
+		String id = "";
+		for (String atividades : this.atividades.keySet()) {
+			if (this.atividades.get(atividades).contaItensPendentes() == 1) {
+				id = this.atividades.get(atividades).getCodigo();
+				break;
+			}
+		}
+		return id;
+
+	}
+
+	public String maiorRisco() {
+		String id = "";
+		for (String atividades : this.atividades.keySet()) {
+			if (this.atividades.get(atividades).contaItensPendentes() > 0) {
+				if (this.atividades.get(atividades).getNivelRisco().equals("ALTO"))
+					id = this.atividades.get(atividades).getCodigo();
+
+			}
+		}
+		return id;
+	}
+
+	public String maisAntiga() {
+		String id = "";
+		ArrayList<Atividade> lista = new ArrayList<>(this.atividades.values());
+		lista.sort(new ComparadorAtividade());
+		for (Atividade atividades : lista) {
+			if (atividades.contaItensPendentes() > 0) {
+				id = atividades.getCodigo();
+			}
+		}
+		return id;
+	}
+
+	public void TemPendencia() {
+		ArrayList<Atividade> lista = new ArrayList<>(this.atividades.values());
+		int cont = 0;
+		for (Atividade atividades : lista) {
+			cont += atividades.contaItensPendentes();
+					
+		}
+		if(cont == 0) {
+			throw new IllegalArgumentException("Pesquisa sem atividades com pendencias.");
+		}
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+	
 }

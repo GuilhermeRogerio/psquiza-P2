@@ -499,26 +499,23 @@ public class ControllerGeral {
 		return this.controllerAtividade.listaResultados(codigoAtividade);
 	}
 	
-	/**
-	 * Retorna o controlador da classe Pesquisador
-	 * 
-	 * @return ControllerPesquisa
-	 * */
+	//getter controladores
+	
 	public ControllerPesquisa getControllerPesquisa() {
 		return controllerPesquisa;
 	}
 	
-	/**
-	 * Retorna o controlador da classe Pesquisador
-	 * 
-	 * @return ControllerPesquisador
-	 * */
 	public ControllerPesquisador getControllerPesquisador() {
 		return controllerPesquisador;
 	}
 	
+	public ControllerProblemaObjetivo getControllerProblemaObjetivo() {
+		return controllerProblemaObjetivo;
+	}
+
+	
 	/**
-	 * Retorna o controlador dos m�dulos Problema-Objetivo
+	 * Retorna o controlador dos módulos Problema-Objetivo
 	 * 
 	 * @return ControllerProblemaObjetivo
 	 * */
@@ -527,12 +524,24 @@ public class ControllerGeral {
 	}
 	
 	/**
-	 * Retorna o controlador dos m�dulos Atividade
+	 * Retorna o controlador dos módulos Atividade
 	 * 
 	 * @return ControllerAtividade
 	 * */
 	public ControllerAtividade getControllerAtividade() {
 		return this.controllerAtividade;
+	}
+	
+	/**
+	 * US10
+	 */
+	
+	public void configuraEstrategia(String estrategia) {
+		this.controllerPesquisa.configuraEstrategia(estrategia);
+	}
+	
+	public String proximaAtividade(String codigoPesquisa) {
+		return this.controllerPesquisa.proximaAtividade(codigoPesquisa);
 	}
 
 }

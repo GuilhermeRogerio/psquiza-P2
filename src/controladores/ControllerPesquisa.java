@@ -9,6 +9,11 @@ import comparadores.ComparadorObjetivo;
 import comparadores.ComparadorPesquisa;
 import comparadores.ComparadorProblema;
 import modulos.Atividade;
+import modulos.Estrategia;
+import modulos.MaiorDuracao;
+import modulos.MaiorRisco;
+import modulos.MaisAntiga;
+import modulos.MenosPendencias;
 import modulos.Objetivo;
 import modulos.Pesquisa;
 import modulos.Problema;
@@ -27,6 +32,7 @@ public class ControllerPesquisa {
 	 * 
 	 */
 	private Map<String, Pesquisa> pesquisas;
+	private Estrategia estrategia;
 
 	/**
 	 * Construtor do mapa e do verificador do validador.
@@ -34,6 +40,7 @@ public class ControllerPesquisa {
 	public ControllerPesquisa() {
 		this.validador = new Validador();
 		this.pesquisas = new HashMap<String, Pesquisa>();
+		this.estrategia = new MaisAntiga();
 	}
 
 	/**
@@ -308,7 +315,7 @@ public class ControllerPesquisa {
 	}
 	
 	/**
-     * Método que retorna Pesquisa a partir codigo
+     * MÃ©todo que retorna Pesquisa a partir codigo
      * 
      * @return Pesquisa
      */
@@ -318,6 +325,65 @@ public class ControllerPesquisa {
     		return this.pesquisas.get(codigo);
     	else
     		throw new Error("Pesquisa nao encontrada.");  	
+    }
+    
+    /**
+     * Método retorna um Lista de Pesquisas cadastradas
+     * 
+     * @return List<Pesquisa>
+     */
+    public List<Pesquisa> getPesquisas() {
+    	
+    	List<Pesquisa> listPesquisa = new ArrayList<>();
+    	
+    	for (String key : this.pesquisas.keySet()) 
+			listPesquisa.add(this.pesquisas.get(key));
+		
+    	
+		return listPesquisa;
+	}
+    
+    
+    public void configuraEstrategia(String estrategia) {
+    	this.validador.valida(estrategia, "Estrategia nao pode ser nula ou vazia.");
+    	switch (estrategia) {
+		case "MAIS_ANTIGA":
+			this.estrategia = new MaisAntiga();
+			break;
+		case "MENOS_PENDENCIAS":
+			this.estrategia = new MenosPendencias();
+			break;
+		case "MAIOR_RISCO":
+			this.estrategia = new MaiorRisco();
+			break;
+		case "MAIOR_DURACAO":
+			this.estrategia = new MaiorDuracao();
+			break;
+
+		default:
+			throw new IllegalArgumentException("Valor invalido da estrategia");
+			
+		}
+    }
+    
+    public String proximaAtividade(String codigoPesquisa) {
+    	this.validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");
+    	if(this.pesquisas.containsKey(codigoPesquisa)) {
+    		if(this.pesquisas.get(codigoPesquisa).getAtiva()) {
+    			this.pesquisas.get(codigoPesquisa).TemPendencia();
+    			return this.estrategia.proximaAtividade(this.pesquisas.get(codigoPesquisa));
+    		}else {
+    			throw new IllegalArgumentException("Pesquisa desativada.");
+    		}
+    	}else {
+    		throw new IllegalArgumentException("Pesquisa nao encontrada.");
+    	}
+    	
+    }
+   
+    
+    public String menorId(String codigoPesquisa) {
+    	return this.pesquisas.get(codigoPesquisa).menorId();
     }
 
 }

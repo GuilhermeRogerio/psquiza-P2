@@ -118,4 +118,7 @@ public class Objetivo {
 		return true;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
 }

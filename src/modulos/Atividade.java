@@ -276,4 +276,11 @@ public class Atividade {
 		return resultados;
 	}
 
+	public String getNivelRisco() {
+		return nivelRisco;
+	}
+
+
+	
+
 }

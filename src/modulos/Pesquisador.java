@@ -281,4 +281,12 @@ public class Pesquisador {
 		return Objects.hash(email);
 	}
 
+	public String getBiografia() {
+		return biografia;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
 }

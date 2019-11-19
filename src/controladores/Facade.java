@@ -1,5 +1,6 @@
 package controladores;
 
+import busca.Busca;
 import easyaccept.EasyAccept;
 import util.Resultado;
 
@@ -7,18 +8,22 @@ public class Facade {
 
 	private ControllerGeral controllerGeral;
 	private Resultado resultados;
+	private Busca busca;
+
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
 				"testes_aceitacao/use_case_2.txt", "testes_aceitacao/use_case_3.txt", "testes_aceitacao/use_case_4.txt",
 				"testes_aceitacao/use_case_5.txt", "testes_aceitacao/use_case_6.txt", "testes_aceitacao/use_case_7.txt",
-				"testes_aceitacao/use_case_8.txt","testes_aceitacao/use_case_11.txt" };
+				"testes_aceitacao/use_case_8.txt", "testes_aceitacao/use_case_9.txt",
+				"testes_aceitacao/use_case_10.txt", "testes_aceitacao/use_case_11.txt" };
 		EasyAccept.main(args);
 	}
 
 	public Facade() {
 		controllerGeral = new ControllerGeral();
 		resultados = new Resultado(controllerGeral);
+		busca = new Busca(controllerGeral);
 	}
 
 	/**
@@ -130,50 +135,50 @@ public class Facade {
 	public int contaItensRealizados(String codigo) {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
-	
+
 	/*
 	 * US5
 	 */
 	public boolean associaProblema(String idPesquisa, String idProblema) {
 		return this.controllerGeral.associaProblema(idPesquisa, idProblema);
 	}
-	
+
 	public boolean desassociaProblema(String idPesquisa) {
 		return this.controllerGeral.desassociaProblema(idPesquisa);
 	}
-	
+
 	public boolean associaObjetivo(String idPesquisa, String idObjetivo) {
 		return this.controllerGeral.associaObjetivo(idPesquisa, idObjetivo);
 	}
-	
+
 	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
 		return this.controllerGeral.desassociaObjetivo(idPesquisa, idObjetivo);
 	}
 
-	public String listaPesquisas(String ordem){
+	public String listaPesquisas(String ordem) {
 		return this.controllerGeral.listaPesquisas(ordem);
 	}
-	
+
 	/**
 	 * US6
 	 */
-	
+
 	public boolean associaPesquisador(String idPesquisa, String emailPesquisador) {
 		return this.controllerGeral.associaPesquisador(idPesquisa, emailPesquisador);
 	}
-	
+
 	public boolean desassociaPesquisador(String idPesquisa, String emailPesquisador) {
 		return this.controllerGeral.desassociaPesquisador(idPesquisa, emailPesquisador);
 	}
-	
+
 	public void cadastraEspecialidadeProfessor(String email, String formacao, String unidade, String data) {
 		this.controllerGeral.cadastraEspecialidadeProfessor(email, formacao, unidade, data);
 	}
-	
+
 	public void cadastraEspecialidadeAluno(String email, int semestre, double IEA) {
 		this.controllerGeral.cadastraEspecialidadeAluno(email, semestre, IEA);
 	}
-	
+
 	public String listaPesquisadores(String tipo) {
 		return this.controllerGeral.listaPesquisadores(tipo);
 	}
@@ -193,28 +198,58 @@ public class Facade {
 	public void executaAtividade(String codigoAtividade, int item, int duracao) {
 		this.controllerGeral.executaAtividade(codigoAtividade, item, duracao);
 	}
-	
+
 	public int cadastraResultado(String codigoAtividade, String resultado) {
 		return this.controllerGeral.cadastraResultado(codigoAtividade, resultado);
 	}
-	
+
 	public boolean removeResultado(String codigoAtividade, int numeroResultado) {
 		return this.controllerGeral.removeResultado(codigoAtividade, numeroResultado);
 	}
-	
+
 	public int getDuracao(String codigoAtividade) {
 		return this.controllerGeral.getDuracao(codigoAtividade);
 	}
-	
+
 	public String listaResultados(String codigoAtividade) {
 		return this.controllerGeral.listaResultados(codigoAtividade);
 	}
-	
-	 public void gravarResumo(String codigoPesquisa) {
-		 this.resultados.gravarResumo(codigoPesquisa);
-	 }
-	 
-	 public void gravarResultados(String codigoPesquisa) {
-		 this.resultados.gravarResultados(codigoPesquisa);
-	 }
+
+	/**
+	 * US8
+	 */
+	public String busca(String termo) {
+		return this.busca.busca(termo, false);
+	}
+
+	public String busca(String termo, int numeroDoResultado) {
+		return this.busca.busca(termo, numeroDoResultado);
+	}
+
+	public int contaResultadosBusca(String termo) {
+		return this.busca.contaResultadosBusca(termo);
+	}
+
+	/**
+	 * US11
+	 */
+	public void gravarResumo(String codigoPesquisa) {
+		this.resultados.gravarResumo(codigoPesquisa);
+	}
+
+	public void gravarResultados(String codigoPesquisa) {
+		this.resultados.gravarResultados(codigoPesquisa);
+	}
+
+	/**
+	 * US10
+	 */
+
+	public void configuraEstrategia(String estrategia) {
+		this.controllerGeral.configuraEstrategia(estrategia);
+	}
+
+	public String proximaAtividade(String codigoPesquisa) {
+		return this.controllerGeral.proximaAtividade(codigoPesquisa);
+	}
 }

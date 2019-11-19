@@ -86,4 +86,8 @@ public class Problema {
 		return true;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
 }
