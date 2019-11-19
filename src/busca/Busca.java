@@ -253,11 +253,4 @@ public class Busca {
     	busca(termo, true);
     	return this.resulEncontrados.size();
     }
-	
-	
-<<<<<<< HEAD
-=======
-
-
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 }

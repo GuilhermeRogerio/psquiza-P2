@@ -229,9 +229,6 @@ public class Pesquisador {
      *
      * @return o valor do atributo.
      */
-	public String getBiografia() {
-		return biografia;
-	}
 	
     /**
      * Método que retorna o valor do atributo ativo.
@@ -247,11 +244,6 @@ public class Pesquisador {
 	 */
 	public String getFuncao() {
 		return this.funcao;
-	}
-	
-	
-	public String getEmail() {
-		return email;
 	}
 	
 	 /**

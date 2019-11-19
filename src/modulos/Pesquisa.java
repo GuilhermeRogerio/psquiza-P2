@@ -140,15 +140,14 @@ public class Pesquisa {
 
 		return String.format("%s - %s - %s", this.codigo, this.descricao, camposInteresseString);
 	}
-	
-	
+
 	/**
 	 * toString usado para exibir o resultado de busca
 	 * 
 	 * @return {@link String}
 	 */
 	public String toStringBusca() {
-			
+
 		StringBuilder sbCamposInteresse = new StringBuilder();
 
 		for (String string : camposInteresse) {
@@ -159,7 +158,7 @@ public class Pesquisa {
 		String camposInteresseString = sbCamposInteresse.toString();
 		camposInteresseString = camposInteresseString.substring(0, camposInteresseString.length() - 2);
 
-		return String.format("%s: %s - %s | ",this.codigo, this.descricao, camposInteresseString);
+		return String.format("%s: %s - %s | ", this.codigo, this.descricao, camposInteresseString);
 	}
 
 	/***
@@ -176,10 +175,6 @@ public class Pesquisa {
 	 */
 	public boolean getAtiva() {
 		return this.ativa;
-	}
-	
-	public String getDescricao() {
-		return descricao;
 	}
 
 	public void setAssociada(String codigoAtividade) {
@@ -298,30 +293,17 @@ public class Pesquisa {
 	public List<Objetivo> getObjetivos() {
 
 		List<Objetivo> objetivos = new ArrayList<>();
-<<<<<<< HEAD
 
 		for (String key : this.objetivos.keySet())
 			objetivos.add(this.objetivos.get(key));
 
 		return objetivos;
-=======
-    	
-    	for(String key: this.objetivos.keySet())
-    		objetivos.add(this.objetivos.get(key));
-    
-    	return objetivos; 
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
+
 	}
-	
+
 	public String[] getCamposInteresse() {
 		return camposInteresse;
 	}
-<<<<<<< HEAD
-=======
-	
-	
-	
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 
 	public String maiorDuracao() {
 		String id = "";
@@ -378,9 +360,9 @@ public class Pesquisa {
 		int cont = 0;
 		for (Atividade atividades : lista) {
 			cont += atividades.contaItensPendentes();
-					
+
 		}
-		if(cont == 0) {
+		if (cont == 0) {
 			throw new IllegalArgumentException("Pesquisa sem atividades com pendencias.");
 		}
 	}
@@ -388,5 +370,5 @@ public class Pesquisa {
 	public String getDescricao() {
 		return descricao;
 	}
-	
+
 }

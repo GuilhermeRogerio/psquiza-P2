@@ -71,10 +71,6 @@ public class Problema {
 		return codigo;
 	}
 	
-	public String getDescricao() {
-		return descricao;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

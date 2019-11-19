@@ -10,10 +10,6 @@ public class Facade {
 	private ControllerGeral controllerGeral;
 	private Resultado resultados;
 	private Busca busca;
-<<<<<<< HEAD
-
-=======
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
 
 	public static void main(String[] args) {
 		args = new String[] { "controladores.Facade", "testes_aceitacao/use_case_1.txt",
@@ -141,11 +137,7 @@ public class Facade {
 	public int contaItensRealizados(String codigo) {
 		return this.controllerGeral.contaItensRealizados(codigo);
 	}
-<<<<<<< HEAD
-=======
 	
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
-
 	/*
 	 * US5
 	 */
@@ -225,22 +217,7 @@ public class Facade {
 		return this.controllerGeral.listaResultados(codigoAtividade);
 	}	
 	 
-	 /**
-	  * US8
-	  */
-	 public String busca(String termo) {
-		 return this.busca.busca(termo, false);
-	 }
 	 
-	 public String busca(String termo, int numeroDoResultado) {
-		 return this.busca.busca(termo, numeroDoResultado);
-	 }
-	 
-	 public int contaResultadosBusca(String termo) {
-		return this.busca.contaResultadosBusca(termo);
-	}
-<<<<<<< HEAD
-
 	/**
 	 * US8
 	 */
@@ -257,17 +234,6 @@ public class Facade {
 	}
 
 	/**
-	 * US11
-	 */
-	public void gravarResumo(String codigoPesquisa) {
-		this.resultados.gravarResumo(codigoPesquisa);
-	}
-
-	public void gravarResultados(String codigoPesquisa) {
-		this.resultados.gravarResultados(codigoPesquisa);
-	}
-
-	/**
 	 * US10
 	 */
 
@@ -278,8 +244,7 @@ public class Facade {
 	public String proximaAtividade(String codigoPesquisa) {
 		return this.controllerGeral.proximaAtividade(codigoPesquisa);
 	}
-=======
-	 
+	
 	 /**
 	  * US11
 	  */
@@ -290,6 +255,6 @@ public class Facade {
 	 public void gravarResultados(String codigoPesquisa) {
 		 this.resultados.gravarResultados(codigoPesquisa);
 	 }
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
+
 }
 	

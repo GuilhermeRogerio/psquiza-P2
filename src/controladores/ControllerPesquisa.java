@@ -331,7 +331,7 @@ public class ControllerPesquisa {
 <<<<<<< HEAD
      * MÃ©todo retorna um Lista de Pesquisas cadastradas
 =======
-     * Método retorna um Lista de Pesquisas cadastradas
+     * Mï¿½todo retorna um Lista de Pesquisas cadastradas
 >>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
      * 
      * @return List<Pesquisa>
@@ -345,9 +345,7 @@ public class ControllerPesquisa {
 		
     	
 		return listPesquisa;
-	}
-<<<<<<< HEAD
-    
+    }
     
     public void configuraEstrategia(String estrategia) {
     	this.validador.valida(estrategia, "Estrategia nao pode ser nula ou vazia.");
@@ -390,7 +388,4 @@ public class ControllerPesquisa {
     public String menorId(String codigoPesquisa) {
     	return this.pesquisas.get(codigoPesquisa).menorId();
     }
-=======
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
-
 }
