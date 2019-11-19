@@ -135,6 +135,27 @@ public class Pesquisa {
 
 		return String.format("%s - %s - %s", this.codigo, this.descricao, camposInteresseString);
 	}
+	
+	
+	/**
+	 * toString usado para exibir o resultado de busca
+	 * 
+	 * @return {@link String}
+	 */
+	public String toStringBusca() {
+			
+		StringBuilder sbCamposInteresse = new StringBuilder();
+
+		for (String string : camposInteresse) {
+			if (string != null)
+				sbCamposInteresse.append(string + ", ");
+		}
+
+		String camposInteresseString = sbCamposInteresse.toString();
+		camposInteresseString = camposInteresseString.substring(0, camposInteresseString.length() - 2);
+
+		return String.format("%s: %s - %s | ",this.codigo, this.descricao, camposInteresseString);
+	}
 
 	/***
 	 * 
@@ -150,6 +171,10 @@ public class Pesquisa {
 	 */
 	public boolean getAtiva() {
 		return this.ativa;
+	}
+	
+	public String getDescricao() {
+		return descricao;
 	}
 
 	public void setAssociada(String codigoAtividade) {
@@ -256,9 +281,15 @@ public class Pesquisa {
     	
     	for(String key: this.objetivos.keySet())
     		objetivos.add(this.objetivos.get(key));
-    	
+    
     	return objetivos; 
 	}
+	
+	public String[] getCamposInteresse() {
+		return camposInteresse;
+	}
+	
+	
 	
 
 }
