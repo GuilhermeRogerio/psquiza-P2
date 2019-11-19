@@ -11,6 +11,12 @@ import modulos.Pesquisador;
 import modulos.Problema;
 import util.Validador;
 
+
+/**
+ *Classe representativa para a realizaÃ§Ã£o de buscas no sistema
+ *
+ * 
+ */
 public class Busca {
 	
 	private List <ResultadoBusca> resulEncontrados;
@@ -25,7 +31,7 @@ public class Busca {
 	}
 	
 	/**
-	 * Método público que realiza uma busca a partir de um termo nas entidades:
+	 * Mï¿½todo pï¿½blico que realiza uma busca a partir de um termo nas entidades:
 	 * 	
 	 * 	- Pesquisa
 	 * 	- Pesquisador
@@ -33,8 +39,9 @@ public class Busca {
 	 *  - Objetivos
 	 *  - Atividades
 	 *  
-	 *  @author adyssonfs
 	 *  @param termo
+	 *  @param buscaNumerada: define se os resultados encontrados serÃ£o
+	 *  enumerados
 	 * */
 	public String busca(String termo, boolean buscaNumerada) {
 		
@@ -82,7 +89,7 @@ public class Busca {
 	}
 
 	/**
-	 * Metodo interno para a busca específica de Pesquisa
+	 * Metodo interno para a busca especï¿½fica de Pesquisa
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -115,7 +122,7 @@ public class Busca {
 	}
 	
 	/**
-	 * Metodo interno para a busca específica de Pesquisador
+	 * Metodo interno para a busca especï¿½fica de Pesquisador
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -139,7 +146,7 @@ public class Busca {
 
 	
 	/**
-	 * Metodo interno para a busca específica de Problemas
+	 * Metodo interno para a busca especï¿½fica de Problemas
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -162,7 +169,7 @@ public class Busca {
 	}
 	
 	/**
-	 * Metodo interno para a busca específica de Objetivos
+	 * Metodo interno para a busca especï¿½fica de Objetivos
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -186,7 +193,7 @@ public class Busca {
 	}
 	
 	/**
-	 * Metodo interno para a busca específica de Atividades
+	 * Metodo interno para a busca especï¿½fica de Atividades
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -211,6 +218,12 @@ public class Busca {
 		return matchsList;
 	}
 	
+	/**
+	 *Metodo retorna um resultado de uma busca em uma determinada posicao
+	 *
+	 * @param termo
+	 * @param numeroDoResultado
+	 * */
 	public String busca(String termo, int numeroDoResultado) {
 		
 		validador.valida(termo, "Campo termo nao pode ser nulo ou vazio.");
@@ -226,7 +239,14 @@ public class Busca {
 		return this.resulEncontrados.get(numeroDoResultado-1).toString();
 	}
 	
-    public int contaResultadosBusca(String termo) {
+    
+	/**
+	 *Metodo retorna o numero de resultadod  de uma busca
+	 *
+	 * @param termo
+	 * @param numeroDoResultado
+	 * */
+	public int contaResultadosBusca(String termo) {
     	
 		validador.valida(termo, "Campo termo nao pode ser nulo ou vazio.");
 
