@@ -98,12 +98,8 @@ public class Busca {
 			
 			if(result.match(termo))
 				matchsList.add(result);
-			
-			if(termo.equals("parai"))
-				System.out.println(pesquisa.toString());
-
-				
-			if(pesquisa.getAtividades().size() > 0) {				
+							
+			//if(pesquisa.getAtividades().size() > 0) {				
 			
 				result.setCamposInteresses(pesquisa.getCamposInteresse());
 				
@@ -111,7 +107,7 @@ public class Busca {
 					matchsList.add(new ResultadoBusca(pesquisa.getCodigo(), pesquisa.getCamposInteresse()));
 				}
 				
-			}			
+			//}			
 		}		
 		
 		matchsList.sort(ResultadoBusca.getComparador());
@@ -224,10 +220,10 @@ public class Busca {
 		
 		busca(termo, true);
 		
-		if(this.resulEncontrados.size() <= numeroDoResultado-1)
+		if(this.resulEncontrados.size() <= numeroDoResultado)
 			throw new Error("Entidade nao encontrada.");
 			 
-		return this.resulEncontrados.get(numeroDoResultado).toString();
+		return this.resulEncontrados.get(numeroDoResultado-1).toString();
 	}
 	
     public int contaResultadosBusca(String termo) {

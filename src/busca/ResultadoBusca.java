@@ -66,7 +66,6 @@ public class ResultadoBusca {
 				continue;
 			
 			if(string.contains(termo)) {				
-				System.out.println(string);
 				return true;
 			}
 				
