@@ -281,9 +281,15 @@ public class Pesquisa {
     	
     	for(String key: this.objetivos.keySet())
     		objetivos.add(this.objetivos.get(key));
-    	
+    
     	return objetivos; 
 	}
+	
+	public String[] getCamposInteresse() {
+		return camposInteresse;
+	}
+	
+	
 	
 
 }

@@ -92,12 +92,27 @@ public class Busca {
 		List<ResultadoBusca> matchsList = new ArrayList<ResultadoBusca>();		
 		List<Pesquisa> pesquisas = this.cg.getControllerPesquisa().getPesquisas();
 		
-		for (Pesquisa pesquisa : pesquisas) {			
-			ResultadoBusca result = new ResultadoBusca(pesquisa.getCodigo(), pesquisa.getDescricao());
+		for (final Pesquisa pesquisa : pesquisas) {			
+			
+			final ResultadoBusca result = new ResultadoBusca(pesquisa.getCodigo(), pesquisa.getDescricao());
 			
 			if(result.match(termo))
 				matchsList.add(result);
-		}
+			
+			if(termo.equals("parai"))
+				System.out.println(pesquisa.toString());
+
+				
+			if(pesquisa.getAtividades().size() > 0) {				
+			
+				result.setCamposInteresses(pesquisa.getCamposInteresse());
+				
+				if(result.matchInteresses(termo)) {
+					matchsList.add(new ResultadoBusca(pesquisa.getCodigo(), pesquisa.getCamposInteresse()));
+				}
+				
+			}			
+		}		
 		
 		matchsList.sort(ResultadoBusca.getComparador());
 		return matchsList;
