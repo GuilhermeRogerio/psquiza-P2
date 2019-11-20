@@ -74,7 +74,8 @@ public class Busca {
 		this.resulEncontrados.addAll(resultAtividade);	
 
 		if(this.resulEncontrados.size()==0 && !buscaNumerada)
-			throw new Error("Entidade nao encontrada.");	
+			//throw new Error("Entidade nao encontrada.");	
+			return "";
 		if(this.resulEncontrados.size()==0 && buscaNumerada)
 			throw new Error("Nenhum resultado encontrado");
 			
