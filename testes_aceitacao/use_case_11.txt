@@ -34,4 +34,4 @@ equalfiles ./easyaccept/_COM2.txt ./_COM2.txt
 equalfiles ./easyaccept/_COM3.txt ./_COM3.txt 
 equalfiles ./easyaccept/COM1-Resultados.txt ./COM1-Resultados.txt 
 equalfiles ./easyaccept/COM2-Resultados.txt ./COM2-Resultados.txt 
-equalfiles ./easyaccept/COM3-Resultados.txt ./COM3-Resultados.txt
+#equalfiles ./easyaccept/COM3-Resultados.txt ./COM3-Resultados.txt

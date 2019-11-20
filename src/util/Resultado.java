@@ -159,26 +159,7 @@ public class Resultado {
 	public void gravarResultados(String codigoPesquisa) {
     	
     	validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");
-    	
-    	/*   
-    	 * - Pesquisa: C�DIGO - Descri��o - Campo de interesse
-
-    - Resultados:
-
-        - DESCRI��O
-
-            - ITEM1 - DURA��O - DESCRI��O_RESULTADO
-
-            - ITEM2 - DURA��O - DESCRI��O_RESULTADO
-
-        - DESCRI��O
-
-            - ITEM4 - DURA��O - DESCRI��O_RESULTADO
-
-            - ITEM5 - DURA��O - DESCRI��O_RESULTADO
-
-    	 * */
-    	
+    	    	
     	StringBuilder sb = new StringBuilder();    	
     	final Pesquisa pesquisa = buscaPesquisa(codigoPesquisa);
     	
@@ -197,18 +178,21 @@ public class Resultado {
     			//Item item = itens.get(i);
     			sb.append("\t\t\t- ITEM"+(i+1)+" - "+(atividade.getDuracao()/itens.size()));    			
     			sb.append("\n");
-    		}   		
-    		
-    		
+    		}
     		
     		List<String> resultados = atividade.getResultados();    		
-    		for(String resultado: resultados) {
-    			sb.append("\t\t\t- "+resultado+"\n");
+    		for(int i=0; i<resultados.size();i++) {
+    			String resultado = resultados.get(i);
+    			sb.append("\t\t\t- "+resultado);
+    			
+    			if(i==resultados.size()-1)
+    				sb.append("\"\n");
+    			else
+    				sb.append("\n");
     		}   		
     		
     	}
-    	
-    	
+    	    	
     	final String fileName = pesquisa.getCodigo();
     	File arquivo = new File(fileName+"-Resultados.txt");
     	
