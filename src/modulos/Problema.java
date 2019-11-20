@@ -35,8 +35,6 @@ public class Problema implements Serializable {
 	 * @param viabilidade Viabilidade do problema ser resolvido.
 	 */
 	public Problema(String descricao, int viabilidade) {
-		this.validador = new Validador();
-		this.validador.validaProblema(descricao, viabilidade);
 		this.descricao = descricao;
 		this.viabilidade = viabilidade;
 		this.codigo = "P";
