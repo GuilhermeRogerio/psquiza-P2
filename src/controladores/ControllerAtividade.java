@@ -44,7 +44,7 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Método que cadastra a atividade no sistema.
+	 * Método que passa os parâmetros para cadastrar a atividade no sistema.
 	 * 
 	 * @param descricao O objetivo da atividade.
 	 * @param nivelRisco O nivel de risco que a atividade apresenta.
@@ -64,7 +64,7 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Método responsável por apagar uma atividade do sistema.
+	 * Método que passa os parâmetros paras apagar uma atividade do sistema.
 	 * 
 	 * @param codigo O código da atividade a ser apagada.
 	 */
@@ -128,7 +128,7 @@ public class ControllerAtividade {
 	 * Método que retorna quantos itens já foram realizados na atividade.
 	 * 
 	 * @param codigo O código da atividade.
-	 * @return A quantia de itens resolvidos.
+	 * @return A quantia de itens realizados.
 	 */
 	public int contaItensRealizados(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -195,7 +195,7 @@ public class ControllerAtividade {
 	 * 
 	 * @param codigoAtividade Código da atividade.
 	 * @param resultado       Resultado da atividade.
-	 * @return Número identificador do resultado.
+	 * @return O número identificador do resultado.
 	 */
 	public int cadastraResultado(String codigoAtividade, String resultado) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");

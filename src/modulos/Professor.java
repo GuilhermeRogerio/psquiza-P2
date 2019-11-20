@@ -1,6 +1,8 @@
 package modulos;
 
-public class Professor implements InterfacePesquisador {
+import java.io.Serializable;
+
+public class Professor implements InterfacePesquisador, Serializable {
 	
 	/**
 	 * Area de formacao

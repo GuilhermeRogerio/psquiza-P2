@@ -1,5 +1,6 @@
 package util;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import modulos.Pesquisa;
@@ -8,7 +9,7 @@ import modulos.Pesquisa;
  * Representação da classe exclusiva para tratamento de excessões.
  *
  */
-public class Validador {
+public class Validador implements Serializable {
 
 	/**
 	 * Método responsável pelo tratamento da excessões do sistema.

@@ -1,5 +1,6 @@
 package modulos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,7 @@ import util.Validador;
 /**
  * Representação de Pesquisa no Sistema
  */
-public class Pesquisa {
+public class Pesquisa implements Serializable{
 
 	private String descricao;
 	private String camposInteresse[];
@@ -266,20 +267,6 @@ public class Pesquisa {
 				variavelId = id;
 			} else {
 				if (variavelId.compareTo(id) < 0) {
-					variavelId = id;
-				}
-			}
-		}
-		return variavelId;
-	}
-
-	public String menorId() {
-		String variavelId = "";
-		for (String id : atividades.keySet()) {
-			if (id == "") {
-				variavelId = id;
-			} else {
-				if (variavelId.compareTo(id) > 0) {
 					variavelId = id;
 				}
 			}

@@ -65,7 +65,7 @@ public class ControllerPesquisa {
 	 * Método que repassa os parâmetros para o retorno código para uma pesquisa.
 	 * 
 	 * @param campoDeInteresse O campo de interesse da pesquisa.
-	 * @return O codigo da pesquisa.
+	 * @return O código da pesquisa.
 	 */
 	private String geraCodigo(String campoDeInteresse) {
 		int count = 1;
@@ -155,8 +155,8 @@ public class ControllerPesquisa {
 	/**
 	 * Método que repassa os parâmetros para a verificação do estado da pesquisa.
 	 * 
-	 * @param codigo Oidentificador da pesquisa.
-	 * @return O resultdo do estado da pesquisa.
+	 * @param codigo O dentificador da pesquisa.
+	 * @return"True" se a pesqusisa é ativa e "False" se a pesquisa for inativa.
 	 */
 	public boolean pesquisaEhAtiva(String codigo) {
 		this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
@@ -176,7 +176,7 @@ public class ControllerPesquisa {
 	 *
 	 * @param idPesquisa O identificador da pesquisa.
 	 * @param problema O problema a ser associado.
-	 * @return O resultado da associação do problema.
+	 * @return "True" se a associação for bem sucedida e "False" se a associação não acontecer.
 	 */
 	public boolean associaProblema(String idPesquisa, Problema problema) {
 		if (this.pesquisas.containsKey(idPesquisa)) {
@@ -194,7 +194,7 @@ public class ControllerPesquisa {
 	 * Método que repassa os parâmetros para a desassociação do problema na pesquisa.
 	 * 
 	 * @param idPesquisa O identificador da pesquisa.
-	 * @return O resultado da desassociação do problema.
+	 * @return "True" se a desassociação for bem sucedida e "False" se a desassociação não acontecer.
 	 */
 	public boolean desassociaProblema(String idPesquisa) {
 		if (this.pesquisas.containsKey(idPesquisa)) {
@@ -214,7 +214,7 @@ public class ControllerPesquisa {
 	 * @param idPesquisa O identificador da pesquisa.
 	 * @param objetivo O objetivo a ser adicionado.
 	 * @param idObjetivo O identificador do objetivo.
-	 * @return O resultado da ação de associação do objetivo.
+	 * @return "True" se a associação for bem sucedida e "False" se a associação não acontecer.
 	 */
 	public boolean associaObjetivo(String idPesquisa, Objetivo objetivo, String idObjetivo) {
 		if (this.pesquisas.containsKey(idPesquisa)) {
@@ -233,7 +233,7 @@ public class ControllerPesquisa {
 	 *
 	 * @param idPesquisa O identificador da pesquisa.
 	 * @param idObjetivo O identificador do objetivo.
-	 * @return O resultado da desassociação do objetivo.
+	 * @return "True" se a desassociação for bem sucedida e "False" se a desassociação não acontecer.
 	 */
 	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
 		if (this.pesquisas.containsKey(idPesquisa)) {
@@ -264,7 +264,7 @@ public class ControllerPesquisa {
 	/**
 	 * Método responsável pela forma de ordenação da lista de pesquisas.
 	 *
-	 * @param ordem A criterio de ordenação da lista.
+	 * @param ordem A critério de ordenação da lista.
 	 * @return A lista ordenada seguindo o criterio definido.
 	 */
 	public String listaPesquisas(String ordem) {
@@ -288,9 +288,9 @@ public class ControllerPesquisa {
 	/**
 	 * Método que repassa os parâmetros para asssociar uma atividade a uma pesquisa.
 	 * 
-	 * @param codigoPesquisa O código da pesquisa.
+	 * @param codigoPesquisa O identificador da pesquisa.
 	 * @param atividade     O código da atividade.
-	 * @return O resultado a associação da atividade.
+	 * @return "True" se a associação for bem sucedida e "False" se a associação não acontecer. 
 	 */
 	public boolean associaAtividade(String codigoPesquisa, String codigoAtividade, Atividade atividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
@@ -312,7 +312,7 @@ public class ControllerPesquisa {
 	 * 
 	 * @param codigoPesquisa O código da pesquisa.
 	 * @param atividade      O código da atividade.
-	 * @return O resultado a desasociação da atividade.
+	 * @return"True" se a desassociação for bem sucedida e "False" se a desassociação não acontecer.
 	 */
 	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {
 		this.validador.valida(codigoPesquisa, "Campo codigoPesquisa nao pode ser nulo ou vazio.");
@@ -343,9 +343,9 @@ public class ControllerPesquisa {
     }
     
     /**
-     * Método retorna um Lista de Pesquisas cadastradas
+     * Método retorna a lista de pesquisas cadastradas.
      * 
-     * @return List<Pesquisa>
+     * @return A lista de pesquisas.
      */
     public List<Pesquisa> getPesquisas() {
     	
@@ -358,6 +358,11 @@ public class ControllerPesquisa {
 		return listPesquisa;
     }
     
+    /**
+     * Método que configura a estratégia da interface.
+     *  
+     * @param estrategia A estrátegia definida.
+     */
     public void configuraEstrategia(String estrategia) {
     	this.validador.valida(estrategia, "Estrategia nao pode ser nula ou vazia.");
     	switch (estrategia) {
@@ -380,6 +385,12 @@ public class ControllerPesquisa {
 		}
     }
     
+    /**
+     * Método que oferece uma sugestão de próxima atividade a ser realizada dentro de uma pesquisa.
+     * 
+     * @param codigoPesquisa O identificador da pesquisa.
+     * @return A próxima atividade.
+     */
     public String proximaAtividade(String codigoPesquisa) {
     	this.validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");
     	if(this.pesquisas.containsKey(codigoPesquisa)) {
@@ -393,10 +404,5 @@ public class ControllerPesquisa {
     		throw new IllegalArgumentException("Pesquisa nao encontrada.");
     	}
     	
-    }
-   
-    
-    public String menorId(String codigoPesquisa) {
-    	return this.pesquisas.get(codigoPesquisa).menorId();
     }
 }

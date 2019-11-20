@@ -1,5 +1,6 @@
 package modulos;
 
+import java.io.Serializable;
 
 /**
  * Construtor da classe Item
@@ -7,7 +8,7 @@ package modulos;
  * @author matheusfls-ccc (Matheus Filipe de Lima Souza)
  *
  */
-public class Item {
+public class Item implements Serializable {
 	
 	/**
 	 * Status do Item

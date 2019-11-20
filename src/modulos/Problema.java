@@ -1,5 +1,7 @@
 package modulos;
 
+import java.io.Serializable;
+
 import util.Validador;
 
 /**
@@ -8,7 +10,7 @@ import util.Validador;
  * @author Guilherme Rogerio
  *
  */
-public class Problema {
+public class Problema implements Serializable {
 	/**
 	 * Descrição do problema.
 	 */

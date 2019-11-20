@@ -1,5 +1,7 @@
 package modulos;
 
+import java.io.Serializable;
+
 import util.Validador;
 
 /**
@@ -8,7 +10,7 @@ import util.Validador;
  * @author Guilherme Rogerio
  *
  */
-public class Objetivo {
+public class Objetivo implements Serializable{
 	/**
 	 * Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
 	 */

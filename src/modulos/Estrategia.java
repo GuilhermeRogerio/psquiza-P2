@@ -1,6 +1,8 @@
 package modulos;
 
-public interface Estrategia {
+import java.io.Serializable;
+
+public interface Estrategia extends Serializable {
 	
 	public String proximaAtividade(Pesquisa pesquisa);
 

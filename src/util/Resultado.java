@@ -2,6 +2,7 @@ package util;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +10,11 @@ import controladores.*;
 import modulos.*;
 
 /**
- * Classe utilit�ria para a exibi��o de Resultados 
+ * Classe utilit�ria para a exibição de Resultados 
  * de uma pesquisa salvo em arquivos de texto
  *  * 
  * */
-public class Resultado {
+public class Resultado implements Serializable {
 	
 	private ControllerGeral cg;
 	private Validador validador;

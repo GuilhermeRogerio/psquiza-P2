@@ -1,11 +1,12 @@
 package modulos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import util.Validador;
 
-public class Atividade {
+public class Atividade implements Serializable {
 
 	/**
 	 * Descrição da atividade

@@ -1,12 +1,14 @@
 package modulos;
 
+import java.io.Serializable;
+
 /**
  * Representação da especialidade Aluno
  * 
  * @author Matheus Filipe
  *
  */
-public class Aluno implements InterfacePesquisador {
+public class Aluno implements InterfacePesquisador, Serializable {
 	
 	/**
 	 * Semestre de formação

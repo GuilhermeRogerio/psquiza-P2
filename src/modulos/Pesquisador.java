@@ -1,5 +1,6 @@
 package modulos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +12,7 @@ import util.Validador;
  * Classe destinada a alocação as informação do pesquisador.
  *
  */
-public class Pesquisador {
+public class Pesquisador implements Serializable {
 	
     /**
      * Texto que representa o nome do pesquisador.
