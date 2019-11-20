@@ -17,21 +17,25 @@ public class ControllerAtividade {
 
 	/**
 	 * Mapa que guarda as atividades cadastradas.
+	 * 
 	 */
 	private HashMap<String, Atividade> atividades;
 
 	/**
 	 * Validador, que verifica os parâmetros dos métodos para tratamento.
+	 * 
 	 */
 	private Validador validador;
 
 	/**
 	 * Código utilizado para identificar as atividades.
+	 * 
 	 */
 	private int codigo;
 
 	/**
 	 * Construtor do controller, que será utilizado pelo controller geral.
+	 * 
 	 */
 	public ControllerAtividade() {
 		this.atividades = new HashMap<>();
@@ -42,10 +46,10 @@ public class ControllerAtividade {
 	/**
 	 * Método que cadastra a atividade no sistema.
 	 * 
-	 * @param descricao      - Objetivo da atividade
-	 * @param nivelRisco     - Nivel de risco que a atividade apresenta
-	 * @param descricaoRisco - Descrição que explica o nivel de risco apresentado
-	 * @return Código da atividade que acabou de ser cadastrada
+	 * @param descricao O objetivo da atividade
+	 * @param nivelRisco O nivel de risco que a atividade apresenta
+	 * @param descricaoRisco A descrição que explica o nivel de risco apresentado
+	 * @return O código da atividade
 	 */
 	public String cadastraAtividade(String descricao, String nivelRisco, String descricaoRisco) {
 		this.validador.valida(descricao, "Campo Descricao nao pode ser nulo ou vazio.");
@@ -75,7 +79,7 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Método que cadastra um item à atividade indicada.
+	 * Método que passa os parâmetros para o cadastrao do item à atividade indicada.
 	 * 
 	 * @param codigo - Código da atividade
 	 * @param item   - Código do item a ser cadastrado.
@@ -91,10 +95,10 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Exibe informações sobre a atividade e seus respectivos itens.
+	 * Método que exibe informações sobre a atividade e seus respectivos itens.
 	 * 
-	 * @param codigo - Código da atividade que se deseja
-	 * @return - Representação textual da atividade.
+	 * @param codigo O código da atividade que se deseja.
+	 * @return A representação textual da atividade.
 	 */
 	public String exibeAtividade(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -106,10 +110,10 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Retorna quantos itens ainda estão pendentes na atividade.
+	 * Método que retorna quantos itens ainda estão pendentes na atividade.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens pendentes.
+	 * @param codigo O código da atividade.
+	 * @return A quantia de itens pendentes.
 	 */
 	public int contaItensPendentes(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -121,10 +125,10 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Retorna quantos itens já foram realizados na atividade.
+	 * Método que retorna quantos itens já foram realizados na atividade.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens resolvidos.
+	 * @param codigo O código da atividade.
+	 * @return A quantia de itens resolvidos.
 	 */
 	public int contaItensRealizados(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -139,34 +143,31 @@ public class ControllerAtividade {
 	/**
      * Método retorna um Lista de atividades cadastradas
      * 
-     * @return List<Atividade>
+     * @return A lista de atividades cadastradas.
      */
     public List<Atividade> getaAtividades() {
-    	
     	List<Atividade> listAtividade = new ArrayList<>();
-    	
     	for (String key : this.atividades.keySet()) 
 			listAtividade.add(this.atividades.get(key));
-		
-    	
 		return listAtividade;
 	}
 	
 	/**
+	 * Método que retorna a atividade.
 	 * 
-	 * @param codigoAtividade Código da atividade.
-	 * @return Retorna a atividade desejada.
+	 * @param codigoAtividade O código da atividade.
+	 * @return A atividade desejada.
 	 */
 	public Atividade getAtividade(String codigoAtividade) {
 		return this.atividades.get(codigoAtividade);
 	}
 
 	/**
-	 * Executa uma atividade já associada a uma pesquisa.
+	 * Método que executa uma atividade já associada a uma pesquisa.
 	 * 
-	 * @param codigoAtividade Código da atividade.
-	 * @param item            Item a ser executado.
-	 * @param duracao         Quantidade de horas gastas nessa execução.
+	 * @param codigoAtividade O código da atividade.
+	 * @param item            O item a ser executado.
+	 * @param duracao         A quantidade de horas gastas nessa execução.
 	 */
 	public void executaAtividade(String codigoAtividade, int item, int duracao) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
@@ -190,7 +191,7 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Cadastra os resultados obtidos por item da atividade.
+	 * Método que cadastra os resultados obtidos por item da atividade.
 	 * 
 	 * @param codigoAtividade Código da atividade.
 	 * @param resultado       Resultado da atividade.
@@ -253,22 +254,14 @@ public class ControllerAtividade {
 	}
 	
 	/**
-<<<<<<< HEAD
      * Método retorna um Lista de atividades cadastradas
-=======
-     * M�todo retorna um Lista de atividades cadastradas
->>>>>>> dda4b763ef808bdbdbd9143d0546ef92851c8f74
      * 
      * @return List<Atividade>
      */
     public List<Atividade> getAtividades() {
-    	
     	List<Atividade> listAtividade = new ArrayList<>();
-    	
     	for (String key : this.atividades.keySet()) 
 			listAtividade.add(this.atividades.get(key));
-		
-    	
 		return listAtividade;
 	}
 

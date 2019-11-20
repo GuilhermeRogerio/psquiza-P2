@@ -18,6 +18,7 @@ public class ControllerGeral {
 
 	/**
 	 * Instância do controlador do fornecedor
+	 * 
 	 *
 	 */
 	protected ControllerProblemaObjetivo controllerProblemaObjetivo;
@@ -30,15 +31,19 @@ public class ControllerGeral {
 
 	/**
 	 * Instância do controlador de atividade.
+	 * 
 	 */
 	protected ControllerAtividade controllerAtividade;
+	
 	/**
 	 * Objeto para validar os parâmetros.
+	 * 
 	 */
 	protected Validador validador;
 
 	/**
 	 * Construtor que inicializa os controladores instâciados.
+	 * 
 	 */
 	public ControllerGeral() {
 		this.controllerPesquisa = new ControllerPesquisa();
@@ -55,67 +60,58 @@ public class ControllerGeral {
 	/**
 	 * Método passa ao controlador de pesquisa os parâmetros a serem cadastrados
 	 * 
-	 * @author adyssonfs
-	 * @param descricao: resumo descritivo da pesquisa
-	 * @param campoDeInteresse: areas que são abrangidas pela pesquisa. A entrada
-	 *        deve ser até 255 caracteres. Cada area é separada por vírgula
+	 * @param descricao o resumo descritivo da pesquisa
+	 * @param campoDeInteresse a areas abrangidas pela pesquisa
+	 *       
 	 */
 	public void cadastraPesquisa(String descricao, String campoDeInteresse) {
 		this.controllerPesquisa.cadastraPesquisa(descricao, campoDeInteresse);
 	}
 
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em
-	 * pesquisa
+	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em pesquisa
 	 * 
-	 * @author adyssonfs
-	 * @param codigo: identificador da pesquisa
-	 * @param campoASerAlterado: pode ser "CAMPO" ou "DESCRICAO"
+	 * @param codigo o identificador da pesquisa
+	 * @param campoASerAlterado o atributo a ser mudado
 	 */
 	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
 		this.controllerPesquisa.alteraPesquisa(codigo, conteudoASerAlterado, novoConteudo);
 	}
 
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros que da pesquisa a ser
-	 * encerrada
+	 * Método passa ao controlador de pesquisa os parâmetros que da pesquisa a ser encerrada
 	 * 
-	 * @author adyssonfs
-	 * @param codigo: identificador da pesquisa
-	 * @param motivo: motivação para o encerramento da pesquisa"
+	 * @param codigo o identificador da pesquisa
+	 * @param motivo o motivação para o encerramento da pesquisa
 	 */
 	public void encerraPesquisa(String codigo, String motivo) {
 		this.controllerPesquisa.encerraPesquisa(codigo, motivo);
 	}
 
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a ativação da
-	 * pesquisa
+	 * Método passa ao controlador de pesquisa os parâmetros para a ativação da pesquisa
 	 * 
-	 * @author adyssonfs
-	 * @param codigo: identificador da pesquisa
+	 * @param codigo o identificador da pesquisa
 	 */
 	public void ativaPesquisa(String codigo) {
 		this.controllerPesquisa.ativaPesquisa(codigo);
 	}
 
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a exibição da
-	 * pesquisa
+	 * Método passa ao controlador de pesquisa os parâmetros para a exibição da pesquisa
 	 * 
-	 * @author adyssonfs
-	 * @param codigo: identificador da pesquisa
+	 * @param codigo o identificador da pesquisa
+	 * @return a exibição da pesquisa
 	 */
 	public String exibePesquisa(String codigo) {
 		return this.controllerPesquisa.exibePesquisa(codigo);
 	}
 
 	/**
-	 * Método passa ao controlador de pesquisa os parâmetros para a verificação da
-	 * atividade da pesquisa
+	 * Método passa ao controlador de pesquisa os parâmetros para a verificação da atividade da pesquisa
 	 * 
-	 * @author adyssonfs
-	 * @param codigo: identificador da pesquisa
+	 * @param codigo o identificador da pesquisa
+	 * @return o resultado do estado da pesquisa
 	 */
 	public boolean pesquisaEhAtiva(String codigo) {
 		return this.controllerPesquisa.pesquisaEhAtiva(codigo);
@@ -126,8 +122,7 @@ public class ControllerGeral {
 	 */
 
 	/**
-	 * Método que passa ao controlador dos pesquisadores os parâmetros a serem
-	 * cadastrados.
+	 * Método que passa ao controlador dos pesquisadores os parâmetros a serem cadastrados.
 	 * 
 	 * @param nome      o nome do pesquisador.
 	 * @param funcao    a função do pesquisador.
@@ -140,8 +135,7 @@ public class ControllerGeral {
 	}
 
 	/**
-	 * Método que passa ao controlador dos pesquisadores os parâmetros a serem
-	 * alterados.
+	 * Método que passa ao controlador dos pesquisadores os parâmetros a serem alterados.
 	 * 
 	 * @param email     o email identificador do pesquisador.
 	 * @param atributo  o atributo a ser alterado.
@@ -150,10 +144,18 @@ public class ControllerGeral {
 	public void alteraPesquisador(String email, String atributo, String novoValor) {
 		this.controllerPesquisador.alteraPesquisador(email, atributo, novoValor);
 	}
-
+	
 	/**
-	 * Método que passa ao controlador dos pesquisadores o parâmetro para a
-	 * desativação.
+	 * Método que passa ao controlador dos pesquisadores o parâmetro para a ativação.
+	 * 
+	 * @param email o email identificador do pesquisador.
+	 */
+	public void ativaPesquisador(String email) {
+		this.controllerPesquisador.ativaPesquisador(email);
+	}
+	
+	/**
+	 * Método que passa ao controlador dos pesquisadores o parâmetro para a desativação.
 	 * 
 	 * @param email o email identificador do pesquisador.
 	 */
@@ -162,18 +164,7 @@ public class ControllerGeral {
 	}
 
 	/**
-	 * Método que passa ao controlador dos pesquisadores o parâmetro para a
-	 * ativação.
-	 * 
-	 * @param email o email identificador do pesquisador.
-	 */
-	public void ativaPesquisador(String email) {
-		this.controllerPesquisador.ativaPesquisador(email);
-	}
-
-	/**
-	 * Método que passa ao controlador dos pesquisadores o parâmetro para a
-	 * exibição.
+	 * Método que passa ao controlador dos pesquisadores o parâmetro para a exibição.
 	 * 
 	 * @param email o email identificador do pesquisador.
 	 * @return a representação do pesquisador.
@@ -183,8 +174,7 @@ public class ControllerGeral {
 	}
 
 	/**
-	 * Método que passa ao controlador dos pesquisadores o parâmetro para a
-	 * verificação do estado.
+	 * Método que passa ao controlador dos pesquisadores o parâmetro para a verificação do estado.
 	 * 
 	 * @param email o email identificador do pesquisador.
 	 * @return o estado do pesquisador no sistema.
@@ -198,52 +188,47 @@ public class ControllerGeral {
 	 */
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos os parâmetros a
-	 * serem cadastrados.
+	 * Método que passa ao controlador dos problemas e objetivos os parâmetros a serem cadastrados.
 	 * 
-	 * @param descricao   Descrição do problema.
-	 * @param viabilidade Viabilidade do problema ser resolvido.
+	 * @param descricao a descrição do problema.
+	 * @param viabilidade a viabilidade do problema ser resolvido.
 	 */
 	public void cadastraProblema(String descricao, int viabilidade) {
 		this.controllerProblemaObjetivo.cadastraProblema(descricao, viabilidade);
 	}
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos os parâmetros a
-	 * serem cadastrados.
+	 * Método que passa ao controlador dos problemas e objetivos os parâmetros a serem cadastrados.
 	 * 
-	 * @param tipo        Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
-	 * @param descricao   Descricao do objetivo.
-	 * @param aderencia   Problema Aderencia ao problema.
-	 * @param viabilidade Viabilidade de o objetivo ser concretizado.
+	 * @param tipo o tipo do objetivo.
+	 * @param descricao a descricao do objetivo.
+	 * @param aderencia o problema Aderencia ao problema.
+	 * @param viabilidade a viabilidade de o objetivo ser concretizado.
 	 */
 	public void cadastraObjetivo(String tipo, String descricao, int aderenciaProblema, int viabilidade) {
 		this.controllerProblemaObjetivo.cadastraObjetivo(tipo, descricao, aderenciaProblema, viabilidade);
 	}
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a
-	 * remoção.
+	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a remoção.
 	 * 
-	 * @param codigo Codigo do problema.
+	 * @param codigo o codigo do problema.
 	 */
 	public void apagarProblema(String codigo) {
 		this.controllerProblemaObjetivo.apagarProblema(codigo);
 	}
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a
-	 * remoção.
+	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a remoção.
 	 * 
-	 * @param codigo Codigo do objetivo.
+	 * @param codigo o codigo do objetivo.
 	 */
 	public void apagarObjetivo(String codigo) {
 		this.controllerProblemaObjetivo.apagarObjetivo(codigo);
 	}
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a
-	 * exibição.
+	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a exibição.
 	 * 
 	 * @param codigo Codigo do problema.
 	 * @return a represetação do problema.
@@ -253,10 +238,9 @@ public class ControllerGeral {
 	}
 
 	/**
-	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a
-	 * exibição.
+	 * Método que passa ao controlador dos problemas e objetivos o parâmetro para a exibição.
 	 * 
-	 * @param codigo Codigo do objetivo.
+	 * @param codigo o codigo do objetivo.
 	 * @return a represetação do objetivo.
 	 */
 	public String exibeObjetivo(String codigo) {
@@ -268,21 +252,21 @@ public class ControllerGeral {
 	 */
 
 	/**
-	 * Método que cadastra a atividade no sistema.
+	 * Método que passa ao controle de atividade os parâmetros para o cadastro da atividade.
 	 * 
 	 * @param descricao      - Objetivo da atividade
 	 * @param nivelRisco     - Nivel de risco que a atividade apresenta
 	 * @param descricaoRisco - Descrição que explica o nivel de risco apresentado
-	 * @return Código da atividade que acabou de ser cadastrada
+	 * @return o código da atividade que acabou de ser cadastrada
 	 */
 	public String cadastraAtividade(String Descricao, String nivelRisco, String descricaoRisco) {
 		return this.controllerAtividade.cadastraAtividade(Descricao, nivelRisco, descricaoRisco);
 	}
 
 	/**
-	 * Método responsável por apagar uma atividade do sistema.
+	 * Método que passa ao controle de atividade os parâmetros para apagar uma atividade.
 	 * 
-	 * @param codigo - Código da atividade a ser apagada.
+	 * @param codigo o código da atividade a ser apagada.
 	 */
 	public void apagaAtividade(String codigo) {
 		this.controllerAtividade.apagaAtividade(codigo);
@@ -291,38 +275,38 @@ public class ControllerGeral {
 	/**
 	 * Método que cadastra um item à atividade indicada.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @param item   - Código do item a ser cadastrado.
+	 * @param codigo o código da atividade
+	 * @param item   o código do item a ser cadastrado.
 	 */
 	public void cadastraItem(String codigo, String item) {
 		this.controllerAtividade.cadastraItem(codigo, item);
 	}
 
 	/**
-	 * Exibe informações sobre a atividade e seus respectivos itens.
+	 * Método que passa ao controle de atividade o parâmetro para exibir uma atividade.
 	 * 
-	 * @param codigo - Código da atividade que se deseja
-	 * @return - Representação textual da atividade.
+	 * @param codigo o código da atividade que se deseja
+	 * @return a representação textual da atividade.
 	 */
 	public String exibeAtividade(String codigo) {
 		return this.controllerAtividade.exibeAtividade(codigo);
 	}
 
 	/**
-	 * Retorna quantos itens ainda estão pendentes na atividade.
+	 * Método que passa ao controle de atividade o parâmetro para a contagem de itens pendentes.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens pendentes.
+	 * @param codigo o código da atividade
+	 * @return a quantia de itens pendentes.
 	 */
 	public int contaItensPendentes(String codigo) {
 		return this.controllerAtividade.contaItensPendentes(codigo);
 	}
 
 	/**
-	 * Retorna quantos itens já foram realizados na atividade.
+	 * Método que passa ao controle de atividade o parâmetro para a contagem de itens realizados.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @return - Quantia de itens resolvidos.
+	 * @param codigo o código da atividade
+	 * @return o quantia de itens resolvidos.
 	 */
 	public int contaItensRealizados(String codigo) {
 		return this.controllerAtividade.contaItensRealizados(codigo);
@@ -331,29 +315,63 @@ public class ControllerGeral {
 	/**
 	 * US5
 	 */
+	
+	/**
+	 * Método que passa ao controle de pesquisa os parãmetros para a associação do problema.
+	 *
+	 * @param idPesquisa o identificador da pesquisa
+	 * @param idProblema o identificador do problema
+	 * @return o resultado da associação do problema
+	 */
 	public boolean associaProblema(String idPesquisa, String idProblema) {
 		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
 		this.validador.valida(idProblema, "Campo idProblema nao pode ser nulo ou vazio.");
 		return this.controllerPesquisa.associaProblema(idPesquisa, this.controllerProblemaObjetivo.problema(idProblema));
 	}
 
+	/**
+	 * Método que passa ao controle de pesquisa os parâmetros a para a desassociação do problema.
+	 *
+	 * @param idPesquisa o identificador da pesquisa
+	 * @return o resultado da desasssociação do problema
+	 */
 	public boolean desassociaProblema(String idPesquisa) {
 		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
 		return this.controllerPesquisa.desassociaProblema(idPesquisa);
 	}
 
+	/**
+	 * Método que passa ao controle de pesquisa os parâmetros para a associação do objetivo.
+	 *
+	 * @param idPesquisa o identificador da pesquisa
+	 * @param idObjetivo o identificador do objetivo
+	 * @return o resultado da associação do objetivo
+	 */
 	public boolean associaObjetivo(String idPesquisa, String idObjetivo) {
 		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
 		this.validador.valida(idObjetivo, "Campo idObjetivo nao pode ser nulo ou vazio.");
 		return this.controllerPesquisa.associaObjetivo(idPesquisa, this.controllerProblemaObjetivo.objetivo(idObjetivo), idObjetivo);
 	}
 
+	/**
+	 * Método que passa ao controle de pesquisa os parâmetros para a desassociação do objetivo.
+	 *
+	 * @param idPesquisa o identificador da pesquisa
+	 * @param idObjetivo o identificador do objetivo
+	 * @return o resultado da desassociação do objetivo
+	 */
 	public boolean desassociaObjetivo(String idPesquisa, String idObjetivo) {
 		this.validador.valida(idPesquisa, "Campo idPesquisa nao pode ser nulo ou vazio.");
 		this.validador.valida(idObjetivo, "Campo idObjetivo nao pode ser nulo ou vazio.");
 		return this.controllerPesquisa.desassociaObjetivo(idPesquisa, idObjetivo);
 	}
 
+	/**
+	 * Método que passa ao controle de pesquisa o parâmetro para se listar as pesquisas.
+	 * 
+	 * @param ordem o critério para a ordenação da lista
+	 * @return a lista das pesquisas ordenada
+	 */
 	public String listaPesquisas(String ordem) {
 		return this.controllerPesquisa.listaPesquisas(ordem);
 	}
@@ -428,8 +446,7 @@ public class ControllerGeral {
 	}
 
 	/**
-	 * Método que passa ao controlador de atividade os parâmetro para a
-	 * desassociação.
+	 * Método que passa ao controlador de atividade os parâmetro para a desassociação.
 	 * 
 	 * @param codigoPesquisa  Código da pesquisa.
 	 * @param codigoAtividade Código da atividade.
@@ -515,7 +532,7 @@ public class ControllerGeral {
 
 	
 	/**
-	 * Retorna o controlador dos módulos Problema-Objetivo
+	 * Método que retona o objetiv
 	 * 
 	 * @return ControllerProblemaObjetivo
 	 * */
