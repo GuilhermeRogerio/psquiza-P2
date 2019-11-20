@@ -10,7 +10,7 @@ import controladores.*;
 import modulos.*;
 
 /**
- * Classe utilit�ria para a exibição de Resultados 
+ * Classe utilitria para a exibição de Resultados 
  * de uma pesquisa salvo em arquivos de texto
  *  * 
  * */
@@ -26,7 +26,7 @@ public class Resultado implements Serializable {
 	
     
 	/**
-	 * M�todo interno que retorna uma lista de pequisadores
+	 * Método interno que retorna uma lista de pequisadores
 	 * associado a uma pesquisa
 	 * 
 	 * @param <{@link String}

@@ -1,20 +1,18 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controladores.ControllerPesquisador;
 
-public class ControllerPesquisadorTest {
-    private ControllerPesquisador controllerpesquisador;
+class ControllerPesquisadorTest {
 
-    @BeforeEach
-    void setUp() {
+	private ControllerPesquisador controllerpesquisador;
+	
+	@BeforeEach
+    public void setUp() {
         this.controllerpesquisador = new ControllerPesquisador();
         this.controllerpesquisador.cadastraPesquisador("Andre", "professor", "Um ser apaixonado por programação", "andre1706@gmail.com", "https://thepic.net");
         this.controllerpesquisador.cadastraPesquisador("Miguel", "estudante", "Apaixonado por musicas e desenvolvimentos de novas tecnologias", "flaviomiguel84@outlook.com", "https://Cordyceps");
@@ -31,7 +29,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-   public void testaCadastroPesquisadorAtributosVazios() {
+    public void testaCadastroPesquisadorAtributosVazios() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("", "professor", "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "", "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "professor", "", "teste@teste", "http://seila.com"));
@@ -40,7 +38,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaCadastroPesquisadorNomeNulo() {
+    public void testaCadastroPesquisadorNomeNulo() {
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.cadastraPesquisador(null, "professor", "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", null, "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "professor", null, "teste@teste", "http://seila.com"));
@@ -49,17 +47,17 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaCadastroPesquisadorEmailInvalido() {
+    public void testaCadastroPesquisadorEmailInvalido() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "professor", "testando validacoes", "teste", "http://seila.com"));
     }
 
     @Test
-    void testaCadastroPesquisadorFotoInvalida() {
+    public void testaCadastroPesquisadorFotoInvalida() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "professor", "testando validacoes", "teste@teste", "ttps:yourfot.com"));
     }
 
     @Test
-    void testaAlteracaoPesquisador() {
+    public void testaAlteracaoPesquisador() {
         this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "NOME", "flavio");
         this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "FUNCAO", "professor");
         this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "BIOGRAFIA", "Teste alteracao biografia");
@@ -69,18 +67,18 @@ public class ControllerPesquisadorTest {
 
 
     @Test
-    void testaAlteracaoPesquisadorAtributoInexistente(){
+    public void testaAlteracaoPesquisadorAtributoInexistente(){
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84", "secretario", "sla"));
     }
 
     @Test
-    void testaAlteracaoPesquisadorInexistente() {
+    public void testaAlteracaoPesquisadorInexistente() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("miguel84@outlook.com", "NOME", "flavio"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("6nxt9@outlook.com", "FUNCAO", "professor"));
     }
 
     @Test
-    void testaAlteracaoPesquisadorAtributosVazios() {
+    public void testaAlteracaoPesquisadorAtributosVazios() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "", "flavio"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "", "professor"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "", "Teste alteracao biografia"));
@@ -89,7 +87,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaAlteracaoPesquisadorAtributosNulos() {
+    public void testaAlteracaoPesquisadorAtributosNulos() {
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", null, "flavio"));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", null, "professor"));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", null, "Teste alteracao biografia"));
@@ -98,7 +96,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaAlteracaoPesquisadorValoresVazios() {
+    public void testaAlteracaoPesquisadorValoresVazios() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "NOME", ""));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "FUNCAO", ""));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "BIOGRAFIA", " "));
@@ -107,7 +105,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaAlteracaoPesquisadorValoresNulos() {
+    public void testaAlteracaoPesquisadorValoresNulos() {
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "NOME", null));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "FUNCAO", null));
         assertThrows(NullPointerException.class, () -> this.controllerpesquisador.alteraPesquisador("flaviomiguel84@outlook.com", "BIOGRAFIA", null));
@@ -116,48 +114,48 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaDesativacaoPesquisador() {
+    public void testaDesativacaoPesquisador() {
         this.controllerpesquisador.desativaPesquisador("andre1706@gmail.com");
         this.controllerpesquisador.desativaPesquisador("flaviomiguel84@outlook.com");
     }
 
     @Test
-    void testaDesativacaoPesquisadorInexistente() {
+    public void testaDesativacaoPesquisadorInexistente() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.desativaPesquisador("kassio@gmail.com"));
     }
 
     @Test
-    void testaDesativaPesquisadorDesativado(){
+    public void testaDesativaPesquisadorDesativado(){
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.desativaPesquisador("breakingbad@200"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.desativaPesquisador("andrezanascimento@hhht.net"));
     }
 
     @Test
-    void testaAtivaPesquisador(){
+    public void testaAtivaPesquisador(){
         this.controllerpesquisador.ativaPesquisador("tutucds@mc.com");
         this.controllerpesquisador.ativaPesquisador("marialucia15@show.com");
     }
 
     @Test
-    void testaAtivaPesquisadorAtivado(){
+    public void testaAtivaPesquisadorAtivado(){
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.ativaPesquisador("andre1706@gmail.com"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.ativaPesquisador("valmir@sla.com"));
     }
 
     @Test
-    void testaExibicaoPesquisador(){
+    public void testaExibicaoPesquisador(){
         assertEquals("Andre (professor) - Um ser apaixonado por programação - andre1706@gmail.com - https://thepic.net", this.controllerpesquisador.exibePesquisador("andre1706@gmail.com"));
         assertEquals("Miguel (estudante) - Apaixonado por musicas e desenvolvimentos de novas tecnologias - flaviomiguel84@outlook.com - https://Cordyceps", this.controllerpesquisador.exibePesquisador("flaviomiguel84@outlook.com"));
         assertEquals("heisenberg (externo) - Interresado nos efeitos da metafetamina e no estudo sobre o cancer. Pesquisador principal da pesquisa de radigrafia a fotons, peca fundamental na pesquisa que ganhou um premio nobel. - breakingbad@200 - https://Cordyceps", this.controllerpesquisador.exibePesquisador("breakingbad@200"));
     }
 
     @Test
-    void testaExibicaoPesquisadorInexistente(){
+    public void testaExibicaoPesquisadorInexistente(){
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.exibePesquisador("testet@t123"));
     }
 
     @Test
-    void testaEstadoPesquisador(){
+    public void testaEstadoPesquisador(){
         assertFalse(this.controllerpesquisador.pesquisadorEhAtivo("tutucds@mc.com"));
         assertTrue(this.controllerpesquisador.pesquisadorEhAtivo("valmir@sla.com"));
         assertTrue(this.controllerpesquisador.pesquisadorEhAtivo("andre1706@gmail.com"));
