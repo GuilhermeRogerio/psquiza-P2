@@ -83,18 +83,18 @@ public class Resultado {
     	
     	//Pesquisa
     	final Pesquisa pesquisa = buscaPesquisa(codigoPesquisa);    	
-    	sb.append("- Pesquisa: "+pesquisa.toString()+"\n\n");
+    	sb.append("\"- Pesquisa: "+pesquisa.toString()+"\n");
     	
     	
     	//Pesquisadores
     	List<Pesquisador> pesquisadores = buscaPesquisadores(codigoPesquisa);
-    	sb.append("\t - Pesquisadores: \n\n");
+    	sb.append("\t- Pesquisadores: \n");
     	for(Pesquisador pesquisador: pesquisadores){    		
-    		sb.append("\t\t - "+pesquisador.toString()+"\n");    		
+    		sb.append("\t\t- "+pesquisador.toString()+"\n");    		
     	}
     	
     	//Problemas
-    	sb.append("\t - Problemas: \n\n");   	
+    	sb.append("\t- Problema: \n");   	
     	 
     	Problema problema = pesquisa.getProblema().get(); //TODO: Modificar os prblemas*/
     	
@@ -103,34 +103,38 @@ public class Resultado {
     	
     	
     	//Objetivos
-    	sb.append("\t - Objetivos: \n\n");
+    	sb.append("\t- Objetivos: \n");
     	List<Objetivo> objetivos = pesquisa.getObjetivos();
     	for(Objetivo objetivo: objetivos) 
     		sb.append("\t\t - "+objetivo.toString()+"\n");
     	
     	
     	//Atividades    	
-    	sb.append("\t - Atividades: \n");    	
+    	sb.append("\t- Atividades: \n");    	
     	List<Atividade> atividades = pesquisa.getAtividades();
     	
     	for(Atividade atividade: atividades) {
-    		sb.append("\t\t - "+atividade.getDescricao()+"\n\n");
+    		sb.append("\t\t - "+atividade.getDescricao()+" ("+atividade.getNivelRisco()+" - "+atividade.getDescricaoRisco()+")\n");
     		
     		List<Item> itens = atividade.getItems();
     		
-    		for(Item item: itens) {
-    			sb.append("\t\t\t - "+item.toString()+"\n");
+    		for(int i=0; i < itens.size(); i++) {
+    			Item item = itens.get(i);
+    			sb.append("\t\t\t- "+item.getStatus()+" - ITEM"+(i+1));
+    			
+    			if(i == itens.size()-1)
+    		    	sb.append("\"");
+    			else
+    				sb.append("\n");
     		}
     	}
+    	
 
     	
     	final String fileName = pesquisa.getCodigo();
     	File arquivo;
     	
-    	if(System.getProperty("os.name").contains("Windows"))
-    		arquivo = new File(fileName+"_.txt");
-    	else
-    		arquivo = new File(fileName+".txt");
+    	arquivo = new File("_"+fileName+".txt");
 
     		
     	
@@ -178,19 +182,28 @@ public class Resultado {
     	StringBuilder sb = new StringBuilder();    	
     	final Pesquisa pesquisa = buscaPesquisa(codigoPesquisa);
     	
-    	sb.append("\t- Pesquisa: "+pesquisa.toString()+"\n\n");
-    	sb.append(" - Resultados: \n");
+    	sb.append("\"- Pesquisa: "+pesquisa.toString()+"\n");
+    	sb.append("\t- Resultados: \n");
     	
     	//Atividades    	
     	List<Atividade> atividades = pesquisa.getAtividades();
     	
     	for(Atividade atividade: atividades) {
-    		sb.append("\t\t - "+atividade.getDescricao()+"\n");
+    		sb.append("\t\t- "+atividade.getDescricao()+"\n");
     		
-    		List<String> resultados = atividade.getResultados();
+    		List<Item> itens = atividade.getItems();
     		
+    		for(int i=0; i < itens.size(); i++) {
+    			//Item item = itens.get(i);
+    			sb.append("\t\t\t- ITEM"+(i+1)+" - "+(atividade.getDuracao()/itens.size()));    			
+    			sb.append("\n");
+    		}   		
+    		
+    		
+    		
+    		List<String> resultados = atividade.getResultados();    		
     		for(String resultado: resultados) {
-    			sb.append("\t\t\t - "+resultado+"\n");
+    			sb.append("\t\t\t- "+resultado+"\n");
     		}   		
     		
     	}

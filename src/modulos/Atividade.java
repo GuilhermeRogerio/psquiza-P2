@@ -288,7 +288,10 @@ public class Atividade {
 	public String getNivelRisco() {
 		return nivelRisco;
 	}
-
+	
+	public String getDescricaoRisco() {
+		return descricaoRisco;
+	}
 
 	
 
