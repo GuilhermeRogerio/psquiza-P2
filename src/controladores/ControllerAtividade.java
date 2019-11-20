@@ -46,10 +46,10 @@ public class ControllerAtividade {
 	/**
 	 * Método que cadastra a atividade no sistema.
 	 * 
-	 * @param descricao O objetivo da atividade
-	 * @param nivelRisco O nivel de risco que a atividade apresenta
-	 * @param descricaoRisco A descrição que explica o nivel de risco apresentado
-	 * @return O código da atividade
+	 * @param descricao O objetivo da atividade.
+	 * @param nivelRisco O nivel de risco que a atividade apresenta.
+	 * @param descricaoRisco A descrição que explica o nivel de risco apresentado.
+	 * @return O código da atividade cadastrada.
 	 */
 	public String cadastraAtividade(String descricao, String nivelRisco, String descricaoRisco) {
 		this.validador.valida(descricao, "Campo Descricao nao pode ser nulo ou vazio.");
@@ -66,7 +66,7 @@ public class ControllerAtividade {
 	/**
 	 * Método responsável por apagar uma atividade do sistema.
 	 * 
-	 * @param codigo - Código da atividade a ser apagada.
+	 * @param codigo O código da atividade a ser apagada.
 	 */
 	public void apagaAtividade(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -81,8 +81,8 @@ public class ControllerAtividade {
 	/**
 	 * Método que passa os parâmetros para o cadastrao do item à atividade indicada.
 	 * 
-	 * @param codigo - Código da atividade
-	 * @param item   - Código do item a ser cadastrado.
+	 * @param codigo O código da atividade.
+	 * @param item   O código do item a ser cadastrado.
 	 */
 	public void cadastraItem(String codigo, String item) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -141,7 +141,7 @@ public class ControllerAtividade {
 
 
 	/**
-     * Método retorna um Lista de atividades cadastradas
+     * Método retorna um Lista de atividades cadastradas.
      * 
      * @return A lista de atividades cadastradas.
      */
@@ -208,8 +208,7 @@ public class ControllerAtividade {
 	 * 
 	 * @param codigoAtividade Código da atividade.
 	 * @param numeroResultado Número identificador do resultado.
-	 * @return "True" se a remoção for bem sucedida e "False" se a remocão não
-	 *         acontecer.
+	 * @return "True" se a remoção for bem sucedida e "False" se a remocão não acontecer.
 	 */
 	public boolean removeResultado(String codigoAtividade, int numeroResultado) {
 		this.validador.valida(codigoAtividade, "Campo codigoAtividade nao pode ser nulo ou vazio.");
@@ -225,7 +224,7 @@ public class ControllerAtividade {
 	/**
 	 * Retorna a quantidade de horas gastas em determinada atividade.
 	 * 
-	 * @param codigoAtividade Código da atividade.
+	 * @param codigoAtividade O código da atividade.
 	 * @return A quantidade de horas gastas em determinada atividade.
 	 */
 	public int getDuracao(String codigoAtividade) {
@@ -240,7 +239,7 @@ public class ControllerAtividade {
 	/**
 	 * Lista todos os resultados de uma determinada atividade.
 	 * 
-	 * @param codigoAtividade Código da atividade.
+	 * @param codigoAtividade O código da atividade.
 	 * @return Os resultados de uma determinada atividade.
 	 */
 	public String listaResultados(String codigoAtividade) {
@@ -256,7 +255,7 @@ public class ControllerAtividade {
 	/**
      * Método retorna um Lista de atividades cadastradas
      * 
-     * @return List<Atividade>
+     * @return A lista de atividades cadastradas.
      */
     public List<Atividade> getAtividades() {
     	List<Atividade> listAtividade = new ArrayList<>();

@@ -20,7 +20,7 @@ public class Pesquisa {
 	private String codigo;
 	private boolean ativa;
 	private HashMap<String, Objetivo> objetivos;
-	private Optional<Problema> problemaOptional;
+	private Problema problema;
 	private Estrategia estrategia;
 
 	/**
@@ -41,7 +41,7 @@ public class Pesquisa {
 		this.ativa = true;
 		this.atividades = new HashMap<>();
 		this.objetivos = new HashMap<>();
-		this.problemaOptional = Optional.empty();
+		this.problema = null;
 		this.estrategia = new MaisAntiga();
 
 	}
@@ -188,23 +188,36 @@ public class Pesquisa {
 	public void setCodigo(String codigoPesquisa) {
 		this.codigo = codigoPesquisa;
 	}
-
+	/**
+	 * Método que associa o problema na pesquisa.
+	 *
+	 * @param problema o problema a ser associado
+	 * @return o resultado da associação do problema
+	 */
 	public boolean associaProblema(Problema problema) {
 		boolean retorno = false;
-		if (!this.problemaOptional.isPresent()) {
-			this.problemaOptional = Optional.ofNullable(problema);
-			retorno = true;
+		if (problema != this.problema) {
+			if (this.problema == null) {
+				this.problema = problema;
+				retorno = true;
 
-		} else if (!this.problemaOptional.get().equals(problema)) {
-			throw new IllegalArgumentException("Pesquisa ja associada a um problema.");
+			} else if (this.problema != null) {
+				throw new IllegalArgumentException("Pesquisa ja associada a um problema.");
+			}
 		}
+
 		return retorno;
 	}
-
+	
+	/**
+	 * Método que desassocia o problema da pesquisa.
+	 *
+	 * @return o resultado da desassociação do problema
+	 */
 	public boolean desassociaProblema() {
 		boolean retorno = false;
-		if (this.problemaOptional.isPresent()) {
-			this.problemaOptional = Optional.empty();
+		if(this.problema != null) {
+			this.problema = null;
 			retorno = true;
 		}
 		return retorno;
@@ -233,8 +246,13 @@ public class Pesquisa {
 		return retorno;
 	}
 
-	public Optional<Problema> getProblema() {
-		return this.problemaOptional;
+	/**
+	 * Método que retorna o problema da pesquisa.
+	 *
+	 * @return o problema da pesquisa
+	 */
+	public Problema getProblema() {
+		return this.problema;
 	}
 
 	public int getQuantiadeDeObjetivos() {

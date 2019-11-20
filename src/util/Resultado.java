@@ -96,7 +96,7 @@ public class Resultado {
     	//Problemas
     	sb.append("\t- Problema: \n");   	
     	 
-    	Problema problema = pesquisa.getProblema().get(); //TODO: Modificar os prblemas*/
+    	Problema problema = pesquisa.getProblema(); //TODO: Modificar os prblemas*/
     	
     	if(problema!=null)
     		sb.append("\t\t - "+problema.toString()+"\n");
