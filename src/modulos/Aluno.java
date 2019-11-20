@@ -51,9 +51,17 @@ public class Aluno implements InterfacePesquisador, Serializable {
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		if ("SEMESTRE".equals(atributo)) {
 			this.semestre = Integer.parseInt(novoValor);
-		} else {
+		} else if("IEA".equals(atributo)){
 			this.iea = Double.parseDouble(novoValor);
 		}
+	}
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+	public double getIea() {
+		return iea;
 	}
 
 }

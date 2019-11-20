@@ -26,7 +26,7 @@ public class Professor implements InterfacePesquisador, Serializable {
 	 * Construtor da classe Professor
 	 * 
 	 * @param formacao A formação do professor.
-	 * @param unidade A unidade alocada.
+	 * @param unidade A unidade alocadatributoa.
 	 * @param data A data de contratação do professor.
 	 */
 	public Professor(String formacao, String unidade, String data) {
@@ -56,10 +56,24 @@ public class Professor implements InterfacePesquisador, Serializable {
 			this.formacao = novoValor;
 		} else if ("UNIDADE".equals(atributo)) {
 			this.unidade = novoValor;
-		} else {
+		} else if ("DATA".equals(atributo)){
 			this.data = novoValor;		
 								}
  		}
+
+	public String getFormacao() {
+		return formacao;
+	}
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public String getData() {
+		return data;
+	}
+	
+	
 	
 
 }
