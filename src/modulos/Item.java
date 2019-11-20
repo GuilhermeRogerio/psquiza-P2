@@ -11,20 +11,22 @@ import java.io.Serializable;
 public class Item implements Serializable {
 	
 	/**
-	 * Status do Item
+	 * Status do item.
+	 * 
 	 */
 	private String status;
 	
 	/**
-	 * Identificador do item
+	 * Identificador do item.
+	 * 
 	 */
 	private String item;
 	
 	
 	/**
-	 * Construtor do item
+	 * Construtor do item.
 	 * 
-	 * @param item - Código do item
+	 * @param item O código do item.
 	 */
 	public Item(String item) {
 		this.status = "PENDENTE";
@@ -32,18 +34,27 @@ public class Item implements Serializable {
 	}
 	
 	/**
-	 * Recupera o Status do item
+	 * Método que retorna o status do item.
 	 * 
-	 * @return - Status do item
+	 * @return O status do item.
 	 */
 	public String getStatus() {
 		return this.status;
 	}
 	
+	/**
+	 * Método que altera o status do item.
+	 * 
+	 * @param status O novo status do item.
+	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
+	/**
+	 * Método que constrói a representação textual do item.
+	 * 
+	 */
 	@Override
 	public String toString() {
 		return this.status + " - " + this.item;

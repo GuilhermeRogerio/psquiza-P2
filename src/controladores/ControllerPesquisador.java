@@ -155,7 +155,7 @@ public class ControllerPesquisador {
      * Método que realiza a exibiçãoo um determinado pesquisador.
      * 
      * @param email O email idetificador do pesquisador.
-     * @return A representa��o do pesquisador.
+     * @return A representação do pesquisador.
      */
     public String exibePesquisador(String email) {
     	this.validador.valida(email, "Campo email nao pode ser nulo ou vazio.");

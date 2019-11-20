@@ -11,36 +11,42 @@ import java.io.Serializable;
 public class Aluno implements InterfacePesquisador, Serializable {
 	
 	/**
-	 * Semestre de formação
+	 * Valor que representa o semestre de formação
+	 * 
 	 */
 	private int semestre;
 	
 	/**
 	 * Indice de Eficiencia Academica, IEA
+	 * 
 	 */
 	private double iea;
 	
 	/**
 	 * Construtor da entidade Aluno
 	 * 
-	 * @param semestre - Semestre de formação
-	 * @param iea - IEA do aluno
+	 * @param semestre A semestre de formação.
+	 * @param iea O IEA do aluno
 	 */
 	public Aluno(int semestre, double iea) {
 		this.semestre = semestre;
 		this.iea = iea;
 	}
 	
+	/**
+	 * Método que constrói a representação textual do aluno.
+	 * 
+	 */
 	@Override
 	public String toString() {
 		return this.semestre + "o SEMESTRE" + " - " + this.iea;
 	}
 	
-	/**
-	 * Método que altera um atributo do Aluno
+	/*
+	 * Método que altera um atributo do Aluno.
 	 * 
-	 * @param atributo - Atributo a ser alterado
-	 * @param novoValor - Valor atualizado
+	 * @param atributo O atributo a ser alterado.
+	 * @param novoValor O novo valor a ser atualizado.
 	 */
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		if ("SEMESTRE".equals(atributo)) {

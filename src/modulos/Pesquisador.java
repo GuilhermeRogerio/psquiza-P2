@@ -15,65 +15,68 @@ import util.Validador;
 public class Pesquisador implements Serializable {
 	
     /**
-     * Texto que representa o nome do pesquisador.
+     * Atributo que representa o nome do pesquisador.
      *
      */
 	private String nome;
 
     /**
-     * Texto que representa a função do pesquisador.
+     * Atributo que representa a função do pesquisador.
      *
      */
 	private String funcao;
 	
     /**
-     * Texto que representa a biografia do pesquisador.
+     * Atributo que representa a biografia do pesquisador.
      *
      */
 	private String biografia;
 	
     /**
-     * Texto que representa o email do pesquisador.
+     * Atributo que representa o email do pesquisador.
      *
      */
 	private String email;
 	
     /**
-     * Texto que representa a foto do pesquisador.
+     * Atributo que representa a foto do pesquisador.
      *
      */
 	private String foto;
 	
     /**
-     * Valor booleano que representa o estado do pesquisador no sistema.
+     * Atributo booleano que representa o estado do pesquisador no sistema.
      *
      */
 	private boolean ativo;
 	
 	/**
 	 * Interface que representa a especialização do Pesquisandor (Aluno ou Professor).
+	 * 
 	 */
 	private InterfacePesquisador especialidade;
 	
 	/**
 	 * Conjunto que armazena as pesquisas aos quais o pesquisador está asssociado.
+	 * 
 	 */
 	private HashMap<String, Pesquisa> pesquisas;
 	
 	/**
-	 * Validador
-	 */
+     * Verificador das entradas de tratamento.
+     * 
+     */
 	private Validador validador;
     
 	/**
 	 * Construtor do pesquisador.
 	 * Cada pesquisador terá nome, funcao, biografia, email e uma foto.
 	 * 
-	 * @param nome o nome do pesquisador.
-	 * @param funcao a função do pesquisador.
-	 * @param biografia a biografia do pesquisador.
-	 * @param email o email o pesquisador
-	 * @param foto a foto do pesquisador.
+	 * @param nome O nome do pesquisador.
+	 * @param funcao A função do pesquisador.
+	 * @param biografia A biografia do pesquisador.
+	 * @param email O email o pesquisador
+	 * @param foto A foto do pesquisador.
 	 */
 	public Pesquisador(String nome, String funcao, String biografia, String email, String foto) {
 		this.nome = nome;
@@ -88,10 +91,10 @@ public class Pesquisador implements Serializable {
 	}
 	
 	/**
-	 * Método que cadastra especialidade ALUNO
+	 * Método que cadastra especialidade ALUNO.
 	 * 
-	 * @param semestre - Semestre de formação
-	 * @param iea - Indice de eficiencia academica.
+	 * @param semestre O semestre de formação.
+	 * @param iea O indice de eficiencia academica.
 	 */
 	public void cadastraEspecialidadeAluno(int semestre, double iea) {
 		this.validador.validaEspecialidadeAluno(this.funcao);
@@ -100,11 +103,11 @@ public class Pesquisador implements Serializable {
 	}
 	
 	/**
-	 * Método que cadastra especialidade PROFESSOR
+	 * Método que cadastra especialidade PROFESSOR.
 	 * 
-	 * @param formacao - Area de formação
-	 * @param unidade - Unidade de alocação
-	 * @param data - Data de contratação
+	 * @param formacao A área de formação.
+	 * @param unidade A unidade de alocação.
+	 * @param data A data de contratação.
 	 */
 	public void cadastraEspecialidadeProfessor(String formacao, String unidade, String data) {
 		this.validador.validaEspecialidadeProfessor(this.funcao);
@@ -113,21 +116,21 @@ public class Pesquisador implements Serializable {
 	}
 	
 	/**
-	 * Altera algum dado cadastral da especialidade do pesquisador
+	 * Método que altera algum dado cadastral da especialidade do pesquisador.
 	 * 
-	 * @param atributo - Dado a ser alterado
-	 * @param novoValor - Dado para substituição
+	 * @param atributo O atributo a ser alterado.
+	 * @param novoValor O novo valor para substituição.
 	 */
 	public void alteraEspecialidade(String atributo, String novoValor) {
 		this.especialidade.alteraEspecialidade(atributo, novoValor);
 	}
 	
 	/**
-	 * Associa o Pesquisador à determinada pesquisa
+	 * Método que associa o Pesquisador à determinada pesquisa.
 	 * 
-	 * @param idPesquisa - Identificação da pesquisa
-	 * @param pesquisa - Pesquisa a ser associada
-	 * @return - Boolean representando se a ação foi, ou não, bem sucedida.
+	 * @param idPesquisa O identificador da pesquisa.
+	 * @param pesquisa A pesquisa a ser associada.
+	 * @return "True" para bem sucedido ou "False" para mal sucedido.
 	 */
 	public boolean associaPesquisa(String idPesquisa, Pesquisa pesquisa) {
 		this.validador.validaPesquisa(pesquisa, idPesquisa, this.pesquisas);
@@ -140,11 +143,11 @@ public class Pesquisador implements Serializable {
 	}
 	
 	/**
-	 * Desassocia o pesquisador a determinada pesquisa
+	 * Méotod que desassocia o pesquisador a determinada pesquisa;
 	 * 
-	 * @param idPesquisa - Identificação da pesquisa
-	 * @param pesquisa - Pesquisa a ser associada
-	 * @return - Boolean representando se a ação foi, ou não, bem sucedida.
+	 * @param idPesquisa O identificador da pesquisa.
+	 * @param pesquisa A pesquisa a ser associada.
+	 * @return "True" para bem sucedido ou "False" para mal sucedido.
 	 */
 	public boolean desassociaPesquisa(String idPesquisa, Pesquisa pesquisa) {
 		this.validador.validaPesquisa(pesquisa, idPesquisa, this.pesquisas);
@@ -158,9 +161,9 @@ public class Pesquisador implements Serializable {
 	
 	
 	/**
-     * Representação textual do pesquisador.
-     *
-     * @return o texto representando o pesquisador.
+	 * Método que constrói a representação textual do aluno.
+	 * 
+     * @return A representação textual representando o pesquisador.
      */
 	@Override
 	public String toString() {
@@ -172,9 +175,9 @@ public class Pesquisador implements Serializable {
 	}
 	
 	/**
-	 * toString usado para exibir o resultado de busca
+	 * Método que constrói a representação textual usada para exibir o resultado de busca.
 	 * 
-	 * @return {@link String}
+	 * @return A representação textual representando a busca.
 	 */
 	public String toStringBusca() {
 
@@ -182,92 +185,91 @@ public class Pesquisador implements Serializable {
 	}
 
 	/**
-	 * Realiza a alteração do valor do atributo nome.
+	 * Método que realiza a alteração do valor do atributo nome.
      *
-	 * @param nome o novo nome do pesquisador.
+	 * @param nome O novo nome do pesquisador.
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
 	/**
-	 * Realiza a alteração do valor do atributo função.
+	 * Método que realiza a alteração do valor do atributo função.
      *
-	 * @param funcao a nova função do pesquisador.
+	 * @param funcao A nova função do pesquisador.
 	 */
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
 	}
 
 	/**
-	 * Realiza a alteração do valor do atributo biografia.
+	 * Método que realiza a alteração do valor do atributo biografia.
      *
-	 * @param biografia a nova biografia do pesquisador.
+	 * @param biografia A nova biografia do pesquisador.
 	 */
 	public void setBiografia(String biografia) {
 		this.biografia = biografia;
 	}
 	/**
-	 * Realiza a alteração do valor do atributo telefone.
+	 * Método que realiza a alteração do valor do atributo telefone.
      *
-	 * @param email o novo email do pesquisador.
+	 * @param email O novo email do pesquisador.
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
 	/**
-	 * Realiza a alteração do valor do atributo foto.
+	 * Método que realiza a alteração do valor do atributo foto.
      *
-	 * @param foto a nova foto do pesquisador.
+	 * @param foto A nova foto do pesquisador.
 	 */
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 	
 	/**
-     * Método que retorna o valor do atributo Biografia.
+     * Método que retorna o valor do atributo biografia.
      *
-     * @return o valor do atributo.
+     * @return A biografia do pesquisador.
      */
 	
     /**
      * Método que retorna o valor do atributo ativo.
      *
-     * @return o valor do atributo.
+     * @return Se o pesquisador está ativo.
      */
 	public boolean getAtivo() {
 		return this.ativo;
 	}
 	
 	/**
-	 * Retorna a funcao do pesquisador
+	 * Méotodo que retorna a funcao do pesquisador
+	 * 
 	 */
 	public String getFuncao() {
 		return this.funcao;
 	}
 	
 	 /**
-     * Método que retorna todos Pesquisas cadastrados
+     * Método que retorna todas as pesquisas cadastrados.
      * 
-     * @return List<Pesquisa>
+     * @return A lista de pesquisas.
      */
     public List<Pesquisa> getPesquisas() {
-    	
     	List<Pesquisa> pesquisas = new ArrayList<Pesquisa>();
-    	
-    	for(String key: this.pesquisas.keySet())
+    	for(String key: this.pesquisas.keySet()) {
     		pesquisas.add(this.pesquisas.get(key));
-    	
+    	}
     	return pesquisas;    	
     }
 
 	
 	/**
-	 * Realiza a alteração do valor do atributo ativo.
+	 * Método que realiza a alteração do valor do atributo ativo.
      *
-	 * @param novoEstado o novo estado do pesquisador.
-	 * @return o estado do pesquisador.
+	 * @param novoEstado O  novo estado do pesquisador.
+	 * @return O estado do pesquisador.
 	 */
 	public boolean setAtivo(boolean novoEstado) {
 		this.ativo = novoEstado;
@@ -275,9 +277,9 @@ public class Pesquisador implements Serializable {
 	}
 	
     /**
-     * Realiza a comparação de dois objetos retorna se são iguais ou não.
+     * Método que realiza a comparação de dois objetos e retorna se são iguais ou não.
      *
-     * @return o valor boleano da comparação.
+     * @return O valor boleano da comparação.
      */
 	@Override
 	public boolean equals(Object o) {
@@ -290,19 +292,29 @@ public class Pesquisador implements Serializable {
 	}
 	
     /**
-     * Retorna um valor que indica a posição do objeto na memória.
+     * Método que retorna um valor que indica a posição do objeto na memória.
      *
-     * @return o valor da posição do email.
+     * @return O valor da posição do email.
      */
 	@Override
 	public int hashCode() {
 		return Objects.hash(email);
 	}
 
+	/**
+	 * Método que retorna a biografia do pesquisador.
+	 * 
+	 * @return A biografia do pesquisador.
+	 */
 	public String getBiografia() {
 		return biografia;
 	}
 
+	/**
+	 * Método que retorna o email do pesquisador.
+	 * 
+	 * @return O email do pesquisador.
+	 */
 	public String getEmail() {
 		return email;
 	}

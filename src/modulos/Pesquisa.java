@@ -16,26 +16,60 @@ import util.Validador;
  */
 public class Pesquisa implements Serializable{
 
+	/**
+	 * Atributo que representa a descrição da pesquisa.
+	 * 
+	 */
 	private String descricao;
+	
+	/**
+	 * Atributo que represeta a lista com o campo de interesse.
+	 *  
+	 */
 	private String camposInteresse[];
+	
+	/**
+	 * Atributo que representa o codigo da pesquisa.
+	 * 
+	 */
 	private String codigo;
+	
+	/**
+	 * Atributo que representa o estado da pesquisa.
+	 */
 	private boolean ativa;
+	
+	/**
+	 * Mapa que contém os objetivos da pesquisa.
+	 * 
+	 */
 	private HashMap<String, Objetivo> objetivos;
+	
+	/**
+	 * 
+	 * Atributo que contém o problema da pesquisa.
+	 */
 	private Problema problema;
+	
+	/**
+	 * Instânciando o objeto estratégia. 
+	 * 
+	 */
 	private Estrategia estrategia;
 
 	/**
-	 * Mapa de atividade.
+	 * Mapa de atividade com as atividades da pesquisa
+	 * 
 	 */
 	private Map<String, Atividade> atividades;
 
 	/**
-	 * 
+	 * Construtor da calsse pequisa, inicia as coleções e atribui valores iniciais aos atributos.
+	 *  
 	 * @param descricao
 	 * @param camposInteresse
 	 */
 	public Pesquisa(String descricao, String camposInteresse) {
-
 		this.camposInteresse = new String[4];
 		this.gerarCamposInteresse(camposInteresse);
 		this.descricao = descricao;
@@ -256,10 +290,20 @@ public class Pesquisa implements Serializable{
 		return this.problema;
 	}
 
+	/**
+	 * Método que retorna a quantidade de objetivos na pesquisa.
+	 *  
+	 * @return  A quantidade de objetivos.
+	 */
 	public int getQuantiadeDeObjetivos() {
 		return this.objetivos.size();
 	}
 
+	/**
+	 * Método que analisa os ids dos objetivos procurando o maior
+	 * 
+	 * @return O maior id dos objetivos.
+	 */
 	public String maiorId() {
 		String variavelId = "";
 		for (String id : objetivos.keySet()) {
@@ -275,9 +319,9 @@ public class Pesquisa implements Serializable{
 	}
 
 	/**
-	 * Metodo retorna todas as atividade da pesquisa
+	 * Método retorna todas as atividade da pesquisa.
 	 * 
-	 * @return List<Atividade>
+	 * @return A lista das atividades da pesquisa.
 	 */
 	public List<Atividade> getAtividades() {
 
@@ -291,9 +335,9 @@ public class Pesquisa implements Serializable{
 	}
 
 	/**
-	 * Método retorna uma lista de Objetivos associados à uma pesquisa
+	 * Método retorna uma lista de Objetivos associados à uma pesquisa.
 	 * 
-	 * @return List<Objetivo>
+	 * @return A lista de objetivos.
 	 */
 	public List<Objetivo> getObjetivos() {
 
@@ -306,10 +350,20 @@ public class Pesquisa implements Serializable{
 
 	}
 
+	/**
+	 * Método que retorna os campos de interesse da pesquisa.
+	 * 
+	 * @return A lista com os interesse da pesquisa.
+	 */
 	public String[] getCamposInteresse() {
 		return camposInteresse;
 	}
 
+	/**
+	 * Método que busca a atividade com a maior duração.
+	 * 
+	 * @return O identificador da atividade.
+	 */
 	public String maiorDuracao() {
 		String id = "";
 		int maior = 0;
@@ -324,6 +378,11 @@ public class Pesquisa implements Serializable{
 		return id;
 	}
 
+	/**
+	 * Método que busca a atividade com menos itens pendentes.
+	 * 
+	 * @return O identificador da atividade.
+	 */
 	public String menosPendencias() {
 		String id = "";
 		for (String atividades : this.atividades.keySet()) {
@@ -336,6 +395,11 @@ public class Pesquisa implements Serializable{
 
 	}
 
+	/**
+	 * Método que busca a atividade com o maior risco.
+	 *
+	 * @return O identificador da atividade.
+	 */
 	public String maiorRisco() {
 		String id = "";
 		for (String atividades : this.atividades.keySet()) {
@@ -348,6 +412,11 @@ public class Pesquisa implements Serializable{
 		return id;
 	}
 
+	/**
+	 * Método que busca a atividade mais antiga.
+	 * 
+	 * @return O identificador da atividade.
+	 */
 	public String maisAntiga() {
 		String id = "";
 		ArrayList<Atividade> lista = new ArrayList<>(this.atividades.values());
@@ -360,18 +429,25 @@ public class Pesquisa implements Serializable{
 		return id;
 	}
 
+	/**
+	 * Método que verfica se as atividades contém itens pendentes.
+	 */
 	public void TemPendencia() {
 		ArrayList<Atividade> lista = new ArrayList<>(this.atividades.values());
 		int cont = 0;
 		for (Atividade atividades : lista) {
 			cont += atividades.contaItensPendentes();
-
 		}
 		if (cont == 0) {
 			throw new IllegalArgumentException("Pesquisa sem atividades com pendencias.");
 		}
 	}
-
+	
+	/**
+	 * Método que retorna a descrição da pesquisa.
+	 * 
+	 * @return A descrição da pesquisa.
+	 */
 	public String getDescricao() {
 		return descricao;
 	}

@@ -9,57 +9,71 @@ import util.Validador;
 public class Atividade implements Serializable {
 
 	/**
-	 * Descrição da atividade
+	 * Descrição da atividade.
+	 * 
 	 */
 	private String descricao;
 
 	/**
 	 * Resultados (items) da atividade.
+	 * 
 	 */
 	private List<Item> items;
+	
 	/**
 	 * Lista de resultados.
+	 * 
 	 */
 	private List<String> resultados;
+	
 	/**
 	 * booleano que representa se uma atividade está associada a uma pesquisa.
+	 * 
 	 */
 	private boolean ehAssociada;
 
 	/**
 	 * Nivel de risco da atividade.
+	 * 
 	 */
 	private String nivelRisco;
 
 	/**
 	 * Descrição que justifica o nivel de risco da atividade.
+	 * 
 	 */
 	private String descricaoRisco;
 
 	/**
 	 * Codigo identificador da atividade.
+	 * 
 	 */
 	private String codigo;
 
 	/**
 	 * Instância validador.
+	 * 
 	 */
 	private Validador validador;
+	
 	/**
 	 * Codigo identificador dos resultado.
+	 * 
 	 */
 	private int contResultado;
+	
 	/**
 	 * A quantidade de horas gastas em determinada atividade.
+	 * 
 	 */
 	private int duracao;
 
 	/**
 	 * Construtor de Atividade de uma pesquisa científica.
 	 * 
-	 * @param descricao      - Descrição da atividade.
-	 * @param nivelRisco     - Nivel de risco da atividade.
-	 * @param descricaoRisco - Descrição do risco da atividade.
+	 * @param descricao      A descrição da atividade.
+	 * @param nivelRisco     O nivel de risco da atividade.
+	 * @param descricaoRisco A descrição do risco da atividade.
 	 */
 	public Atividade(String descricao, String nivelRisco, String descricaoRisco) {
 		this.descricao = descricao;
@@ -75,9 +89,9 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Método responsável por lista a representação textual dos itens da atividade.
+	 * Método responsável por listar a representação textual dos itens da atividade.
 	 * 
-	 * @return - Todos os itens cadastrados da atividade.
+	 * @return Os itens cadastrados da atividade.
 	 */
 	public String listaItens() {
 		if (this.items.size() > 0) {
@@ -94,7 +108,7 @@ public class Atividade implements Serializable {
 	/**
 	 * Método que cadastra um item na atividade.
 	 * 
-	 * @param item - Código do item a ser cadastrado.
+	 * @param item O identificador do item a ser cadastrado.
 	 */
 	public void cadastraItem(String item) {
 		this.validador.valida(item, "Campo codigo nao pode ser nulo ou vazio.");
@@ -107,9 +121,9 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Retorna quantos itens ainda estão pendentes na atividade.
+	 * Metódo que retorna a quantidade de itens pendentes na atividade.
 	 * 
-	 * @return Número que representa quantos itens estão pendentes.
+	 * @return O número da quantidade de itens pendentes.
 	 */
 	public int contaItensPendentes() {
 		int contador = 0;
@@ -122,9 +136,9 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Retorna quantos itens foram realizados na atividade.
+	 * Método que retorna a quantidade de itens realizados na atividade.
 	 * 
-	 * @return Número que representa quantos itens foram realizados.
+	 * @return O número da quantidade de itens realizados.
 	 */
 	public int contaItensRealizados() {
 		int contador = 0;
@@ -162,23 +176,27 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Forma o código da atividade.
+	 * Método que gera o código da atividade.
 	 * 
-	 * @param numero - Código a ser usado na atividade.
+	 * @param numero O código a ser usado na atividade.
 	 */
 	public void concatenaCodigo(int numero) {
 		this.codigo += numero;
 	}
 
 	/**
-	 * Recupera o código da atividade.
+	 * Método que recupera o código da atividade.
 	 * 
-	 * @return - Código da atividade.
+	 * @return O código da atividade.
 	 */
 	public String getCodigo() {
 		return this.codigo;
 	}
 
+	/**
+	 * Método que constrói a representação textual da atividade.
+	 * 
+	 */
 	@Override
 	public String toString() {
 		String retorno = this.descricao + " (" + this.nivelRisco + " - " + this.descricaoRisco + ")" + " | "
@@ -187,11 +205,11 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Executa uma atividade já associada a uma pesquisa.
+	 * Método que executa uma atividade já associada a uma pesquisa.
 	 * 
-	 * @param codigoAtividade Código da atividade.
-	 * @param item            Item a ser executado.
-	 * @param duracao         Quantidade de horas gastas nessa execução.
+	 * @param codigoAtividade O identificador da atividade.
+	 * @param item            O item a ser executado.
+	 * @param duracao         A quantidade de horas gastas nessa execução.
 	 */
 	public void executaAtividade(String codigoAtividade, int item, int duracao) {
 		for (int i = 0; i < items.size(); i++) {
@@ -202,10 +220,10 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Adiciona um resultado.
+	 * Método que adiciona um resultado.
 	 * 
-	 * @param resultado Resultado a ser adicionado.
-	 * @return Codigo identificador dos resultado.
+	 * @param resultado O resultado a ser adicionado.
+	 * @return O identificador do resultado.
 	 */
 	public int addResultado(String resultado) {
 		this.resultados.add(resultado);
@@ -218,10 +236,10 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Remove um resultado.
+	 * Método qu remove um resultado.
 	 * 
-	 * @param numeroResultado
-	 * @return Codigo identificador dos resultado.
+	 * @param numeroResultado O resultado a ser removido.
+	 * @return O identificador do resultado.
 	 */
 	public boolean removeResultado(int numeroResultado) {
 		if (numeroResultado - 1 > this.resultados.size()) {
@@ -233,7 +251,7 @@ public class Atividade implements Serializable {
 	}
 
 	/**
-	 * Lista todos os resultados.
+	 * Método que lista todos os resultados.
 	 * 
 	 * @return Uma string com todos os resultados.
 	 */
@@ -245,51 +263,99 @@ public class Atividade implements Serializable {
 		return retorno = retorno.substring(0, retorno.length() - 3);
 	}
 
+	/**
+	 * Método que retorna o valor do atributo duração.
+	 * 
+	 * @return
+	 */
 	public int getDuracao() {
 		return duracao;
 	}
 	
+	/**
+	 * Método que retorna o valor do atributo descrição.
+	 * 
+	 * @return
+	 */
 	public String getDescricao() {
 		return descricao;
 	}
 
+	/**
+	 * Método que altera a atividade para associada.
+	 * 
+	 */
 	public void setEhAssociada() {
 		this.ehAssociada = true;
 	}
 
+	/**
+	 * Método que retorna se a atividade está associada.
+	 * 
+	 * @return "True" para associada e "False" para não associada.
+	 */
 	public boolean isEhAssociada() {
 		return ehAssociada;
 	}
 
+	/**
+	 * Método que altera a atividade para não associada.
+	 * 
+	 */
 	public void setNaoAssociada() {
 		this.ehAssociada = false;
 	}
 
+	/**
+	 * Método que retorna o status do item.
+	 * 
+	 * @param item O item a ser verificado.
+	 * @return A verificação do item.
+	 */
 	public String getStatus(int item) {
 		return this.items.get(item - 1).getStatus();
 	}
 	
 	/**
-	 * toString usado para exibir o resultado de busca
+	 * Métode de representação textual usado para exibir o resultado de busca
 	 * 
-	 * @return {@link String}
+	 * @return A representação da busca.
 	 */
 	public String toStringBusca() {		
 		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
 		
+	/**
+	 * 
+	 * @return
+	 */
 	public List<String> getResultados() {
 		return resultados;
 	}
 	
+	/**
+	 * Método que retorna os itens da lista.
+	 * 
+	 * @return Os itens contidos na lista.
+	 */
 	public List<Item> getItems() {
 		return items;
 	}
 
+	/**
+	 * Método que retorna o nivel de risco.
+	 * 
+	 * @return O nivel de risco.
+	 */
 	public String getNivelRisco() {
 		return nivelRisco;
 	}
 	
+	/**
+	 * Método que retornar a descrição do risco.
+	 * 
+	 * @return A descrição do risco.
+	 */
 	public String getDescricaoRisco() {
 		return descricaoRisco;
 	}

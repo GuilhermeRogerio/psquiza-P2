@@ -16,29 +16,40 @@ import util.Validador;
  *
  */
 public class ControllerProblemaObjetivo {
+	
 	/**
 	 * Mapa de problemas.
+	 * 
 	 */
 	private Map<String, Problema> problemas;
+
 	/**
 	 * Mapa de objetivos.
+	 * 
 	 */
 	private Map<String, Objetivo> objetivos;
+
 	/**
-	 * Objeto para validar os parametros.
+	 * Objeto para validar os parâmetros.
+	 * 
 	 */
 	private Validador validador;
+
 	/**
-	 * Codigo utilizado para identificar o problema.
+	 * Código utilizado para identificar o problema.
+	 * 
 	 */
 	private int codigoProblema;
+	
 	/**
-	 * Codigo utilizado para identificar o objetivo.
+	 * Código utilizado para identificar o objetivo.
+	 * 
 	 */
 	private int codigoObjetivo;
 
 	/**
 	 * Construtor que inicia os mapas e o validador.
+	 * 
 	 */
 	public ControllerProblemaObjetivo() {
 		this.problemas = new HashMap<>();
@@ -49,10 +60,10 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Cadastra um problema no sistema.
+	 * Método que repassa os parâmetros para cadastra um problema no sistema.
 	 * 
-	 * @param descricao   Descrição do problema.
-	 * @param viabilidade Viabilidade do problema ser resolvido.
+	 * @param descricao   A descrição do problema.
+	 * @param viabilidade A viabilidade do problema ser resolvido.
 	 */
 	public void cadastraProblema(String descricao, int viabilidade) {
 		this.validador.valida(descricao, "Campo descricao nao pode ser nulo ou vazio.");
@@ -64,12 +75,12 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Cadastra um objetivo no sistema.
+	 * Método que repassa os parâmetros para cadastra um objetivo no sistema.
 	 * 
-	 * @param tipo              Tipo do objetivo que pode ser GERAL ou ESPECIFICO.
-	 * @param descricao         Descricao do objetivo.
-	 * @param aderenciaProblema Aderencia ao problema.
-	 * @param viabilidade       Viabilidade de o objetivo ser concretizado.
+	 * @param tipo              O tipo do objetivo que pode ser GERAL ou ESPECIFICO.
+	 * @param descricao         A descricao do objetivo.
+	 * @param aderenciaProblema A aderencia ao problema.
+	 * @param viabilidade       A viabilidade de o objetivo ser concretizado.
 	 */
 	public void cadastraObjetivo(String tipo, String descricao, int aderenciaProblema, int viabilidade) {
 		this.validador.valida(tipo, "Campo tipo nao pode ser nulo ou vazio.");
@@ -84,9 +95,9 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Retorna a representação textual de um problema cadastrado no sistema.
+	 * Método que repassa os parâmetros para retornar a representação textual de um problema.
 	 * 
-	 * @param codigo Codigo do problema.
+	 * @param codigo O identificador do problema.
 	 * @return A representação textual do problema.
 	 */
 	public String exibeProblema(String codigo) {
@@ -99,9 +110,9 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Retorna a representação textual de um objetivo cadastrado no sistema.
+	 * Método que repassa os parâmetros para retornar a representação textual de um objetivo.
 	 * 
-	 * @param codigo Codigo do objetivo.
+	 * @param codigo O identificador do objetivo.
 	 * @return A representação textual do objetivo.
 	 */
 	public String exibeObjetivo(String codigo) {
@@ -113,9 +124,9 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Remove um problema já cadastrado no sistema.
+	 * Método que repassa o parâmetro para a remoção do problema.
 	 * 
-	 * @param codigo Codigo do problema.
+	 * @param codigo O identificador do problema.
 	 */
 	public void apagarProblema(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -128,9 +139,9 @@ public class ControllerProblemaObjetivo {
 	}
 
 	/**
-	 * Remove um objetivo já cadastrado no sistema.
+	 * Método que repassa o parâmetro para a remoção do objetivo.
 	 * 
-	 * @param codigo Codigo do objetivo.
+	 * @param codigo O identificador do objetivo.
 	 */
 	public void apagarObjetivo(String codigo) {
 		this.validador.valida(codigo, "Campo codigo nao pode ser nulo ou vazio.");
@@ -145,11 +156,22 @@ public class ControllerProblemaObjetivo {
 	 * US5
 	 */
 
+	/**
+	 * Método que retorna um problema definido.
+	 * 
+	 * @param idProblema O identificador do problema.
+	 * @return O problema escolhido.
+	 */
 	public Problema problema(String idProblema) {
 		return this.problemas.get(idProblema);
 	}
 	
-	
+	/**
+	 * Método que retorna um objetivo definido.
+	 * 
+	 * @param idObjetivo O identificador do objetivo.
+	 * @return O objetivo escolhido.
+	 */
 	public Objetivo objetivo(String idObjetivo) {
 		return this.objetivos.get(idObjetivo);
 	}

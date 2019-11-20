@@ -31,7 +31,7 @@ public class ControllerPesquisadorTest {
     }
 
     @Test
-    void testaCadastroPesquisadorAtributosVazios() {
+   public void testaCadastroPesquisadorAtributosVazios() {
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("", "professor", "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "", "testando validacoes", "teste@teste", "http://seila.com"));
         assertThrows(IllegalArgumentException.class, () -> this.controllerpesquisador.cadastraPesquisador("Matheus", "professor", "", "teste@teste", "http://seila.com"));
