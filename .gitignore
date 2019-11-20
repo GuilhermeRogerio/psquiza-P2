@@ -1,7 +1,6 @@
 bin/
 .vscode/
-<<<<<<< HEAD
 *.txt
-=======
+!testes_aceitacao/*.txt
+!easyaccept/*txt
 .idea/
->>>>>>> c6abda1a18ca26636502e5d5ed0909b7e4017bb4

@@ -135,7 +135,11 @@ public class Resultado implements Serializable {
     	final String fileName = pesquisa.getCodigo();
     	File arquivo;
     	
-    	arquivo = new File("_"+fileName+".txt");
+    	//if(System.getProperty("os.name").contains("Windows"))
+    		arquivo = new File("_"+fileName+".txt");
+    	//else
+    		//arquivo = new File(fileName+".txt");
+    	
 
     		
     	
