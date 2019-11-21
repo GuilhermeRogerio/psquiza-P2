@@ -3,9 +3,12 @@ package modulos;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import util.Validador;
 
+/**
+ * Classe que representa a atividade.
+ *
+ */
 public class Atividade implements Serializable {
 
 	/**
@@ -150,6 +153,11 @@ public class Atividade implements Serializable {
 		return contador;
 	}
 
+    /**
+     * Método que retorna um valor que indica a posição do objeto na memória.
+     *
+     * @return O valor da posição do codigo.
+     */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -158,6 +166,11 @@ public class Atividade implements Serializable {
 		return result;
 	}
 
+	/*
+    * Método que realiza a comparação de dois objetos e retorna se são iguais ou não.
+    *
+    * @return O valor boleano da comparação.
+    */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -326,8 +339,9 @@ public class Atividade implements Serializable {
 	}
 		
 	/**
+	 * Método que retorna o resultados. 
 	 * 
-	 * @return
+	 * @return A lista de resultados.
 	 */
 	public List<String> getResultados() {
 		return resultados;

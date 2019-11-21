@@ -71,11 +71,11 @@ public class Resultado implements Serializable {
 	
 
     /**
-     * M�todo respons�vel por salvar dados a cerca
+     * Metodo responsavel por salvar dados a cerca
      * de uma pesquisa em um arquivo de texto
      * 
-     * @param codigo <{@link String}     * 
-     * */
+     * @param codigoPesquisa O identificador da pesquisa
+     */
 	public void gravarResumo(String codigoPesquisa) {
     	
     	validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");
@@ -156,11 +156,11 @@ public class Resultado implements Serializable {
     	
     	
 	/**
-     * M�todo respons�vel por salvas resultados obtidos a cerca
+     * Metodo responsavel por salvas resultados obtidos a cerca
      * de uma pesquisa em um arquivo de texto
      * 
-     * @param codigo <{@link String}     * 
-     * */
+     * @param codigoPesquisa O identificador da pesquisa.
+     */
 	public void gravarResultados(String codigoPesquisa) {
     	
     	validador.valida(codigoPesquisa, "Pesquisa nao pode ser nula ou vazia.");

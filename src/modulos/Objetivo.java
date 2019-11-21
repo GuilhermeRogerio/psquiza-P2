@@ -96,14 +96,19 @@ public class Objetivo implements Serializable{
 	}
 	
 	/**
-	 * toString usado para exibir o resultado de busca
+	 * Metodo que realiza a representação textual usada para exibir o resultado de busca
 	 * 
-	 * @return {@link String}
+	 * @return A representação textual.
 	 */
 	public String toStringBusca() {		
 		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
 
+	/**
+	 * Método que retorna o codigo do objetivo.
+	 * 
+	 * @return O codigo do objetivo.
+	 */
 	public String getCodigo() {
 		return codigo;
 	}

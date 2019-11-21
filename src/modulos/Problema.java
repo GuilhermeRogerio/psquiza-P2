@@ -41,7 +41,7 @@ public class Problema implements Serializable {
 	}
 
 	/**
-	 * Forma o código do problema.
+	 * Método que cria o código do problema.
 	 * 
 	 * @param numero - Código a ser usado no problema.
 	 */
@@ -51,7 +51,7 @@ public class Problema implements Serializable {
 	
 	
 	/**
-	 * Retorna uma string com a representação textual de problema no formato de
+	 * Método que retorna uma string com a representação textual de problema no formato de
 	 * "Descrição - viabiladade".
 	 */
 	public String toString() {
@@ -59,18 +59,28 @@ public class Problema implements Serializable {
 	}
 	
 	/**
-	 * toString usado para exibir o resultado de busca
+	 * Metodo que cria a representacao textual usada para exibir o resultado de busca
 	 * 
-	 * @return {@link String}
+	 * @return A representação textual.
 	 */
 	public String toStringBusca() {		
 		return String.format("%s: %s | ",this.codigo, this.descricao);
 	}
 
+	/**
+	 * Metodo que retorna o codigo do problema.
+	 * 
+	 * @return O codigo do problema.
+	 */
 	public String getCodigo() {
 		return codigo;
 	}
 	
+    /**
+     * Método que retorna um valor que indica a posição do objeto na memória.
+     *
+     * @return O valor da posição do codigo.
+     */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,6 +89,11 @@ public class Problema implements Serializable {
 		return result;
 	}
 
+	/*
+    * Método que realiza a comparação de dois objetos e retorna se são iguais ou não.
+    *
+    * @return O valor boleano da comparação.
+    */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

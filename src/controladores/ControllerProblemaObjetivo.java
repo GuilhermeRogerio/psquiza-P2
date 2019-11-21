@@ -179,7 +179,7 @@ public class ControllerProblemaObjetivo {
 	/**
      * Método retorna um Lista de Problema cadastradas
      * 
-     * @return List<Problema>
+     * @return A lista de problemas cadastrados.
      */
     public List<Problema> getProblemas() {
     	
@@ -190,6 +190,11 @@ public class ControllerProblemaObjetivo {
 		return listProblema;
 	}
 
+    /**
+     * Método retorna um Lista de Problema cadastradas.
+     * 
+     * @return A lista de problemas cadastrados.
+     */
 	public List<Objetivo> getObjetivos() {
 		
 		List<Objetivo> objs = new ArrayList<Objetivo>();

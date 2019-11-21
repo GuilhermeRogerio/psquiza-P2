@@ -3,30 +3,28 @@ package modulos;
 import java.io.Serializable;
 
 /**
- * Representação da especialidade Aluno
+ * Classe que representa a especialidade Aluno.
  * 
- * @author Matheus Filipe
- *
  */
 public class Aluno implements InterfacePesquisador, Serializable {
 	
 	/**
-	 * Valor que representa o semestre de formação
+	 * Valor que representa o semestre de formação.
 	 * 
 	 */
 	private int semestre;
 	
 	/**
-	 * Indice de Eficiencia Academica, IEA
+	 * Indice de Eficiencia Academica, IEA.
 	 * 
 	 */
 	private double iea;
 	
 	/**
-	 * Construtor da entidade Aluno
+	 * Construtor da entidade Aluno.
 	 * 
 	 * @param semestre A semestre de formação.
-	 * @param iea O IEA do aluno
+	 * @param iea O IEA do aluno.
 	 */
 	public Aluno(int semestre, double iea) {
 		this.semestre = semestre;
@@ -56,10 +54,20 @@ public class Aluno implements InterfacePesquisador, Serializable {
 		}
 	}
 
+	/**
+	 * Metodo que retorna o semetre do aluno.
+	 * 
+	 * @return O semetre de entrada do aluno.
+	 */
 	public int getSemestre() {
 		return semestre;
 	}
 
+	/**
+	 * Metodo que retorna o iea do aluno.
+	 * 
+	 * @return O indice de eficiencia academica.
+	 */
 	public double getIea() {
 		return iea;
 	}

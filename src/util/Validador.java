@@ -101,7 +101,7 @@ public class Validador implements Serializable {
 	/**
 	 * Método responsável pelo validação da foto do pesquisador.
 	 * 
-	 * @param foto A foto do pesquisador.
+	 * @param fotoURL A foto do pesquisador.
 	 * @param msg  A mensagem definida para exibição.
 	 */
 	public void validaFotoURL(String fotoURL, String msg) {

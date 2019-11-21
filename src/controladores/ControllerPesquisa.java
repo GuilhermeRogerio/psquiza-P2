@@ -19,6 +19,10 @@ import modulos.Pesquisa;
 import modulos.Problema;
 import util.Validador;
 
+/**
+ * Classe que representa o controlador das pesquisas do sistema.
+ * 
+ */
 public class ControllerPesquisa {
 
 	/**
@@ -83,7 +87,7 @@ public class ControllerPesquisa {
 	 * Método que repassa os parâmetros para a alteração na pesquisa.
 	 * 
 	 * @param codigo O identificador da pesquisa.
-	 * @param campoASerAlterado O atributo a ser alterado.
+	 * @param conteudoASerAlterado O atributo a ser alterado.
 	 */
 	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
 		this.validador.validaAtributo(conteudoASerAlterado, "Nao e possivel alterar esse valor de pesquisa.");
@@ -141,7 +145,7 @@ public class ControllerPesquisa {
 	 * Método que repassa os parâmetros para exibição da pesquisa.
 	 * 
 	 * @param codigo O identificador da pesquisa.
-	 * @param A representação textual da pesquisa.
+	 * @return A representação textual da pesquisa.
 	 */
 	public String exibePesquisa(String codigo) {
 		this.validador.valida(codigo, "Codigo nao pode ser nulo ou vazio.");
@@ -311,7 +315,7 @@ public class ControllerPesquisa {
 	 * Método que repassa os parâmetros para a desassociação da atividade de uma pesquisa.
 	 * 
 	 * @param codigoPesquisa O código da pesquisa.
-	 * @param atividade      O código da atividade.
+	 * @param codigoAtividade O código da atividade.
 	 * @return"True" se a desassociação for bem sucedida e "False" se a desassociação não acontecer.
 	 */
 	public boolean desassociaAtividade(String codigoPesquisa, String codigoAtividade) {

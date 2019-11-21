@@ -2,6 +2,10 @@ package modulos;
 
 import java.io.Serializable;
 
+/**
+ * Classe que representa o professor.
+ * 
+ */
 public class Professor implements InterfacePesquisador, Serializable {
 	
 	/**
@@ -61,14 +65,29 @@ public class Professor implements InterfacePesquisador, Serializable {
 								}
  		}
 
+	/**
+	 * Metodo que retorna a formação do professor.
+	 * 
+	 * @return A formação do professor.
+	 */
 	public String getFormacao() {
 		return formacao;
 	}
 
+	/**
+	 * Metodo que retorna a unidade do professor.
+	 * 
+	 * @return A unidade alocada do professor.
+	 */
 	public String getUnidade() {
 		return unidade;
 	}
-
+	
+	/**
+	 * Metodo que retorna a data de contratação do professor.
+	 * 
+	 * @return A data da contratação.
+	 */
 	public String getData() {
 		return data;
 	}

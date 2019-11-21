@@ -5,7 +5,7 @@ import modulos.Pesquisador;
 import util.Validador;
 
 /**
- * Controloador responsavel por gerir o sistema.
+ * Controlador responsavel por gerir o sistema.
  *
  */
 public class ControllerGeral {
@@ -72,7 +72,7 @@ public class ControllerGeral {
 	 * Método passa ao controlador de pesquisa os parâmetros a serem alterados em pesquisa
 	 * 
 	 * @param codigo O identificador da pesquisa.
-	 * @param campoASerAlterado O atributo a ser mudado.
+	 * @param conteudoASerAlterado O atributo a ser mudado.
 	 */
 	public void alteraPesquisa(String codigo, String conteudoASerAlterado, String novoConteudo) {
 		this.controllerPesquisa.alteraPesquisa(codigo, conteudoASerAlterado, novoConteudo);
@@ -203,7 +203,7 @@ public class ControllerGeral {
 	 * 
 	 * @param tipo O tipo do objetivo.
 	 * @param descricao A descricao do objetivo.
-	 * @param aderencia O problema Aderencia ao problema.
+	 * @param aderenciaProblema O problema Aderencia ao problema.
 	 * @param viabilidade A viabilidade de o objetivo ser concretizado.
 	 */
 	public void cadastraObjetivo(String tipo, String descricao, int aderenciaProblema, int viabilidade) {
@@ -255,7 +255,7 @@ public class ControllerGeral {
 	/**
 	 * Método que passa ao controle de atividade os parâmetros para o cadastro da atividade.
 	 * 
-	 * @param descricao      O objetivo da atividade
+	 * @param Descricao      O objetivo da atividade
 	 * @param nivelRisco     O nível de risco que a atividade apresenta
 	 * @param descricaoRisco A descrição que explica o nivel de risco apresentado
 	 * @return O código da atividade cadastrada.

@@ -13,7 +13,7 @@ import util.Validador;
 
 
 /**
- *Classe representativa para a realização de buscas no sistema
+ *Classe representativa para a realizacao de buscas no sistema
  *
  * 
  */
@@ -31,7 +31,7 @@ public class Busca {
 	}
 	
 	/**
-	 * M�todo p�blico que realiza uma busca a partir de um termo nas entidades:
+	 * Metodo que realiza uma busca a partir de um termo nas entidades:
 	 * 	
 	 * 	- Pesquisa
 	 * 	- Pesquisador
@@ -39,9 +39,8 @@ public class Busca {
 	 *  - Objetivos
 	 *  - Atividades
 	 *  
-	 *  @param termo
-	 *  @param buscaNumerada: define se os resultados encontrados serão
-	 *  enumerados
+	 *  @param termo O termo a ser procurado.
+	 *  @param buscaNumerada Define se os resultados encontrados serao enumerados
 	 * */
 	public String busca(String termo, boolean buscaNumerada) {
 		
@@ -90,10 +89,10 @@ public class Busca {
 	}
 
 	/**
-	 * Metodo interno para a busca espec�fica de Pesquisa
+	 * Metodo interno para a busca especifica de Pesquisa
 	 * 
-	 * @param String termo
-	 * @return List<ResultadoBusca>
+	 * @param O termo a ser procurado.
+	 * @return A lista de busca.
 	 * */
 	private List<ResultadoBusca> buscaPesquisa(String termo) {
 		
@@ -123,10 +122,10 @@ public class Busca {
 	}
 	
 	/**
-	 * Metodo interno para a busca espec�fica de Pesquisador
+	 * Metodo interno para a busca especifica de Pesquisador
 	 * 
-	 * @param String termo
-	 * @return List<ResultadoBusca>
+	 * @param termo O termo a ser procurado.
+	 * @return A lista de busca.
 	 * */
 	private List<ResultadoBusca> buscaPesquisador(String termo) {
 		
@@ -147,7 +146,7 @@ public class Busca {
 
 	
 	/**
-	 * Metodo interno para a busca espec�fica de Problemas
+	 * Metodo interno para a busca especifica de Problemas
 	 * 
 	 * @param String termo
 	 * @return List<ResultadoBusca>
@@ -194,10 +193,10 @@ public class Busca {
 	}
 	
 	/**
-	 * Metodo interno para a busca espec�fica de Atividades
+	 * Metodo interno para a busca especifica de Atividades.
 	 * 
-	 * @param String termo
-	 * @return List<ResultadoBusca>
+	 * @param termo O termo a ser procurado.
+	 * @return A lista com o resultado da busca.
 	 * */
 	private List<ResultadoBusca> buscaAtividade(String termo) {
 		
@@ -242,10 +241,10 @@ public class Busca {
 	
     
 	/**
-	 *Metodo retorna o numero de resultadod  de uma busca
+	 * Metodo retorna o numero de resultado  de uma busca
 	 *
-	 * @param termo
-	 * @param numeroDoResultado
+	 * @param termo A ser buscado.
+	 * @return O quantidade de resultados.
 	 * */
 	public int contaResultadosBusca(String termo) {
     	

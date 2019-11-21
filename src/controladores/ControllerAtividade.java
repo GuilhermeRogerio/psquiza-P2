@@ -34,7 +34,7 @@ public class ControllerAtividade {
 	private int codigo;
 
 	/**
-	 * Construtor do controller, que será utilizado pelo controller geral.
+	 * Construtor do controller, que sera utilizado pelo controller geral.
 	 * 
 	 */
 	public ControllerAtividade() {
@@ -44,7 +44,7 @@ public class ControllerAtividade {
 	}
 
 	/**
-	 * Método que passa os parâmetros para cadastrar a atividade no sistema.
+	 * Metodo que passa os parametros para cadastrar a atividade no sistema.
 	 * 
 	 * @param descricao O objetivo da atividade.
 	 * @param nivelRisco O nivel de risco que a atividade apresenta.
@@ -193,8 +193,8 @@ public class ControllerAtividade {
 	/**
 	 * Método que cadastra os resultados obtidos por item da atividade.
 	 * 
-	 * @param codigoAtividade Código da atividade.
-	 * @param resultado       Resultado da atividade.
+	 * @param codigoAtividade O identificador da atividade.
+	 * @param resultado       O resultado da atividade.
 	 * @return O número identificador do resultado.
 	 */
 	public int cadastraResultado(String codigoAtividade, String resultado) {
