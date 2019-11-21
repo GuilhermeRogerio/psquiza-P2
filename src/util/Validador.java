@@ -319,4 +319,14 @@ public class Validador implements Serializable {
 			throw new IllegalArgumentException("Tipo " + funcao + " inexistente.");
 		}
 	}
+	
+	/**
+	 * US9
+	 */
+	
+	public void validaEnesima(int enesimaAtividade) {
+		if (enesimaAtividade <= 0) {
+			throw new IllegalArgumentException("EnesimaAtividade nao pode ser negativa ou zero.");
+		}
+	}
 }

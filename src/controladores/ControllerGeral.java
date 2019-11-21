@@ -584,6 +584,67 @@ public class ControllerGeral {
 	}
 	
 	/**
+	 * US9
+	 */
+	
+	/**
+	 * Indica qual será a próxima atividade, da atividade passada como parâmetro. 
+	 * 
+	 * @param idPrecedente - Atividade antecessora
+	 * @param idSubsquente - Atividade sucessora
+	 */
+	public void defineProximaAtividade(String idPrecedente, String idSubsquente) {
+		this.validador.valida(idPrecedente, "Atividade nao pode ser nulo ou vazio.");
+		this.validador.valida(idSubsquente, "Atividade nao pode ser nulo ou vazio.");
+		this.controllerAtividade.defineProximaAtividade(idPrecedente, idSubsquente);
+	}
+	
+	/**
+	 * Remove a próxima atividade, da atividade passada como parâmetro
+	 * 
+	 * @param idPrecedente - Atividade a ter sua sucessora removida
+	 */
+	public void tiraProximaAtividade(String idPrecedente) {
+		this.validador.valida(idPrecedente, "Atividade nao pode ser nulo ou vazio.");
+		this.controllerAtividade.tiraProximaAtividade(idPrecedente);
+	}
+	
+	/**
+	 * Conta quantas atividades existem depois da atividade passada como parâmetro
+	 * 
+	 * @param idPrecedente - Atividade a ser contada
+	 * @return - Inteiro representando quantas atividades existem após
+	 */
+	public int contaProximos(String idPrecedente) {
+		this.validador.valida(idPrecedente, "Atividade nao pode ser nulo ou vazio.");
+		return this.controllerAtividade.contaProximos(idPrecedente);
+	}
+	
+	/**
+	 * Retorna a atividade, contado a partir da posição passada como parâmetro
+	 * 
+	 * @param idAtividade - Atividade base da contagem
+	 * @param enesimaAtividade - Posicao da atividade que se quer
+	 * @return - Código da atividade representada pela posicao que se quer
+	 */
+	public String pegaProximo(String idAtividade, int enesimaAtividade) {
+		this.validador.valida(idAtividade, "Atividade nao pode ser nulo ou vazio.");
+		this.validador.validaEnesima(enesimaAtividade);
+		return this.controllerAtividade.pegaProximo(idAtividade, enesimaAtividade);
+	}
+	
+	/**
+	 * Percorre as atividades subsequentes, procurando pelo maior risco dentre elas.
+	 * 
+	 * @param idAtividade - Atividade base, é a partir dela que se busca o maior risco
+	 * @return - Código da atividade com maior risco
+	 */
+	public String pegaMaiorRiscoAtividades(String idAtividade) {
+		this.validador.valida(idAtividade, "Atividade nao pode ser nulo ou vazio.");
+		return this.controllerAtividade.pegaMaiorRiscoAtividades(idAtividade);
+	}
+	
+	/**
 	 * US10
 	 */
 	/**

@@ -2,6 +2,7 @@ package controladores;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import modulos.Atividade;
@@ -41,6 +42,129 @@ public class ControllerAtividade {
 		this.atividades = new HashMap<>();
 		this.validador = new Validador();
 		this.codigo = 1;
+	}
+	
+	/**
+	 * Indica qual será a próxima atividade, da atividade passada como parâmetro. 
+	 * 
+	 * @param idPrecedente - Atividade antecessora
+	 * @param idSubsquente - Atividade sucessora
+	 */
+	public void defineProximaAtividade(String idPrecedente, String idSubsquente) {
+		if (this.existeLoop(idSubsquente)) {
+			throw new IllegalArgumentException("Criacao de loops negada.");
+		} else if (!this.atividades.containsKey(idPrecedente)) {
+			throw new IllegalArgumentException("Atividade nao encontrada.");
+		} else if (!this.atividades.containsKey(idSubsquente)) {
+			throw new IllegalArgumentException("Atividade nao encontrada.");
+		} else { 
+			String proximoID = this.atividades.get(idSubsquente).getCodigo();
+			this.atividades.get(idPrecedente).setProximaAtividade(proximoID);
+		}
+	}
+	
+	/**
+	 * Remove a próxima atividade, da atividade passada como parâmetro
+	 * 
+	 * @param idPrecedente - Atividade a ter sua sucessora removida
+	 */
+	public void tiraProximaAtividade(String idPrecedente) {
+		this.buscaAtividade(idPrecedente).removeProximaAtividade();
+	}
+	
+	private Atividade buscaAtividade(String codigo) {
+		if (!this.atividades.containsKey(codigo)) {
+			throw new IllegalArgumentException("Atividade nao encontrada.");
+		} else {
+			return this.atividades.get(codigo);
+		}
+	}
+	
+	private boolean existeLoop(String codigo) {
+		HashSet<Atividade> listaLoop = new HashSet<>();
+		String idAtual = codigo;
+		Atividade atual;
+		while (true) {
+			atual = this.buscaAtividade(idAtual);
+			if (atual.getProximaAtividade().equals("")) {
+				return false;
+			} else if (listaLoop.contains(atual)) {
+				return true;
+			} else {
+				idAtual = atual.getProximaAtividade();
+			}
+		}
+	}
+	
+	/**
+	 * Conta quantas atividades existem depois da atividade passada como parâmetro
+	 * 
+	 * @param idPrecedente - Atividade a ser contada
+	 * @return - Inteiro representando quantas atividades existem após
+	 */
+	public int contaProximos(String idPrecedente) {
+		int contador = 0;
+		Atividade atual;
+		String idAtual = idPrecedente;
+		while (true) {
+			atual = this.buscaAtividade(idAtual);
+			if (atual.getProximaAtividade().equals("")) {
+				return contador;
+			} else {
+				contador ++;
+				idAtual = atual.getProximaAtividade();
+			}
+		}
+	}
+	
+	/**
+	 * Retorna a atividade, contado a partir da posição passada como parâmetro
+	 * 
+	 * @param idAtividade - Atividade base da contagem
+	 * @param enesimaAtividade - Posicao da atividade que se quer
+	 * @return - Código da atividade representada pela posicao que se quer
+	 */
+	public String pegaProximo(String idAtividade, int enesimaAtividade) {
+		int codigo = enesimaAtividade;
+		Atividade atual = this.buscaAtividade(idAtividade);
+		while (codigo > 0) {
+			if (atual.getProximaAtividade().equals("")) {
+				throw new IllegalArgumentException("Atividade inexistente.");
+			} else {
+				codigo -= 1;
+				atual = this.atividades.get("A" + codigo);
+			}
+		}
+		return atual.getCodigo();
+	}
+	
+	/**
+	 * Percorre as atividades subsequentes, procurando pelo maior risco dentre elas.
+	 * 
+	 * @param idAtividade - Atividade base, é a partir dela que se busca o maior risco
+	 * @return - Código da atividade com maior risco
+	 */
+	public String pegaMaiorRiscoAtividades(String idAtividade) {
+		if (this.atividades.get(idAtividade).getProximaAtividade().equals("")) {
+			throw new IllegalArgumentException("Nao existe proxima atividade.");
+		}
+		Atividade atual = this.buscaAtividade(idAtividade);
+		Atividade riscoMaior = atual;
+		while (true) {
+			if (atual.getProximaAtividade() == null) {
+				break;
+			} else {
+				String riscoDoMaior = riscoMaior.getRisco();
+				String riscoAtual = atual.getRisco();
+				if ("ALTO".equals(riscoAtual)) {
+					return atual.getCodigo();
+				} else if ("MEDIO".equals(riscoAtual) && "BAIXO".equals(riscoDoMaior)) {
+					riscoMaior = atual;
+				}
+			}
+			atual = this.atividades.get(riscoMaior.getProximaAtividade());
+		}
+		return riscoMaior.getCodigo();
 	}
 
 	/**

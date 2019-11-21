@@ -232,6 +232,30 @@ public class Facade {
 	public int contaResultadosBusca(String termo) {
 		return this.busca.contaResultadosBusca(termo);
 	}
+	
+	/**
+	  * US9
+	  */
+	 
+	 public void defineProximaAtividade(String idPrecedente, String idSubsquente) {
+		 this.controllerGeral.defineProximaAtividade(idPrecedente, idSubsquente);
+	 }
+	 
+	 public void tiraProximaAtividade(String idPrecedente) {
+		 this.controllerGeral.tiraProximaAtividade(idPrecedente);
+	 }
+	 
+	 public int contaProximos(String idPrecedente) {
+		 return this.controllerGeral.contaProximos(idPrecedente);
+	 }
+	 
+	 public String pegaProximo(String idAtividade, int enesimaAtividade) {
+		 return this.controllerGeral.pegaProximo(idAtividade, enesimaAtividade);
+	 }
+	 
+	 public String pegaMaiorRiscoAtividades(String idAtividade) {
+		 return this.controllerGeral.pegaMaiorRiscoAtividades(idAtividade);
+	 }
 
 	/**
 	 * US10

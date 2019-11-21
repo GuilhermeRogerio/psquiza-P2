@@ -70,6 +70,11 @@ public class Atividade implements Serializable {
 	 * 
 	 */
 	private int duracao;
+	
+	/**
+	 * Próxima atividade na sequência
+	 */
+	private String proximaAtividade;
 
 	/**
 	 * Construtor de Atividade de uma pesquisa científica.
@@ -89,6 +94,7 @@ public class Atividade implements Serializable {
 		this.duracao = 0;
 		this.ehAssociada = false;
 		this.validador = new Validador();
+		this.proximaAtividade = "";
 	}
 
 	/**
@@ -373,7 +379,44 @@ public class Atividade implements Serializable {
 	public String getDescricaoRisco() {
 		return descricaoRisco;
 	}
-
 	
+	/**
+	 * Aponta qual a proxima atividade
+	 * 
+	 * @param codigo - Código da proxima atividade
+	 */
+	public void setProximaAtividade(String codigo) {
+		if (!this.proximaAtividade.equals("")) {
+			throw new IllegalArgumentException("Atividade ja possui uma subsequente.");
+		} else {
+			this.proximaAtividade = codigo;
+		}
+	}
+	
+	/**
+	 * Retorna a próxima atividade
+	 * 
+	 * @return - Próxima atividade
+	 */
+	public String getProximaAtividade() {
+		return this.proximaAtividade;
+	}
+	
+	/**
+	 * Remove a proxima atividade
+	 */
+	public void removeProximaAtividade() {
+		this.proximaAtividade = "";
+	}
+	
+	/**
+	 * Informa o nível de risco da atividade
+	 * 
+	 * @return - O nivel de risco
+	 */
+	public String getRisco() {
+		return this.nivelRisco;
+	}
+
 
 }
