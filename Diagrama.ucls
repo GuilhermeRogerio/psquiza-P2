@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="busca.MaiorDuracao" project="psquiza" file="/psquiza/src/busca/MaiorDuracao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="189" x="712" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="busca.ResultadoBusca" project="psquiza" 
+    file="/psquiza/src/busca/ResultadoBusca.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="259" width="251" x="1599" y="978"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="busca.Aluno" project="psquiza" file="/psquiza/src/busca/Aluno.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="187" width="207" x="465" y="2386"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="busca.ComparadorObjetivo" project="psquiza" 
+    file="/psquiza/src/busca/ComparadorObjetivo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="179" x="477" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="busca.Estrategia" project="psquiza" file="/psquiza/src/busca/Estrategia.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="189" x="1399" y="3704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="6" language="java" name="busca.Objetivo" project="psquiza" file="/psquiza/src/busca/Objetivo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="385" width="159" x="2038" y="3704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="busca.Pesquisa" project="psquiza" file="/psquiza/src/busca/Pesquisa.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="673" width="217" x="1670" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="busca.ComparadorProblema" project="psquiza" 
+    file="/psquiza/src/busca/ComparadorProblema.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="179" x="707" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="busca.MaiorRisco" project="psquiza" file="/psquiza/src/busca/MaiorRisco.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="189" x="941" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="busca.MaisAntiga" project="psquiza" file="/psquiza/src/busca/MaisAntiga.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="189" x="1170" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="busca.MenosPendencias" project="psquiza" 
+    file="/psquiza/src/busca/MenosPendencias.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="189" x="1399" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="busca.InterfacePesquisador" project="psquiza" 
+    file="/psquiza/src/busca/InterfacePesquisador.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="207" x="465" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="busca.Problema" project="psquiza" file="/psquiza/src/busca/Problema.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="277" width="136" x="1862" y="3704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="busca.ComparadorAtividade" project="psquiza" 
+    file="/psquiza/src/busca/ComparadorAtividade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="179" x="936" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="busca.ComparadorPesquisa" project="psquiza" 
+    file="/psquiza/src/busca/ComparadorPesquisa.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="179" x="1164" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="busca.Pesquisador" project="psquiza" file="/psquiza/src/busca/Pesquisador.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="565" width="298" x="1282" y="2386"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="busca.Persistencia" project="psquiza" file="/psquiza/src/busca/Persistencia.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="187" width="173" x="1391" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="busca.Facade" project="psquiza" file="/psquiza/src/busca/Facade.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="979" width="329" x="1612" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="busca.ControllerPesquisador" project="psquiza" 
+    file="/psquiza/src/busca/ControllerPesquisador.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="295" width="308" x="1282" y="1979"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="busca.Professor" project="psquiza" file="/psquiza/src/busca/Professor.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="223" width="207" x="712" y="2386"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="busca.Busca" project="psquiza" file="/psquiza/src/busca/Busca.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="241" width="257" x="1612" y="697"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="busca.ControllerPesquisa" project="psquiza" 
+    file="/psquiza/src/busca/ControllerPesquisa.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="439" width="258" x="1670" y="2386"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="busca.ControllerProblemaObjetivo" project="psquiza" 
+    file="/psquiza/src/busca/ControllerProblemaObjetivo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="313" width="222" x="1949" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="busca.Item" project="psquiza" file="/psquiza/src/busca/Item.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="223" width="136" x="1630" y="4417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="busca.ControllerAtividade" project="psquiza" 
+    file="/psquiza/src/busca/ControllerAtividade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="367" width="239" x="1630" y="1979"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="busca.ControllerGeral" project="psquiza" 
+    file="/psquiza/src/busca/ControllerGeral.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="961" width="329" x="1890" y="978"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="27" language="java" name="busca" project="psquiza" file="/psquiza/src/busca" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="48" width="100" x="1981" y="-322"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="28" language="java" name="busca.ComparadorResultadoBusca" project="psquiza" 
+    file="/psquiza/src/busca/ComparadorResultadoBusca.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="247" x="2121" y="-322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="busca.Atividade" project="psquiza" file="/psquiza/src/busca/Atividade.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="673" width="192" x="1630" y="3704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="30">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="31">    
+    <bendpoint x="1958" y="1979"/>    
+    <bendpoint x="1958" y="2386"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="32" name="controllerProblemaObjetivo"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="34">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="35">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="36" name="objetivos"/>      
+      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="39" name="atividades"/>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="42" name="items"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <bendpoint x="1899" y="1979"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="45" name="controllerPesquisa"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="47">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="48">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="49" name="problemas"/>      
+      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="52" name="especialidade"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <bendpoint x="1899" y="697"/>    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="55" name="controllerGeral"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="58" name="controllerPesquisador"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="61" name="mapaPesquisador"/>      
+      <multiplicity id="62" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <bendpoint x="1639" y="2386"/>    
+    <bendpoint x="1639" y="2991"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="64" name="atividades"/>      
+      <multiplicity id="65" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="67" name="objetivos"/>      
+      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="70" name="estrategia"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="72">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="73">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="74">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="75" name="problema"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="77">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="78" name="busca"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="80">    
+    <bendpoint x="1618" y="2991"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="81" name="estrategia"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="83">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="84">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="85" name="controllerAtividade"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="88" name="pesquisas"/>      
+      <multiplicity id="89" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="91" name="resulEncontrados"/>      
+      <multiplicity id="92" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="94" name="cg"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="97" name="pesquisas"/>      
+      <multiplicity id="98" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
